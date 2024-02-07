@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Home page -->
+  <url>
+    <loc>https://aimedicalscriber.com/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Other pages -->
+  <url>
+    <loc>https://aimedicalscriber.com/about-us</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aimedicalscriber.com/technology</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aimedicalscriber.com/customer-care</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aimedicalscriber.com/download/ai-medical-scriber</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Dynamic pages -->
+  <url>
+    <loc>https://aimedicalscriber.com/customer-care/63db6db5342547f5b6adba2f</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://aimedicalscriber.com/customer-care/63db6ecf342547f5b6adba3a</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://aimedicalscriber.com/customer-care/63db6ed0342547f5b6adba3b</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://aimedicalscriber.com/customer-care/63db6ee4342547f5b6adba3e</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://aimedicalscriber.com/customer-care/63db6db5342547f5b6adba33</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://aimedicalscriber.com/customer-care/63db6db5342547f5b6adba35</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://aimedicalscriber.com/customer-care/63db6db5342547f5b6adba37</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://aimedicalscriber.com/customer-care/63db6db5342547f5b6adba38</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://aimedicalscriber.com/customer-care/63db6db5342547f5b6adba3b</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://aimedicalscriber.com/customer-care/63db6db5342547f5b6adba3c</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+
+</urlset>
