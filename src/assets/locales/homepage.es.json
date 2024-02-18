@@ -1,0 +1,120 @@
+{
+  "pageTitle": "AI Medical Scriber | Facturación y Codificación Médica",
+  "heroSection": {
+    "h1": [
+      "INTELIGENCIA ARTIFICIAL",
+      "Medical Scriber"
+    ],
+    "p1": "En AI Medical Scriber, estamos remodelando los servicios de facturación de salud con lo último en inteligencia artificial. Diga adiós a los métodos tradicionales mientras aprovechamos la IA para la facturación médica y la codificación, asegurando precisión y eficiencia.",
+    "p2": "Experimente el futuro de la administración de la salud mientras nuestra plataforma utiliza la IA para revolucionar los procesos de codificación médica. Únase a nosotros para abrazar la innovación y simplificar la atención médica con AI Medical Scriber.",
+    "facts": {
+      "accuracy": "Precisión",
+      "timeSaving": "Ahorro de Tiempo",
+      "paperWork": "Trabajo en Papel"
+    },
+    "buttons": {
+      "bookNow": "Reservar Ahora"
+    }
+  },
+  "secondSection": {
+    "h2": [
+      "INTELIGENCIA ARTIFICIAL",
+      "Facturación y Codificación Médica"
+    ],
+    "p1": "La función de Facturación y Codificación Médica de Inteligencia Artificial de nuestra aplicación AI Medical Scribe revoluciona la documentación y administración de la salud. Utilizando tecnología de IA de vanguardia, nuestra plataforma transcribe sin problemas conversaciones entre médicos y pacientes con una precisión incomparable, convirtiendo el audio en texto de manera rápida y eficiente. Este servicio de transcripción no solo acelera el proceso de documentación, sino que también garantiza el cumplimiento de los estándares de codificación médica a través de algoritmos certificados de facturación y codificación médica.",
+    "p2": "Al automatizar tareas de facturación y codificación médica, los profesionales de la salud pueden asignar su tiempo de manera más efectiva, centrándose en la atención al paciente en lugar de en las cargas administrativas. Además, nuestra IA se integra perfectamente con los sistemas de farmacia y seguros, simplificando todo el flujo de trabajo de atención médica. Con nuestro enfoque impulsado por IA para la facturación y codificación médica, se minimizan los errores, se maximiza la eficiencia y la atención al paciente alcanza nuevas alturas de excelencia.",
+    "p3": "Nuestro compromiso con la innovación en la documentación y administración de la salud empodera a los profesionales médicos para brindar una atención superior mientras mejora la eficiencia operativa.",
+    "ul": [
+      "Documentación acelerada, sin tedio",
+      "Las notas SOAP se generan automáticamente",
+      "Formularios de admisión de voz para una fácil recolección de datos del paciente",
+      "Enviar documentación directamente a la empresa de facturación",
+      "Su asistente de gráficos de IA personal"
+    ]
+  },
+  "thirdSection": {
+    "h2": [
+      "DOCUMENTACIÓN DE SALUD",
+      "Servicios de Transcripción de IA",
+      "INTELIGENCIA",
+      "ARTIFICIAL",
+      "Scriber"
+    ],
+    "ul": {
+      "left": [
+        "Facturación Médica Rápida",
+        "Codificación Médica Precisa",
+        "Transcripción Médica en Vivo"
+      ],
+      "right": [
+        "Ahorro de Tiempo del 98%",
+        "Aumento de la Precisión",
+        "Sin Trabajo en Papel"
+      ],
+      "details": [
+        {
+          "label": "Transcripción en Vivo",
+          "description": "Experimente servicios de transcripción médica en tiempo real con nuestra aplicación de transcripción en vivo alimentada por IA. A medida que se desarrollan conversaciones entre médicos y pacientes, nuestra aplicación las captura y transcribe al instante, proporcionando acceso inmediato a una documentación precisa para mejorar la atención al paciente y la eficiencia."
+        },
+        {
+          "label": "Sin Trabajo en Papel",
+          "description": "Elimine la molestia del papeleo con nuestra aplicación AI Medical Scribe todo en uno. Al digitalizar los procesos de documentación de salud, reducimos la dependencia de registros en papel, promoviendo prácticas ecológicas mientras mejoramos la accesibilidad y la seguridad de los datos."
+        },
+        {
+          "label": "Registro de Pacientes",
+          "description": "Nuestra aplicación AI Medical Scribe ofrece una gestión simplificada de registros de pacientes mientras aprovecha la IA para sugerir recomendaciones personalizadas basadas en síntomas y antecedentes médicos. Al integrar datos de pacientes de manera transparente y proporcionar sugerencias inteligentes, los proveedores de atención médica pueden optimizar la atención al paciente con facilidad y eficiencia."
+        },
+        {
+          "label": "Ahorro de Tiempo del 98%",
+          "description": "Nuestro servicio de transcripción de IA ahorra hasta el 98% del tiempo tradicionalmente dedicado a tareas de transcripción manual. Al automatizar la conversión de audio a texto, los profesionales de la salud pueden centrar sus esfuerzos en la atención al paciente, lo que conduce a una mayor productividad y satisfacción."
+        },
+        {
+          "label": "Aumento de la Precisión",
+          "description": "Aprovechando el poder de la inteligencia artificial, nuestra aplicación garantiza una precisión incomparable en la documentación de la salud. Desde la transcripción de audio hasta la codificación de procedimientos médicos, cada tarea se ejecuta con precisión, minimizando errores y mejorando la calidad general de la atención."
+        },
+        {
+          "label": "Codificación Médica",
+          "description": "Con algoritmos certificados de facturación y codificación médica, nuestra aplicación garantiza una codificación médica precisa y conforme. Esta precisión minimiza errores y maximiza el potencial de reembolso, permitiendo a las instalaciones de atención médica mantener una salud financiera y cumplimiento regulatorio sin esfuerzo."
+        },
+        {
+          "label": "Facturación Médica",
+          "description": "Nuestra aplicación AI Medical Scribe utiliza inteligencia artificial avanzada para el procesamiento rápido de facturación médica. Al automatizar las tareas de facturación, reduce significativamente el tiempo de procesamiento, asegurando que los proveedores de atención médica reciban pagos oportunos mientras optimizan los flujos de trabajo administrativos."
+        },
+        {
+          "label": "Seguros y Farmacia",
+          "description": "Nuestra aplicación AI Medical Scribe todo en uno ofrece una integración perfecta con sistemas de seguros y farmacia, facilitando la comunicación y transacciones eficientes. Al conectarse directamente con proveedores de seguros y farmacias, los profesionales de la salud pueden optimizar la coordinación de atención al paciente y los flujos de trabajo administrativos."
+        }
+      ]
+    }
+  },
+  "fourthSection": {
+    "h2": [
+      "Jasmel",
+      "Acosta"
+    ],
+    "p1": "Como CEO de AI Medical Scriber, me enorgullece liderar un equipo dedicado a transformar la atención médica a través de la inteligencia artificial. Estamos comprometidos a mejorar la vida de los profesionales médicos y los pacientes por igual, revolucionando la documentación médica y mejorando la atención al paciente.",
+    "buttons": {
+      "sendEmail": "Enviar Correo Electrónico"
+    }
+  },
+  "fifthSection": {
+    "h3": [
+      "¡Comienza",
+      "Ahora!"
+    ],
+    "p1": "Descubre las capacidades innovadoras de AI Medical Scriber. Ya sea que estés ansioso por optimizar tu práctica o tengas preguntas, contáctanos hoy. Reserva tu demostración o consulta ahora para revolucionar la administración de tu atención médica.",
+    "form": {
+      "label": "¡Formulario de Consulta!",
+      "fullName": "Nombre Completo",
+      "email": "Correo Electrónico",
+      "country": "País",
+      "company": "Empresa",
+      "query": "Escribe tu consulta aquí."
+    },
+    "buttons": {
+      "reset": "Reiniciar",
+      "bookNow": "Reservar Ahora",
+      "submit": "Enviar"
+    }
+  }
+}

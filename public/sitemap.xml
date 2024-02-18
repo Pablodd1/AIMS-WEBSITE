@@ -3,81 +3,95 @@
 
   <!-- Home page -->
   <url>
-    <loc>https://aimedicalscriber.com/</loc>
-    <changefreq>daily</changefreq>
+    <loc>https://www.aimedicalscriber.com/</loc>
+      <lastmod>2024-02-18</lastmod>
     <priority>1.0</priority>
   </url>
 
   <!-- Other pages -->
   <url>
-    <loc>https://aimedicalscriber.com/about-us</loc>
+    <loc>https://www.aimedicalscriber.com/about-us</loc>
+      <lastmod>2024-02-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aimedicalscriber.com/technology</loc>
+    <loc>https://www.aimedicalscriber.com/technology</loc>
+      <lastmod>2024-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://aimedicalscriber.com/customer-care</loc>
+    <loc>https://www.aimedicalscriber.com/customer-care</loc>
+      <lastmod>2024-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://aimedicalscriber.com/download/ai-medical-scriber</loc>
+    <loc>https://www.aimedicalscriber.com/download/ai-medical-scriber</loc>
+      <lastmod>2024-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <!-- Dynamic pages -->
   <url>
-    <loc>https://aimedicalscriber.com/customer-care/63db6db5342547f5b6adba2f</loc>
+    <loc>https://www.aimedicalscriber.com/customer-care/63db6db5342547f5b6adba2f</loc>
+      <lastmod>2024-02-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://aimedicalscriber.com/customer-care/63db6ecf342547f5b6adba3a</loc>
+    <loc>https://www.aimedicalscriber.com/customer-care/63db6ecf342547f5b6adba3a</loc>
+      <lastmod>2024-02-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://aimedicalscriber.com/customer-care/63db6ed0342547f5b6adba3b</loc>
+    <loc>https://www.aimedicalscriber.com/customer-care/63db6ed0342547f5b6adba3b</loc>
+      <lastmod>2024-02-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://aimedicalscriber.com/customer-care/63db6ee4342547f5b6adba3e</loc>
+    <loc>https://www.aimedicalscriber.com/customer-care/63db6ee4342547f5b6adba3e</loc>
+      <lastmod>2024-02-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://aimedicalscriber.com/customer-care/63db6db5342547f5b6adba33</loc>
+    <loc>https://www.aimedicalscriber.com/customer-care/63db6db5342547f5b6adba33</loc>
+      <lastmod>2024-02-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://aimedicalscriber.com/customer-care/63db6db5342547f5b6adba35</loc>
+    <loc>https://www.aimedicalscriber.com/customer-care/63db6db5342547f5b6adba35</loc>
+      <lastmod>2024-02-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://aimedicalscriber.com/customer-care/63db6db5342547f5b6adba37</loc>
+    <loc>https://www.aimedicalscriber.com/customer-care/63db6db5342547f5b6adba37</loc>
+      <lastmod>2024-02-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://aimedicalscriber.com/customer-care/63db6db5342547f5b6adba38</loc>
+    <loc>https://www.aimedicalscriber.com/customer-care/63db6db5342547f5b6adba38</loc>
+      <lastmod>2024-02-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://aimedicalscriber.com/customer-care/63db6db5342547f5b6adba3b</loc>
+    <loc>https://www.aimedicalscriber.com/customer-care/63db6db5342547f5b6adba3b</loc>
+      <lastmod>2024-02-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://aimedicalscriber.com/customer-care/63db6db5342547f5b6adba3c</loc>
+    <loc>https://www.aimedicalscriber.com/customer-care/63db6db5342547f5b6adba3c</loc>
+      <lastmod>2024-02-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

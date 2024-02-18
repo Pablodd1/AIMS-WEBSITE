@@ -57,14 +57,13 @@ const Popup = ({ styles }) => {
             onClose={handleClosePopup}
             sx={{
                 '& .MuiPaper-root': {
-                    backgroundImage: `url("${bg}")`,
                     maxWidth: '600px'
                 },
             }}
         >
 
-            <DialogTitle sx={customStyles}>
-                <img src={logo} alt="AI Medical Scriber Logo Text" height={'auto'} width={'auto'} style={styles.logoPopUp} />
+            <DialogTitle className='bg-white' >
+                <img src={'/logo.png'} alt="AI Medical Scriber Logo Text" height={'auto'} width={'auto'} style={styles.logoPopUp} />
                 <span
                     style={styles.infoButton}
                     onClick={() => window.location.href = '/technology'}
@@ -75,12 +74,9 @@ const Popup = ({ styles }) => {
             </DialogTitle>
             <DialogContent>
                 <div className='w-full' >
-
-                    <p className="text-black-500 mt-4 ">
-                        {t('firstS')}
+                    <p className="text-black font-serif my-4 ">
+                    {t('homePage.heroSection.p1')}
                     </p>
-                    <EmailSubscriber color={'#000'} />
-                    <Divider sx={{ mt: 3 }} >Or</Divider>
                     <Grid item >
                         <div className='flex items-center justify-center'>
                             <button
@@ -88,7 +84,7 @@ const Popup = ({ styles }) => {
                                 aria-label={t('buttons.tryNow')}
                                 variant="contained"
                                 onClick={() => handleBooking(true)}
-                                className="my-6 p-2 rounded-lg shadow-2xl font-semibold uppercase tracking-wide bg-CTA-500 text-CTA-800 w-52 transition-colors duration-300 hover:bg-CTA-600 hover:text-CTA-900"
+                                className="my-6 p-2 rounded-lg shadow-2xl font-semibold uppercase tracking-wide bg-primary text-white w-52 transition-colors duration-300 hover:bg-CTA-600 hover:text-CTA-900"
                             >
                                 {t('buttons.bookNow')}
                             </button>
@@ -102,6 +98,9 @@ const Popup = ({ styles }) => {
                             sx={{ color: "#888" }}
                         />
                     </Grid>
+                    {/* <Divider sx={{ mt: 3 }} >Or</Divider>
+                    <EmailSubscriber color={'#000'} /> */}
+                    
                 </div>
             </DialogContent>
         </Dialog>

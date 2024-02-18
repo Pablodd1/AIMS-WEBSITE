@@ -11,17 +11,18 @@ function SocialIcons({ color }) {
 
   const styles = {
     socialIcons: {
-      mt: 2,
+      mt: 1,
     },
     icon: {
       color: color,
+      mr:3
     }
   }
 
   return (
     <Grid
       container item
-      justifyContent={'space-between'}
+      justifyContent={'space-start'}
       alignItems={'center'}
       sx={styles.socialIcons}
     >
@@ -88,7 +89,7 @@ export default function EmailSubscriber({ color = '#fff' }) {
     };
 
     // Send a POST request to the API endpoint
-    fetch('http://localhost:3000' + "/subs/subscribe", {
+    fetch(APILink + "/subs/subscribe", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -134,7 +135,7 @@ export default function EmailSubscriber({ color = '#fff' }) {
       m: 'auto', p: 'auto',
     },
     subscribeText: {
-      letterSpacing: '0.3em',
+      letterSpacing: '0.1em',
       textTransform: 'uppercase',
       fontFamily: 'sans-serif',
       fontWeight: 600,

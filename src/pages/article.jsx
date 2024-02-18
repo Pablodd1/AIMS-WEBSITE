@@ -107,7 +107,7 @@ export default function Article({ styles }) {
         fetch(`${APILink}/blogRating/${blogId}`)
             .then(response => response.json())
             .then(data => {
-                let temp = (data.average != undefined && data.average != NaN) ? Math.ceil(data.average) : 4;
+                let temp = (data.average !== undefined && data.average !== NaN) ? Math.ceil(data.average) : 4;
                 setValue(temp);
             })
 

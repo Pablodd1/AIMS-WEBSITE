@@ -111,8 +111,8 @@ const OrganizationForm = () => {
         <div >
 
             <Dialog open={booking} TransitionComponent={Transition} onClose={() => handleBooking(false)}>
-                <DialogTitle component={'h1'} className='text-teal-200 font-bold text-4xl bg-black-100 text-center' >CONNECT</DialogTitle>
-                <DialogContent component='form' className='bg-blue-50'>
+                <DialogTitle component={'h1'} className='text-white font-bold text-4xl bg-primary text-center' >CONNECT</DialogTitle>
+                <DialogContent component='form' className='bg-secondary'>
                     {/* Form Fields */}
                     <div className="space-y-6" >
                         <div className="grid grid-cols-2 items-center mt-2 space-x-4">
@@ -158,7 +158,7 @@ const OrganizationForm = () => {
                             }
                         </div> */}
                         <div className="grid grid-cols-5 items-center space-x-2">
-                            <h2 htmlFor="referal" className="text-teal-500 col-span-3 block text-sm font-medium ">
+                            <h2 htmlFor="referal" className=" col-span-3 block text-sm font-medium ">
                                 {t('headings.HaveMS')}
                             </h2>
                             {
@@ -169,7 +169,7 @@ const OrganizationForm = () => {
                                             type="button"
                                             name='HaveMS'
                                             aria-label={x}
-                                            className={`border rounded-xl py-1 ${user.HaveMS === x ? 'bg-green-600 text-white-500 border-teal-100' : 'border-gray-500 text-blue-400'}`}
+                                            className={`border rounded-xl py-1 ${user.HaveMS === x ? 'bg-primary text-white border-primary' : 'border-primary text-black'}`}
                                             onClick={() => handleUpdate('HaveMS', x)}
                                         >
                                             {x}
@@ -179,7 +179,7 @@ const OrganizationForm = () => {
                             }
                         </div>
                         <div className="grid grid-cols-5 items-center space-x-2">
-                            <h2 htmlFor="referal" className="text-teal-500 col-span-3 block text-sm font-medium ">
+                            <h2 htmlFor="referal" className=" col-span-3 block text-sm font-medium ">
                                 {t('headings.DYHBillingCoding')}
                             </h2>
                             {
@@ -190,7 +190,7 @@ const OrganizationForm = () => {
                                             type="button"
                                             name='ExperiancedUser'
                                             aria-label={x}
-                                            className={`border rounded-xl py-1 ${user.ExperiancedUser === x ? 'bg-green-600 text-white-500 border-teal-100' : 'border-gray-500 text-blue-400'}`}
+                                            className={`border rounded-xl py-1 ${user.ExperiancedUser === x ? 'bg-primary text-white border-primary' : 'border-primary text-black'}`}
                                             onClick={() => handleUpdate('ExperiancedUser', x)}
                                         >
                                             {x}
@@ -205,11 +205,11 @@ const OrganizationForm = () => {
                         </div>
                     </div>
                 </DialogContent>
-                <DialogActions className='bg-blue-100' >
-                    <Button startIcon={<DeleteOutline />} aria-label={t('buttons.cancel')} disabled={sending} onClick={() => handleBooking(false)} color="info" fullWidth>
+                <DialogActions className='bg-secondary bg-opacity-50 ' >
+                    <Button startIcon={<DeleteOutline />} color='error' aria-label={t('buttons.cancel')} disabled={sending} onClick={() => handleBooking(false)} fullWidth>
                         {t('buttons.cancel')}
                     </Button>
-                    <Button color="info" aria-label={sending ? t('buttons.sending') : t('buttons.submit')} startIcon={sending && <BsFillCloudUploadFill />} endIcon={!sending && <IoIosSend />} variant='contained' onClick={handleSubmit} disabled={!isValid || sending} fullWidth>
+                    <Button color='success'  aria-label={sending ? t('buttons.sending') : t('buttons.submit')} startIcon={sending && <BsFillCloudUploadFill />} endIcon={!sending && <IoIosSend />} className='bg-black' variant='contained' onClick={handleSubmit} disabled={!isValid || sending} fullWidth>
                         {sending ? t('buttons.sending') : t('buttons.submit')}
                     </Button>
                 </DialogActions>
@@ -223,12 +223,12 @@ const Dropdown = ({ options, value, onChange }) => {
     const { t } = useTranslation()
     return (
         <div className="py-4">
-            <h2 htmlFor="referal" className=" text-teal-500 block text-sm font-medium">
+            <h2 htmlFor="referal" className="  block text-sm font-medium">
                 {t('headings.HearAboutUs')}
             </h2>
             <select
                 id="referal"
-                className="mt-1 flex w-full bg-transparent p-2 border-b rounded-none border-gray-400  focus:border-teal-500 sm:text-sm"
+                className="mt-1 flex w-full bg-transparent p-2 border-b rounded-none border-gray-400  focus:border-primary focus:bg-secondry sm:text-sm"
                 value={value}
                 name='referal'
                 onChange={onChange}

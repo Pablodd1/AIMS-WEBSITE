@@ -18,19 +18,17 @@
 body {
   margin: 0;
   overflow-x: hidden;
-  font-family: Exo, Arial;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* -webkit-font-smoothing: antialiased; */
+  /* -moz-osx-font-smoothing: grayscale; */
   overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(190, 0, 190, 0.3) rgba(0, 0, 190, 0.1);
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
 }
 
 /* Scrollbar styles */
 body::-webkit-scrollbar {
-  width: 15px;
+  width: 10px;
+  height: 5px;
 }
 
 body::-webkit-scrollbar-track {
@@ -38,11 +36,11 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: teal;
+  background-color: #0b1d51;
 }
 
 body::-webkit-scrollbar-thumb:hover {
-  background-color: #1767cf;
+  background-color: #daeafc;
 }
 
 

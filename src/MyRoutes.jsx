@@ -1,13 +1,10 @@
 import React, { Suspense, lazy, } from 'react';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
-import { FaHome } from 'react-icons/fa';
-import { GiTechnoHeart } from 'react-icons/gi';
-import { RxIdCard, RxSketchLogo } from 'react-icons/rx';
 import { useTranslation } from 'react-i18next';
 
 
 import './styles/css/index.css';
-import './styles/css/tailwind.css';
+import './styles/css/global.css';
 import { styles } from './styles/js/styles';
 
 const ErrorPage = lazy(() => import('./Error'));
@@ -31,10 +28,10 @@ function Layout() {
   const { t } = useTranslation()
 
   const links = [
-    { title: t('buttons.home'), icon: <FaHome color='inherit' />, add: "/" },
-    { title: t('buttons.technology'), icon: <GiTechnoHeart color='inherit' />, add: "/technology" },
-    { title: t('buttons.articles'), icon: <RxIdCard color='inherit' />, add: "/customer-care" },
-    { title: t('buttons.aboutUs'), icon: <RxSketchLogo color='inherit' />, add: "/about-us" },
+    { title: t('buttons.home'), icon: '/svg/home.svg', className:'w-5 ' , add: "/" },
+    { title: t('buttons.technology'), icon: '/svg/tech.svg', className:'w-5 ', add: "/technology" },
+    { title: t('buttons.articles'), icon: '/svg/note.svg', className:'w-5 ', add: "/customer-care" },
+    { title: t('buttons.aboutUs'), icon: '/svg/about.svg', className:'w-5 ', add: "/about-us" },
   ]
 
   return (

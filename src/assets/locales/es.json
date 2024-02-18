@@ -1,21 +1,6 @@
 {
-  "AIMS": "Escriba médico de IA",
-  "AIMedical": "IA médica",
-  "Scriber": "Punta de trazar",
-  "firstS": "Avance hacia el futuro con gráficos impulsados por IA: nuestro revolucionario AI Medical Scribe automatiza la toma de notas para que pueda concentrarse en los pacientes, no en el papeleo. Aprovechando la tecnología de vanguardia, nuestra solución integrada en EHR escucha los encuentros y genera de manera eficiente notas SOAP precisas.",
-  "CTAS": "Los madrugadores pueden ahorrar hasta un 50 %, reserve ahora.",
-  "liveTranscript": "Transcripción en vivo...",
-  "ana": {
-    "accuracy": "Exactitud",
-    "timeSaving": "Ahorrar tiempo",
-    "paperWork": "papeleo"
-  },
-  "keyFeat": {
-    "fastEfficient": "Documentación acelerada, sin trabajo pesado",
-    "automaticListening": "Las notas SOAP se generan automáticamente",
-    "organizeAndTrack": "Formularios de entrada de voz para facilitar la recopilación de datos del paciente",
-    "instantPharmacyConnection": "Enviar documentación directamente a la empresa de facturación",
-    "effortlessBillingCoding": "Su asistente personal de gráficos de IA"
+  "footer": {
+    "navigate": "Navegar"
   },
   "legals": {
     "CompanyMission": "En AI Medical Scriber, nuestra misión es simplificar la documentación médica y mejorar la atención al paciente a través de nuestro asistente virtual de inteligencia artificial para médicos. Nuestro objetivo es revolucionar la industria de la salud con tecnología de vanguardia.",

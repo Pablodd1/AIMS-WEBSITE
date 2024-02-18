@@ -32,7 +32,7 @@ const styles = {
         width: 'auto'
     },
     dialogTitle: {
-        backgroundColor: 'teal',
+        backgroundColor: '#0b1d51',
         color: '#fff',
         width: 'auto',
         textTransform: 'uppercase',
@@ -129,15 +129,22 @@ export default function ChatButton() {
 
     return (
         <>
-            <Fab
+            <button
                 variant="circular"
-                color="primary"
-                sx={styles.fab}
+                // color="primary"
+                // sx={styles.fab}
+                className='z-40 fixed bottom-5 right-5 bg-primary text-white px-3 py-3 rounded-full  shadow-md shadow-secondary'
                 onClick={() => setHireMe(true)}
 
             >
-                <SiHelpscout /> {t('buttons.chat')}
-            </Fab>
+                
+                <img
+                        src={'/svg/support.svg'}
+                        className=' '
+                        height={'auto'} width={40}
+                        alt='AI Medical Scriber'
+                    />
+            </button>
             <Dialog
                 onClose={() => setHireMe(!hireMe)}
                 open={hireMe}

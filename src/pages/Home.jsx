@@ -1,23 +1,18 @@
-import React, { lazy, Suspense, useMemo } from 'react';
+import React, { lazy, Suspense, useRef } from 'react';
 import { Helmet } from "react-helmet";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import getScrollAnimation from '../assets/utils/getScrollAnimation';
-import { useDispatch } from 'react-redux';
+import { useDispatch, } from 'react-redux';
 import { AiOutlineAim, } from 'react-icons/ai'
 import { LuTimerReset, } from 'react-icons/lu'
 import { FaOpencart } from "react-icons/fa";
 import { GiThreeLeaves } from "react-icons/gi";
-import { RiWhatsappLine } from "react-icons/ri";
-import Typewriter from '../components/Home.slaves/leafs/TypeWriter';
-import ScrollAnimationWrapper from '../assets/utils/ScrollAnimationWrapper';
 import LoadingIndicator from '../Common/loading';
 
 
 const Feature = lazy(() => import('../components/Home.slaves/features'));
-const Pricing = lazy(() => import('../components/Home.slaves/pricing'));
-const CustomRadioButtons = lazy(() => import('../components/Home.slaves/custonRadioButtons'));
-
+const AppUI = lazy(() => import('../components/Home.slaves/appUI'));
+const Query = lazy(() => import('../components/Home.slaves/query'));
 const startWhatsAppChat = () => {
   const phoneNumber = '+1 (786) 970-8366'; // Replace with the actual WhatsApp number
   const message = encodeURIComponent("Hello Sir, I'm interested in your AI Medical Scriber. Can we talk about this?");
@@ -32,175 +27,155 @@ const startWhatsAppChat = () => {
 
 };
 
-
 export default function Home() {
   const { i18n } = useTranslation();
   const dispatch = useDispatch();
   const { t } = useTranslation()
-  const scrollAnimation = useMemo(() => getScrollAnimation(), []);
+  const ref = useRef(null)
+  const isInView = useInView(ref)
   const languageCode = i18n.language;
+  const handleBooking = (x) => { dispatch({ type: 'SET_BOOKING', payload: x, }); }
   const listUser = [
     {
-      name: t('ana.accuracy'),
+      name: t('homePage.heroSection.facts.accuracy'),
       number: "95-98%",
       icon: <AiOutlineAim size={'1.5rem'} />,
       color: 'text-teal-500',
       shade: "bg-teal-100"
     },
     {
-      name: t('ana.timeSaving'),
+      name: t('homePage.heroSection.facts.timeSaving'),
       number: "98%",
       icon: <LuTimerReset size={'1.5rem'} />,
       color: 'text-teal-500',
       shade: "bg-teal-100"
     },
     {
-      name: t('ana.paperWork'),
+      name: t('homePage.heroSection.facts.paperWork'),
       number: <span>&#8776;0</span>,
       icon: <GiThreeLeaves size={'1.5rem'} />,
       color: 'text-teal-500',
       shade: "bg-teal-100"
     },
   ]
-  const handleBooking = (x) => { dispatch({ type: 'SET_BOOKING', payload: x, }); }
-
   return (
-    <div>
+    <div className='' >
       <Helmet
         htmlAttributes={{
           lang: languageCode
         }}
       >
-        <title>{t('AIMS')}</title>
-        <meta name="description" content="Transforming medical documentation with AI Medical Scriber - Streamline coding, billing, and documentation. Enhance your medical practice with our advanced AI technology." />
-        <meta name="keywords" content="AI, Artificial Intelligence, Medical Coding, Medical Billing, AI Medical Scribe, Virtual Assistent, medical practice " />
-        <link rel="preload" href="/aims-logo-black.webp" as="image" />
-        <link rel="preload" href="/images/ai-cover.webp" as="image" />
+        <title>{t('homePage.pageTitle')}</title>
+        <meta name="description" content="Streamline healthcare documentation with AI Medical Scriber. Automate Medical billing, coding, transcription & more. Book AI Medical Scriber App and Enhance patient care today!" />
+        <meta name="keywords" content="
+        Artificial intelligence Medical billing, 
+        medical coding artificial intelligence, 
+        certified medical billing and coding, 
+        medical insurance billing, 
+        medical transcription services, 
+        transcription AI, 
+        healthcare billing and coding, 
+        healthcare documentation, 
+        AI transcribe, 
+        AI transcribe audio to text, 
+        AI transcription service, 
+        healthcare billing services, 
+        live transcribe app, 
+         in one app
+         "/>
       </Helmet>
 
-      <div
-        style={{
-          pt: 0,
-          position: 'fixed',
-          top: 0,
-          height: '100vh',
-          width: '100%',
-          zIndex: -1,
-          backgroundImage: `url(/images/cover-AIMS.webp)`,
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: '20% center',
-
-        }}
-      >{' '}
-      </div>
-
-
-      <div
-        className="py-4"
+      <section
+        className="min-h-screen w-screen overflow-hidden  mt-4 px-8 xl:px-16 mx-auto flex flex-col justify-center items-center"
       >
-        <div className="max-w-screen-xl bg-blue-300 mt-15 px-8 xl:px-16 mx-auto overflow-y-visible rounded-3xl"
-          id="about"
-          style={{ boxShadow: '15px 15px 15px teal' }}
+        <img
+          src={'/logo-short.png'}
+          className='my-4 w-64 sm:w-72 lg:w-96 mx-auto'
+          height={'auto'} width={320}
+          alt='AI Medical Scriber short logo'
+        />
+        <h1
+          className=" mb-4 w-full text-primary text-3xl lg:text-4xl xl:text-5xl font-sans font-bold max-w-md md:max-w-xl lg:max-w-4xl xl:max-w-5xl"
         >
-          <div
-            className="grid grid-flow-row sm:grid-flow-col grid-rows-2  md:grid-rows-1 sm:grid-cols-2 gap-8 py-6 sm:py-16"
+          <strong className='text-black  uppercase font-semibold text-sm lg:text-lg tracking-wider ' >
+            {t('homePage.heroSection.h1.0')}
+          </strong>
+          <br />
+          {t('homePage.heroSection.h1.1')}
+        </h1>
+        <p className=" max-w-md md:max-w-xl lg:max-w-4xl xl:max-w-5xl lg:text-lg px-2 my-1">{t('homePage.heroSection.p1')}</p>
+        <p className="max-w-md md:max-w-xl lg:max-w-4xl xl:max-w-5xl lg:text-lg px-2 mb-2 lg:mb-4">{t('homePage.heroSection.p2')}</p>
+        <article ref={ref} className="text-sm sm:text-md w-full  mx-auto self-start flex items-center flex-row  max-w-md md:max-w-xl lg:max-w-4xl xl:max-w-5xl ">
+          <motion.button
+            aria-label={t('buttons.SWM')}
+            className="drop-shadow-lg hover:drop-shadow-cta "
+            animate={isInView ? { y: 0, opacity: 1 } : { opacity: 0, y: 50 }}
+            transition={{ type: 'spring', bounce: 0.65, duration: isInView ? 1 : 0 }}
+            onClick={startWhatsAppChat}
           >
-            <div className=" flex flex-col justify-center items-start row-start-2 sm:row-start-1 overflow-hidden">
-              <h1
-                className="text-3xl lg:text-4xl xl:text-5xl font-medium text-black-100 leading-normal"
-              >
-                {t('AIMedical')} <strong>{t('Scriber')}</strong>.
-              </h1>
-              <p className="text-white-900 my-4 ">
-                {t('firstS')}
-              </p>
-              {/* <p className="text-teal-600 mb-6">
-                <b>{t('CTAS')}</b>
-              </p> */}
-              <Typewriter
-                classNames="text-md lg:text-xl xl:text-2xl font-medium text-teal-50 antialiased"
-                classNamesBox=""
-                classNamesUL="list-disc list-inside"
-              />
-              <div className="flex flex-col items-start sm:items-center sm:flex-row  ">
-                <button
-                  size="larger"
-                  aria-label={t('buttons.tryNow')}
-                  variant="contained"
-                  icon={<FaOpencart size={'1.25rem'} />}
-                  onClick={() => handleBooking(true)}
-                  className="m-2 mt-10 p-2  rounded-lg shadow-2xl font-semibold uppercase tracking-wide bg-CTA-500 text-CTA-800 w-52 transition-colors duration-300 hover:bg-CTA-600 hover:text-CTA-900"
-                >
-
-                  {t('buttons.bookNow')}
-                </button>
-                <div className="group inline-block ml-2 sm:ml-0">
-                  <button aria-label={t('buttons.SWM')} className="bg-gray-300 rounded-3xl pr-4 shadow-lg mt-8 group-hover:shadow-xl group-hover:bg-blue-200 group-hover:text-black-100">
-                    <RiWhatsappLine size={'2.5rem'} onClick={startWhatsAppChat} className="p-1 mr-2 shadow-2xl sm:text-xxl inline text-green-100 bg-teal-700 rounded-xl group-hover:bg-teal-100 group-hover:text-green-600" />
-                    Text or Call
-                  </button>
-
+            <img
+              src={'/svg/whatsapp.svg'}
+              className="inline "
+              height={'auto'} width={35}
+              alt='AI Medical Scriber whatsapp contact'
+            />
+          </motion.button>
+          <motion.button
+            size="larger"
+            aria-label={t('buttons.tryNow')}
+            variant="contained"
+            icon={<FaOpencart size={'1.25rem'} />}
+            onClick={() => handleBooking(true)}
+            animate={isInView ? { y: 0, opacity: 1 } : { opacity: 0, y: 50 }}
+            transition={{ type: 'spring', bounce: 0.65, duration: isInView ? 1 : 0 }}
+            className="py-2 px-6 sm:px-8 mx-2 rounded-full   hover:shadow-lg hover:shadow-cta font-semibold uppercase tracking-wide bg-black text-white  transition-all duration-75 ease-in-out hover:bg-cta hover:text-black"
+          >
+            {t('homePage.heroSection.buttons.bookNow')}
+          </motion.button>
+        </article>
+        <ul className="my-4 w-full lg:w-5/6 mx-auto rounded-3xl  overflow-hidden  max-w-md md:max-w-xl lg:max-w-4xl xl:max-w-5xl grid grid-flow-row grid-cols-3 divide-x-2 divide-primary ">
+          {listUser.map((listUsers, i) => (
+            <motion.li
+              className="  flex items-center justify-start sm:justify-center py-2 sm:py-4 sm:px-2 w-auto mx-0"
+              key={i}
+              animate={isInView ? { y: 0, opacity: 1 } : { opacity: 0, y: (i + 1) * 25 }}
+              transition={{ type: 'spring', bounce: 0.65, duration: isInView ? (i * 0.1) + 2 : 0 }}
+            >
+              <div className="flex mx-auto ">
+                <div className={`flex items-center justify-center text-primary px-1 sm:px-2 sm:mr-2 `}>
+                  {listUsers.icon}
+                </div>
+                <div className="flex flex-col">
+                  <p className="text-sm sm:text-lg font-semibold">
+                    {listUsers.number}
+                  </p>
+                  <p className=" text-xs sm:text-md ">
+                    {listUsers.name}
+                  </p>
                 </div>
               </div>
-
-
-            </div>
-            <div className="flex w-full sm:col-start-2 ">
-              <div className="h-full w-full overflow-hidden" variants={scrollAnimation}>
-                <figure className=" relative">
-                  <img
-                    src={'/aims-logo-black.webp'}
-                    alt="AI Medical Scriber Live Transcribe"
-                    quality={100}
-                    width={612}
-                    height={383}
-                    layout="responsive"
-                  />
-                  <figcaption className="w-full text-center p-2">
-                    {t('liveTranscript')}
-                  </figcaption>
-                </figure>
-              </div>
-            </div>
-          </div>
-
-          <div className="relative w-full flex translate-y-8 shadow-xl ring-teal-500 ">
-            <ScrollAnimationWrapper
-              className="rounded-3xl w-full grid bg-blue-400 grid-flow-row sm:grid-flow-row grid-cols-1 sm:grid-cols-3 py-9 divide-y-2 sm:divide-y-0 sm:divide-x-2 divide-gray-100 z-10">
-              {listUser.map((listUsers, index) => (
-                <motion.div
-                  className="flex items-center justify-start sm:justify-center py-4 sm:py-6 w-8/12 px-4 sm:w-auto mx-auto sm:mx-0"
-                  key={index}
-                  custom={{ duration: 2 + index }}
-                  variants={scrollAnimation}
-                >
-                  <div className="flex mx-auto w-40 sm:w-auto">
-                    <div className={`flex items-center justify-center ${listUsers.shade} ${listUsers.color} w-12 h-12 mr-6 rounded-full`}>
-                      {listUsers.icon}
-                    </div>
-                    <div className="flex flex-col">
-                      <p className="text-xl text-black-600 font-bold">
-                        {listUsers.number}
-                      </p>
-                      <p className="text-lg text-black-500">{listUsers.name}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </ScrollAnimationWrapper>
-            <div
-              className="absolute bg-black-600 opacity-5 w-11/12 roudned-lg h-64 sm:h-48 top-0 mt-8 mx-auto left-0 right-0"
-              style={{ filter: "blur(114px)" }}
-            >
-
-            </div>
-          </div>
+            </motion.li>
+          ))}
+        </ul>
+        <div className=' min-h-full w-screen -z-10 overflow-hidden ' >
+          <img
+            src={'/svg/ai-3.svg'}
+            className='absolute top-6 right-0 opacity-25 p-6 w-28 sm:w-44 md:w-52 lg:w-1/4 xl:w-1/6 backdrop-blur-lg drop-shadow-cta shadow-lg shadow-cta border-8 border-double border-cta rounded-full'
+            height={'auto'} width={260}
+            alt='ai-3 svg'
+          />
+          <img
+            src={'/svg/ai-robo.svg'}
+            className='absolute bottom-0 -left-20  w-44 md:w-1/3 lg:w-1/4 xl:w-1/6  opacity-20 '
+            height={'auto'} width={260}
+            alt='ai-robo svg'
+          />
         </div>
-      </div>
+      </section>
       <Suspense fallback={<LoadingIndicator />}>
         <Feature />
-        <CustomRadioButtons head={t('headings.howItWorks')} data={t('howItWorks')} />
-        <Pricing />
+        <AppUI startWhatsAppChat={startWhatsAppChat} />
+        <Query startWhatsAppChat={startWhatsAppChat} />
       </Suspense>
     </div>
   );
