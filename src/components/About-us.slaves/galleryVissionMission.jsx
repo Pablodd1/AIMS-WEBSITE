@@ -14,36 +14,12 @@ import image2y from "../../assets/slides/aboutUS-4.webp";
 
 
 
-export function VisionMission({styles}) {
-    const { t } = useTranslation()
+// export function VisionMission({styles}) {
+//     const { t } = useTranslation()
 
-    return (
-        <Grid item
-            xs={12} sm={12} md={4} lg={5} xl={7}
-        >
-            <div style={styles['aboutUS-para']} >
-                <Typography variant='h3' component='h1'  > {t('headings.vision')}</Typography>
-                <Typography variant='p' component='p' >
-                    {t('legals.Vision')}
-                </Typography>
-                <br />
-                <Typography variant='h3' component='h1'  >{t('headings.mission')}</Typography>
-                <Typography variant='p' component='p' >
-                    {t('legals.CompanyMission')}
-                </Typography>
-                <br />
-                <Button
-                    size="larger"
-                    variant="contained"
-                    sx={styles['aboutUS-button']}
-                    aria-label={t('buttons.joinUs')}
-                >
-                    {t('buttons.joinUs')}
-                    </Button>
-            </div>
-        </Grid>
-    )
-}
+//     return (
+//     )
+// }
 
 export function AboutUSGallery({styles}) {
     const [showImg, setShowImg] = React.useState(false);

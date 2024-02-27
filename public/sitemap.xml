@@ -4,14 +4,14 @@
   <!-- Home page -->
   <url>
     <loc>https://www.aimedicalscriber.com/</loc>
-      <lastmod>2024-02-18</lastmod>
+      <lastmod>2024-02-28</lastmod>
     <priority>1.0</priority>
   </url>
 
   <!-- Other pages -->
   <url>
     <loc>https://www.aimedicalscriber.com/about-us</loc>
-      <lastmod>2024-02-15</lastmod>
+      <lastmod>2024-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

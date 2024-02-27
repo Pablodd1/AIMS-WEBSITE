@@ -175,7 +175,8 @@ export default function Home() {
       <Suspense fallback={<LoadingIndicator />}>
         <Feature />
         <AppUI startWhatsAppChat={startWhatsAppChat} />
-        <Query startWhatsAppChat={startWhatsAppChat} />
+        <Query startWhatsAppChat={startWhatsAppChat} component={'ceo'} />
+        <Query startWhatsAppChat={startWhatsAppChat} component={'form'} />
       </Suspense>
     </div>
   );

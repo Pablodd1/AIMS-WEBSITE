@@ -107,46 +107,6 @@ export function TeamDetail({styles}) {
 
 
 
-    return (
-        <Grid
-            container item
-            justifyContent='space-evenly'
-            alignItems='center'
-            rowSpacing={15}
-            xs={12}
-            id="AboutUS-Team"
-            ref={teamRef}
-            sx={styles.teamContainer}
-        >
-            <Grid item xs={12} >
-                <Typography variant='h2' component='h1' style={{ textAlign: 'center' }}>{t('headings.myTeam')}</Typography>
-
-            </Grid>
-            {team.map((x, i) => {
-                return (
-                    <Zoom
-                        appear
-                        in={showTeam}
-                        {...({ timeout: 2000 * 0.8 * (i) })}
-                        key={i}
-                    >
-                        <Grid item sx={styles.contactItem}>
-                            <Card key={i} elevation={0} sx={styles.teamImgCont} >
-                                <CardMedia
-                                    component="img"
-                                    alt={x.title}
-                                    image={x.img}
-                                    sx={styles.teamImg}
-                                />
-                            </Card>
-                            <Typography component={'h4'} variant='h5' ><b>{x.title}</b> </Typography>
-                            <Typography component={'h3'} variant='h6' >{x.des}</Typography>
-                        </Grid>
-                    </Zoom>
-                )
-            })}
-
-
-        </Grid>
+    return (''
     )
 }

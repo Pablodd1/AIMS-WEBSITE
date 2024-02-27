@@ -1,133 +1,132 @@
-import { Box} from '@mui/material';
+import { Box } from '@mui/material';
 import React, { useEffect } from 'react';
 
 const colors = [
-    '#ACDDDE',
-    '#CAF1DE',
-    '#E1F8DC',
-    '#FFE7C7',
-    '#FEF8DD',
-  ];
-  
-  const WorldMapComponent = () => {
-    useEffect(() => {
-      const paths = document.querySelectorAll('#worldMapSvg path');
-  
-      // Assign random color from the array to each path
-      paths.forEach((path) => {
-        const randomColor = colors[Math.floor(Math.random() * colors.length)];
-        path.style.fill = randomColor;
-        path.style.transition = 'fill 0.3s'; // Add smooth transition for fill
-      });
-  
-      // Add event listeners for hover effect
-      paths.forEach((path) => {
-        path.addEventListener('mouseenter', handleMouseEnter);
-        path.addEventListener('mouseleave', handleMouseLeave);
-      });
-  
-      return () => {
-        // Clean up event listeners
-        paths.forEach((path) => {
-          path.removeEventListener('mouseenter', handleMouseEnter);
-          path.removeEventListener('mouseleave', handleMouseLeave);
-        });
-      };
-    }, []);
-  
-    const handleMouseEnter = (event) => {
-      const path = event.target;
-      const currentColor = path.style.fill;
-      const darkerColor = darkenColor(currentColor, 10); // Adjust the darkness level here
-      path.style.fill = darkerColor;
-    };
-  
-    const handleMouseLeave = (event) => {
-      const path = event.target;
-      const currentColor = path.style.fill;
-      const lighterColor = lightenColor(currentColor, 10); // Adjust the darkness level here
-      path.style.fill = lighterColor;
-    };
-  
-    // Function to darken a color by a specified percentage
-    const darkenColor = (color, percentage) => {
-      const colorObj = parseColor(color);
-      const { r, g, b } = colorObj;
-      const darkenedR = Math.round(r - (r * percentage) / 100);
-      const darkenedG = Math.round(g - (g * percentage) / 100);
-      const darkenedB = Math.round(b - (b * percentage) / 100);
-      return `rgb(${darkenedR}, ${darkenedG}, ${darkenedB})`;
-    };
-  
-    // Function to lighten a color by a specified percentage
-    const lightenColor = (color, percentage) => {
-      const colorObj = parseColor(color);
-      const { r, g, b } = colorObj;
-      const lightenedR = Math.round(r + (255 - r) * (percentage / 100));
-      const lightenedG = Math.round(g + (255 - g) * (percentage / 100));
-      const lightenedB = Math.round(b + (255 - b) * (percentage / 100));
-      return `rgb(${lightenedR}, ${lightenedG}, ${lightenedB})`;
-    };
-  
-    // Function to parse the RGB values from a color string
-    const parseColor = (color) => {
-      const regex = /rgb\((\d+), (\d+), (\d+)\)/;
-      const match = color.match(regex);
-      if (match) {
-        const r = parseInt(match[1], 10);
-        const g = parseInt(match[2], 10);
-        const b = parseInt(match[3], 10);
-        return { r, g, b };
-      }
-      return null;
-    };
-  
-   
+  '#fff',
+  '#fff',
+  '#daeafc',
+];
 
-    return (
-      <Box sx={{
+const WorldMapComponent = () => {
+  //   useEffect(() => {
+  //     const paths = document.querySelectorAll('#worldMapSvg path');
 
-        minWidth:'auto',
-        overflowX:'auto',
-        scrollBehavior:'smooth',
-        transition:'all 0.3s ease-in-out',
-        '&::-webkit-scrollbar': {
-          height: '3px',
-        },
-        '&::-webkit-scrollbar-track': {
-          backgroundColor: '#fff',
-        },
-        '&::-webkit-scrollbar-thumb': {
-          backgroundColor: 'teal',
-          borderRadius:'25px'
-        },
-        '&::-webkit-scrollbar-thumb:hover': {
-          backgroundColor: '#555',
-        },
+  // Assign random color from the array to each path
+  // paths.forEach((path) => {
+  //   const randomColor = colors[Math.floor(Math.random() * colors.length)];
+  //   path.style.fill = randomColor;
+  //   path.style.transition = 'fill 0.3s'; // Add smooth transition for fill
+  // });
+
+  // Add event listeners for hover effect
+  // paths.forEach((path) => {
+  //   path.addEventListener('mouseenter', handleMouseEnter);
+  //   path.addEventListener('mouseleave', handleMouseLeave);
+  // });
+
+  //   return () => {
+  //     // Clean up event listeners
+  //     paths.forEach((path) => {
+  //       path.removeEventListener('mouseenter', handleMouseEnter);
+  //       path.removeEventListener('mouseleave', handleMouseLeave);
+  //     });
+  //   };
+  // }, []);
+
+  // const handleMouseEnter = (event) => {
+  //   const path = event.target;
+  //   const currentColor = path.style.fill;
+  //   const darkerColor = darkenColor(currentColor, 10); // Adjust the darkness level here
+  //   path.style.fill = darkerColor;
+  // };
+
+  // const handleMouseLeave = (event) => {
+  //   const path = event.target;
+  //   const currentColor = path.style.fill;
+  //   const lighterColor = lightenColor(currentColor, 10); // Adjust the darkness level here
+  //   path.style.fill = lighterColor;
+  // };
+
+  // Function to darken a color by a specified percentage
+  // const darkenColor = (color, percentage) => {
+  //   const colorObj = parseColor(color);
+  //   const { r, g, b } = colorObj;
+  //   const darkenedR = Math.round(r - (r * percentage) / 100);
+  //   const darkenedG = Math.round(g - (g * percentage) / 100);
+  //   const darkenedB = Math.round(b - (b * percentage) / 100);
+  //   return `rgb(${darkenedR}, ${darkenedG}, ${darkenedB})`;
+  // };
+
+  // Function to lighten a color by a specified percentage
+  // const lightenColor = (color, percentage) => {
+  //   const colorObj = parseColor(color);
+  //   const { r, g, b } = colorObj;
+  //   const lightenedR = Math.round(r + (255 - r) * (percentage / 100));
+  //   const lightenedG = Math.round(g + (255 - g) * (percentage / 100));
+  //   const lightenedB = Math.round(b + (255 - b) * (percentage / 100));
+  //   return `rgb(${lightenedR}, ${lightenedG}, ${lightenedB})`;
+  // };
+
+  // Function to parse the RGB values from a color string
+  // const parseColor = (color) => {
+  //   const regex = /rgb\((\d+), (\d+), (\d+)\)/;
+  //   const match = color.match(regex);
+  //   if (match) {
+  //     const r = parseInt(match[1], 10);
+  //     const g = parseInt(match[2], 10);
+  //     const b = parseInt(match[3], 10);
+  //     return { r, g, b };
+  //   }
+  //   return null;
+  // };
+
+
+
+  return (
+    <Box sx={{
+
+      minWidth: 'auto',
+      overflowX: 'auto',
+      scrollBehavior: 'smooth',
+      transition: 'all 0.3s ease-in-out',
+      '&::-webkit-scrollbar': {
+        height: '3px',
+      },
+      '&::-webkit-scrollbar-track': {
+        backgroundColor: '#fff',
+      },
+      '&::-webkit-scrollbar-thumb': {
+        backgroundColor: 'teal',
+        borderRadius: '25px'
+      },
+      '&::-webkit-scrollbar-thumb:hover': {
+        backgroundColor: '#555',
+      },
+    }}
+
+      ref={(boxRef) => {
+        if (boxRef && boxRef.scrollLeft !== 250) {
+          boxRef.scrollLeft = 250;
+        }
       }}
-      
-  ref={(boxRef) => {
-    if (boxRef && boxRef.scrollLeft !== 250) {
-      boxRef.scrollLeft = 250;
-    }
-  }}
-   >
- <svg
+    >
+      <svg
+        fill='none'
         baseProfile="tiny"
         id="worldMapSvg"
         // fill="#ececec"
-        stroke="#212121"
+        stroke="#0b1d51"
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth=".5"
+        strokeWidth="0.5"
         version="1.2"
         viewBox="0 0 2000 857"
         width="100%"
         xmlns="http://www.w3.org/2000/svg"
-        style={{ 
+        style={{
           width: '100%',
-          minWidth:'1080px',
-          height: 'auto' 
+          minWidth: '1080px',
+          height: 'auto'
         }}
       >
         <path d="M1383 261.6l1.5 1.8-2.9 0.8-2.4 1.1-5.9 0.8-5.3 1.3-2.4 2.8 1.9 2.7 1.4 3.2-2 2.7 0.8 2.5-0.9 2.3-5.2-0.2 3.1 4.2-3.1 1.7-1.4 3.8 1.1 3.9-1.8 1.8-2.1-0.6-4 0.9-0.2 1.7-4.1 0-2.3 3.7 0.8 5.4-6.6 2.7-3.9-0.6-0.9 1.4-3.4-0.8-5.3 1-9.6-3.3 3.9-5.8-1.1-4.1-4.3-1.1-1.2-4.1-2.7-5.1 1.6-3.5-2.5-1 0.5-4.7 0.6-8 5.9 2.5 3.9-0.9 0.4-2.9 4-0.9 2.6-2-0.2-5.1 4.2-1.3 0.3-2.2 2.9 1.7 1.6 0.2 3 0 4.3 1.4 1.8 0.7 3.4-2 2.1 1.2 0.9-2.9 3.2 0.1 0.6-0.9-0.2-2.6 1.7-2.2 3.3 1.4-0.1 2 1.7 0.3 0.9 5.4 2.7 2.1 1.5-1.4 2.2-0.6 2.5-2.9 3.8 0.5 5.4 0z" id="AF" name="Afghanistan">
@@ -1076,11 +1075,10 @@ const colors = [
         </circle>
         <circle cx="1798.2" cy="719.3" id="2">
         </circle>
-       </svg>
-      </Box>
-       
-    );
-  };
-  
-  export default WorldMapComponent;
-  
+      </svg>
+    </Box>
+
+  );
+};
+
+export default WorldMapComponent;

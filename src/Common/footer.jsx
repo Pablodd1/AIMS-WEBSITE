@@ -53,7 +53,7 @@ export default function Footer({ links, linkStyles }) {
                 </ul>
             </footer>
             <div className='flex justify-center w-full items-start bg-black text-white' >
-                <span className=' font-sans tracking-wider text-xs sm:text-sm z-10 rounded-r-3xl hover:text-black hover:bg-secondary py-1 px-6 inline bg-black-500 text-white-200' >
+                <span className=' font-sans tracking-wider text-xs sm:text-sm z-10 rounded-3xl hover:text-black hover:bg-secondary py-1 px-6 inline bg-black-500 text-white-200' >
                     Designed & Developed By <a target='_blank' href='https://www.myababeel.com' className="tracking-widest font-sans font-bold" ><img src='https://myababeel.com/logo.svg' className='inline-block  ' width={50} height={39} /> MyAbabeel</a>
                 </span>
             </div>
