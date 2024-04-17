@@ -37,12 +37,12 @@ export default function NavBar({ links, styles }) {
                 <li className="pl-4">
 
                 </li>
-            </ul>
+            </ul> 
+            <div className='flex items-center justify-end ' >
+                <LangSwitcherMenu size="small" />
             <ul className=' flex  md:hidden'>
                 <CustomDrawer styles={styles} links={links} />
-            </ul> 
-            <div className='self-center' >
-                <LangSwitcherMenu size="small" />
+            </ul>
             </div>
         </nav>
 

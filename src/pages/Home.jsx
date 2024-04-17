@@ -88,6 +88,20 @@ export default function Home() {
       <section
         className="min-h-screen w-screen overflow-hidden  mt-4 px-8 xl:px-16 mx-auto flex flex-col justify-center items-center"
       >
+      <div className=' min-h-full w-screen -z-10 overflow-hidden ' >
+        <img
+          src={'/svg/ai-3.svg'}
+          className='absolute top-6 right-0 opacity-25 p-6 w-28 sm:w-44 md:w-52 lg:w-1/4 xl:w-1/6 backdrop-blur-lg drop-shadow-cta shadow-lg shadow-cta border-8 border-double border-cta rounded-full'
+          height={'auto'} width={260}
+          alt='ai-3 svg'
+        />
+        <img
+          src={'/svg/ai-robo.svg'}
+          className='absolute bottom-0 -left-20  w-44 md:w-1/3 lg:w-1/4 xl:w-1/6  opacity-20 '
+          height={'auto'} width={260}
+          alt='ai-robo svg'
+        />
+      </div>
         <img
           src={'/logo-short.png'}
           className='my-4 w-64 sm:w-72 lg:w-96 mx-auto'
@@ -157,20 +171,6 @@ export default function Home() {
             </motion.li>
           ))}
         </ul>
-        <div className=' min-h-full w-screen -z-10 overflow-hidden ' >
-          <img
-            src={'/svg/ai-3.svg'}
-            className='absolute top-6 right-0 opacity-25 p-6 w-28 sm:w-44 md:w-52 lg:w-1/4 xl:w-1/6 backdrop-blur-lg drop-shadow-cta shadow-lg shadow-cta border-8 border-double border-cta rounded-full'
-            height={'auto'} width={260}
-            alt='ai-3 svg'
-          />
-          <img
-            src={'/svg/ai-robo.svg'}
-            className='absolute bottom-0 -left-20  w-44 md:w-1/3 lg:w-1/4 xl:w-1/6  opacity-20 '
-            height={'auto'} width={260}
-            alt='ai-robo svg'
-          />
-        </div>
       </section>
       <Suspense fallback={<LoadingIndicator />}>
         <Feature />

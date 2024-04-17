@@ -4,96 +4,67 @@
   <!-- Home page -->
   <url>
     <loc>https://www.aimedicalscriber.com/</loc>
-      <lastmod>2024-02-28</lastmod>
-    <priority>1.0</priority>
+      <lastmod>2024-04-17</lastmod>
   </url>
 
   <!-- Other pages -->
   <url>
     <loc>https://www.aimedicalscriber.com/about-us</loc>
-      <lastmod>2024-02-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+      <lastmod>2024-04-17</lastmod>
   </url>
   <url>
     <loc>https://www.aimedicalscriber.com/technology</loc>
-      <lastmod>2024-02-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+      <lastmod>2024-04-17</lastmod>
   </url>
   <url>
     <loc>https://www.aimedicalscriber.com/customer-care</loc>
-      <lastmod>2024-02-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+      <lastmod>2024-04-17</lastmod>
   </url>
   <url>
     <loc>https://www.aimedicalscriber.com/download/ai-medical-scriber</loc>
-      <lastmod>2024-02-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+      <lastmod>2024-04-17</lastmod>
   </url>
   
   <!-- Dynamic pages -->
   <url>
     <loc>https://www.aimedicalscriber.com/customer-care/63db6db5342547f5b6adba2f</loc>
-      <lastmod>2024-02-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+      <lastmod>2024-04-17</lastmod>
   </url>
   <url>
     <loc>https://www.aimedicalscriber.com/customer-care/63db6ecf342547f5b6adba3a</loc>
-      <lastmod>2024-02-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+      <lastmod>2024-04-17</lastmod>
   </url>
   <url>
     <loc>https://www.aimedicalscriber.com/customer-care/63db6ed0342547f5b6adba3b</loc>
-      <lastmod>2024-02-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+      <lastmod>2024-04-17</lastmod>
   </url>
   <url>
     <loc>https://www.aimedicalscriber.com/customer-care/63db6ee4342547f5b6adba3e</loc>
-      <lastmod>2024-02-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+      <lastmod>2024-04-17</lastmod>
   </url>
   <url>
     <loc>https://www.aimedicalscriber.com/customer-care/63db6db5342547f5b6adba33</loc>
-      <lastmod>2024-02-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+      <lastmod>2024-04-17</lastmod>
   </url>
   <url>
     <loc>https://www.aimedicalscriber.com/customer-care/63db6db5342547f5b6adba35</loc>
-      <lastmod>2024-02-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+      <lastmod>2024-04-17</lastmod>
   </url>
   <url>
     <loc>https://www.aimedicalscriber.com/customer-care/63db6db5342547f5b6adba37</loc>
-      <lastmod>2024-02-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+      <lastmod>2024-04-17</lastmod>
   </url>
   <url>
     <loc>https://www.aimedicalscriber.com/customer-care/63db6db5342547f5b6adba38</loc>
-      <lastmod>2024-02-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+      <lastmod>2024-04-17</lastmod>
   </url>
   <url>
     <loc>https://www.aimedicalscriber.com/customer-care/63db6db5342547f5b6adba3b</loc>
-      <lastmod>2024-02-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+      <lastmod>2024-04-17</lastmod>
   </url>
   <url>
     <loc>https://www.aimedicalscriber.com/customer-care/63db6db5342547f5b6adba3c</loc>
-      <lastmod>2024-02-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+      <lastmod>2024-04-17</lastmod>
   </url>
 
 

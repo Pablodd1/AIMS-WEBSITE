@@ -4,11 +4,10 @@ import DesignServicesSharpIcon from '@mui/icons-material/DesignServicesSharp';
 import { RiCustomerService2Fill } from "react-icons/ri";
 import LocalOfferSharpIcon from '@mui/icons-material/LocalOfferSharp';
 import FavoriteSharpIcon from '@mui/icons-material/FavoriteSharp';
-import SendIcon from '@mui/icons-material/Send';
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import BlogLayout from "../components/Article.slaves/blogLayout";
 import BlogsList from "../components/Article.slaves/blogslists";
@@ -207,85 +206,58 @@ export default function Article({ styles }) {
 
 
 
-            <Box sx={styles.articlesBox} >
+            <section sx={styles.articlesBox} className={'max-w-5xl lg:max-w-7xl mx-auto my-24 px-6'} >
 
                 {(blog[0] != undefined) ? (
-                    <Card elevation={15} sx={{ mb: 7 }} >
-                        <CardHeader
-                            component="h2"
-                            title={
-                                <Typography component='h1' variant="h5" >
-                                    {blog[0].title}
-                                </Typography>
-                            }
-                            sx={styles.articlesHeader}
-                        />
+                    <article className="w-full " >
+                        <header className="relative h-72 overflow-hidden rounded-3xl shadow-2xl shadow-black">
+                            <img
+                                src={`/images/blogs/${encodeURI(blog[0].icon)}.avif`}
+                                className=' object-cover w-full h-full saturate-200 '
+                                height={'auto'} width={1024}
+                                alt={blog[0].title}
+                            />
+                            <h1 className=' lg:font-bold bg-gradient-to-t from-black to-transparent text-white flex flex-wrap items-end justify-center absolute bottom-0 h-full px-2 py-4 text-3xl bg-opacity-25 w-full' >
+                                {blog[0].title}
+                            </h1>
 
-                        <img
+                        </header>
+                        {/* <img
                             component='img'
                             width={'100%'}
                             src={blog[0].image}
                             alt={blog[0].title}
                             style={styles.articlesImage}
-                        />
-                        <CardContent sx={styles.articlesBody} >
-                            <BlogLayout  data={blog[0].blog} />
-                        </CardContent>
+                        /> */}
+                        <section className="mt-12 mb-8 px-2 md:px-8 mx-auto " >
+                            <BlogLayout data={blog[0].blog} />
+                        </section>
 
-                        <CardActions>
-                            <Grid container sx={{ alignItems: 'start', justifyContent: 'space-between' }} >
-                                <Grid item  >
-                                    <Typography sx={{ backgroundColor: "#000", color: "#fff", width: "100%", pl: 1, pr: 1 }} >Links: </Typography>
-                                    {links.map((x, index) => {
-                                        return (
-                                            <Button
-                                                variant="outlined"
-                                                component='button'
-                                                aria-label={x.text}
-                                                startIcon={x.icon}
-                                                key={index}
-                                                href={process.env.PUBLIC_URL + x.href}
-                                                sx={{ m: 2, '&:hover': { backgroundColor: '#004d40', color: '#fff' } }} >
-                                                {x.text}
-                                            </Button>
-                                        )
-                                    })}
-                                </Grid>
-                                <Grid item sx={{ m: 3 }} >
-                                    <Box height={"max-content"} sx={{ m: 'auto', p: 'auto' }}   >
-                                        <Typography sx={{ width: "100%", m: 1, p: 'auto', mt: 1, ml: 3 }} >{t('howWasThisHelpful?')}</Typography>
-                                        <Tooltip placement="bottom" title={value !== null && (<Box sx={{ fontSize: 18 }}>{labels[hover !== -1 ? hover : value]}</Box>)}>
-                                            <Rating
-                                                name="blogs-feedback"
-                                                value={value}
-                                                getLabelText={getLabelText}
-                                                icon={<FavoriteSharpIcon color="secondary" />}
-                                                onChange={(event, newValue) => { setValue(newValue); }}
-                                                onChangeActive={(event, newHover) => { setHover(newHover); }}
-                                                emptyIcon={<FavoriteSharpIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
-                                                sx={{ height: "100%", p: "auto", m: 'auto', ml: 4, mr: 2 }}
-                                            />
-                                        </Tooltip>
-                                        <Tooltip
-                                            title={<Typography
-                                                sx={{ color: '#fff' }}>
-                                                {t('buttons.submit')}
-                                            </Typography>}
-                                            placement="bottom"
-                                        >
-                                            <SendIcon
-                                                disabled={syncing}
-                                                color="send"
-                                                aria-label={t('buttons.submit')}
-                                                sx={{ ml: 2, mr: 2 }}
-                                                onClick={() => { handleUpdateStars(blog[0]._id, value); }}
-                                            />
-                                        </Tooltip>
-                                    </Box>
-                                </Grid >
-                            </Grid>
-                        </CardActions>
-                    </Card>) : (
+                        <aside className="flex justify-end mb-1 mt-12"   >
+                            <Tooltip placement="bottom" title={value !== null && (<Box sx={{ fontSize: 18 }}>{labels[hover !== -1 ? hover : value]}</Box>)}>
+                                <Rating
+                                    name="blogs-feedback"
+                                    value={value}
+                                    getLabelText={getLabelText}
+                                    icon={<FavoriteSharpIcon className="text-primary" />}
+                                    onChange={(event, newValue) => { handleUpdateStars(blog[0]._id, newValue); }}
+                                    onChangeActive={(event, newHover) => { setHover(newHover); }}
+                                    emptyIcon={<FavoriteSharpIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+                                    sx={{ height: "100%", p: "auto", m: 'auto', ml: 4, mr: 2 }}
+                                />
+                            </Tooltip>
+                        </aside>
+                        <hr />
+                        <nav className='px-4 mt-4 mb-24 flex flex-col md:flex-row space-y-4 md:space-y-0 min-w-max' >
+                            <Link to={'/customer-care'} className='text-center max-h-10 text-lg px-6 py-1 mr-4 border border-secondary shadow-sm shadow-gray-400 bg-opacity-75 bg-secondary rounded-lg' >
+                                Our Technology
+                            </Link>
+                            <button href='#'
+                                onClick={() => handleBooking(true)}
+                                className='btn-flip font-semibold  affter:shadow-md before:shadow-lg before:shadow-gray-400 after:shadow-gray-400' data-back={t('homePage.heroSection.buttons.bookNow')} data-front={t('buttons.tryNow')} >
+                            </button>
+                        </nav>
+                    </article>) : (
                     <Card  >
                         <Skeleton variant="h1" height={'3rem'} width={'auto'} sx={{ m: 3 }} />
                         <Skeleton variant="h2" width={'60%'} sx={{ m: 5, mb: 1 }} />
@@ -314,7 +286,7 @@ export default function Article({ styles }) {
 
 
                 </Grid>
-            </Box>
+            </section>
 
         </>
     )

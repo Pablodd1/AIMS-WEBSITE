@@ -176,20 +176,10 @@ const AppUI = ({ startWhatsAppChat }) => {
           alt='plant on hand'
         />
         <h3 className='text-3xl lg:text-4xl font-sans  text-center text-white' >
-          Go Green
-          {/* {t('homePage.fifthSection.h3.0')} */}
-          <strong className="ml-1" >
-            !
-            {/* {t('homePage.fifthSection.h3.1')} */}
-          </strong>
+          {t('homePage.thirdSection.footer.h3')}
         </h3>
-
         <p className='my-4 text-sm lg:text-lg   w-4/5 md:w-3/5 lg:max-w-4xl  mx-auto' >
-          Remember why you became a doctor: heal patients, not paperwork. Our AI scribe empowers you to do just that. Learn more & reclaim your time!
-          Imagine 30% more laughter, 30% less charting. Our AI scribe writes you heal. Free yourself to practice at your best. Discover the human scribe AI-powered voice transcription:
-          SOAP notes, examinations, CPT codes, diagnosis codes, prescriptions, and even patient intake forms are completed via voice transcription.
-          Start your free trial!
-          Contact us or we contact you:
+          {t('homePage.thirdSection.footer.p2')}
         </p>
         <article className="text-sm sm:text-md w-4/5 md:w-3/5 lg:max-w-4xl  mx-auto self-start flex items-center justify-end flex-row  ">
           <button

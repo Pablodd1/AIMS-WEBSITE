@@ -13,21 +13,21 @@ export const contactIcons = [{
     icon: <SiYoutube />,
     color: "youtube",
     fcolor: "#FF0000",
-    link: "https://www.youtube.com/@AImedicalscriber"
+    link: "https://www.youtube.com/@AIscribers"
 },
 {
     title: "LindedIn",
     icon: <SiLinkedin />,
     color: "linkedin",
     fcolor: "#0A66C2",
-    link: "https://www.linkedin.com/in/ai-medical-assistance-a20595271"
+    link: "https://www.linkedin.com/company/ai-medical-scribers/"
 },
 {
     title: "Instagram",
     icon: <SiInstagram />,
     color: "instagram",
     fcolor: "#E4405F",
-    link: "https://instagram.com/jasmelacosta?igshid=ZDc4ODBmNjlmNQ=="
+    link: "https://www.instagram.com/aiscribers/"
 },
 ]
 

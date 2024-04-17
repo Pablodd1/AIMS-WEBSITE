@@ -15,9 +15,9 @@ const CustomDrawer = ({ links }) => {
         <section className=''>
             <button className=" z-30 h-full text-white" onClick={toggleDrawer}>
                 <img
-                    src={isOpen ? '/svg/menu-close.svg' : '/svg/menu-open.svg'}
+                    src={isOpen ? '/svg/menu-close.svg' : '/svg/menu.svg'}
                     className=' '
-                    height={'auto'} width={40}
+                    height={'auto'} width={25}
                     alt={isOpen ? 'menu close' : 'menu open'}
                 />
             </button>
