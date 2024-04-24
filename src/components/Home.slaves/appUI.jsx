@@ -2,6 +2,7 @@ import { motion, useInView } from 'framer-motion';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
+import VideoShowcase from '../../Common/videos';
 
 
 
@@ -165,6 +166,7 @@ const AppUI = ({ startWhatsAppChat }) => {
           )
         })}
       </ul>
+        <VideoShowcase />
 
       <footer
         style={{ backgroundImage: "url('/images/luxury-bg.jpg')" }}

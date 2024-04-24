@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import LinkToMBMB from "./leafs/linkToMBMB";
 
 
 const Feature = () => {
@@ -129,6 +130,7 @@ const Feature = () => {
         </motion.p>
 
       </article>
+        <LinkToMBMB />
     </section>
 
   );
