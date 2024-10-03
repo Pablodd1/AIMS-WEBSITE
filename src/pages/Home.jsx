@@ -8,6 +8,8 @@ import { LuTimerReset, } from 'react-icons/lu'
 import { FaOpencart } from "react-icons/fa";
 import { GiThreeLeaves } from "react-icons/gi";
 import LoadingIndicator from '../Common/loading';
+import LinkToMBMB from '../components/Home.slaves/leafs/linkToMBMB';
+import AudioPlayer from '../components/Home.slaves/audio';
 
 
 const Feature = lazy(() => import('../components/Home.slaves/features'));
@@ -113,7 +115,7 @@ export default function Home() {
         >
           <strong className='text-black  uppercase font-semibold text-sm lg:text-lg tracking-wider ' >
             {t('homePage.heroSection.h1.0')}
-          </strong>
+          </strong> 
           <br />
           {t('homePage.heroSection.h1.1')}
         </h1>
@@ -178,6 +180,7 @@ export default function Home() {
         <Query startWhatsAppChat={startWhatsAppChat} component={'ceo'} />
         <Query startWhatsAppChat={startWhatsAppChat} component={'form'} />
       </Suspense>
+      <LinkToMBMB />
     </div>
   );
 }

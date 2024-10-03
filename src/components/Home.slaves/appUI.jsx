@@ -3,6 +3,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import VideoShowcase from '../../Common/videos';
+import AudioPlayer from './audio';
 
 
 
@@ -166,7 +167,7 @@ const AppUI = ({ startWhatsAppChat }) => {
           )
         })}
       </ul>
-        <VideoShowcase />
+      <VideoShowcase />
 
       <footer
         style={{ backgroundImage: "url('/images/luxury-bg.jpg')" }}
@@ -206,7 +207,7 @@ const AppUI = ({ startWhatsAppChat }) => {
             {t('homePage.fifthSection.buttons.bookNow')}
           </button>
         </article>
-
+        <AudioPlayer audioSrc='/audio/AIMS.wav' label={t('homePage.thirdSection.footer.listenChat')} />
       </footer>
     </section>
   );

@@ -2,6 +2,7 @@ import * as React from 'react';
 import CustomDrawer from './Slaves/drawer';
 import LangSwitcherMenu from './Slaves/langSwitcherMenu';
 import { Link } from 'react-router-dom';
+import { CallMade, CallSharp } from '@mui/icons-material';
 
 export default function NavBar({ links, styles }) {
     return (
@@ -37,12 +38,15 @@ export default function NavBar({ links, styles }) {
                 <li className="pl-4">
 
                 </li>
-            </ul> 
-            <div className='flex items-center justify-end ' >
-                <LangSwitcherMenu size="small" />
-            <ul className=' flex  md:hidden'>
-                <CustomDrawer styles={styles} links={links} />
             </ul>
+            <div className='flex items-center justify-end ' >
+                <a href='tel:+1 (786) 970-8366' className='mx-3'>
+                   <CallSharp /> +1 (786) 970-8366
+                </a>
+                <LangSwitcherMenu size="small" />
+                <ul className=' flex  md:hidden'>
+                    <CustomDrawer styles={styles} links={links} />
+                </ul>
             </div>
         </nav>
 

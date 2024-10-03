@@ -5,8 +5,8 @@
       "INTELIGENCIA ARTIFICIAL",
       "Medical Scriber"
     ],
-    "p1": "En AI Medical Scriber, estamos remodelando los servicios de facturación de salud con lo último en inteligencia artificial. Diga adiós a los métodos tradicionales mientras aprovechamos la IA para la facturación médica y la codificación, asegurando precisión y eficiencia.",
-    "p2": "Experimente el futuro de la administración de la salud mientras nuestra plataforma utiliza la IA para revolucionar los procesos de codificación médica. Únase a nosotros para abrazar la innovación y simplificar la atención médica con AI Medical Scriber.",
+    "p1": "En AI Medical Scriber, priorizamos la transformación de la toma de notas médicas y los formularios de admisión de pacientes con tecnología de vanguardia. Nuestra plataforma aprovecha la avanzada inteligencia artificial de reconocimiento de voz para crear notas médicas precisas en tiempo real, liberando a los profesionales de la salud de la documentación manual.",
+    "p2": "Además, nuestras capacidades de OCR agilizan la admisión de pacientes al extraer y organizar automáticamente la información demográfica de los formularios. Este enfoque dual mejora la eficiencia, reduce los errores y permite al personal médico enfocarse más en la atención al paciente. Descubra el futuro de la administración de la salud con AI Medical Scriber, donde la innovación se encuentra con la precisión.",
     "facts": {
       "accuracy": "Precisión",
       "timeSaving": "Ahorro de Tiempo",
@@ -18,11 +18,10 @@
   },
   "secondSection": {
     "h2": [
-      "INTELIGENCIA ARTIFICIAL",
-      "Facturación y Codificación Médica"
+      "Documentación Médica Impulsada por IA",
+      "Pruébalo Gratis"
     ],
-    "p1": "La función de Facturación y Codificación Médica de Inteligencia Artificial de nuestra aplicación AI Medical Scribe revoluciona la documentación y administración de la salud. Utilizando tecnología de IA de vanguardia, nuestra plataforma transcribe sin problemas conversaciones entre médicos y pacientes con una precisión incomparable, convirtiendo el audio en texto de manera rápida y eficiente. Este servicio de transcripción no solo acelera el proceso de documentación, sino que también garantiza el cumplimiento de los estándares de codificación médica a través de algoritmos certificados de facturación y codificación médica.",
-    "p2": "Al automatizar tareas de facturación y codificación médica, los profesionales de la salud pueden asignar su tiempo de manera más efectiva, centrándose en la atención al paciente en lugar de en las cargas administrativas. Además, nuestra IA se integra perfectamente con los sistemas de farmacia y seguros, simplificando todo el flujo de trabajo de atención médica. Con nuestro enfoque impulsado por IA para la facturación y codificación médica, se minimizan los errores, se maximiza la eficiencia y la atención al paciente alcanza nuevas alturas de excelencia.",
+    "p1": " Da un paso hacia el futuro de la transcripción médica con nuestra avanzada solución de IA. Nuestra demo gratuita te brinda acceso completo a las herramientas que automatizan la documentación, garantizando velocidad y precisión. Pruébalo ahora y descubre cómo la IA puede transformar tu flujo de trabajo y mejorar la eficiencia en tu práctica.",
     "p3": "Nuestro compromiso con la innovación en la documentación y administración de la salud empodera a los profesionales médicos para brindar una atención superior mientras mejora la eficiencia operativa.",
     "ul": [
       "Documentación acelerada, sin tedio",
@@ -88,7 +87,8 @@
     },
     "footer": {
       "h3": "Ve Verde",
-      "p2": "Recuerda por qué te convertiste en doctor: sanar pacientes, no hacer papeleo. Nuestro escriba de inteligencia artificial te capacita para hacer precisamente eso. ¡Aprende más y recupera tu tiempo! Imagina un 30% más de risas, un 30% menos de registro. Nuestro escriba de inteligencia artificial escribe, tú sanas. Libérate para practicar en tu mejor forma. Descubre el escriba humano de inteligencia artificial: las notas SOAP, exámenes, códigos CPT, códigos de diagnóstico, recetas e incluso formularios de admisión de pacientes se completan mediante transcripción de voz. ¡Comienza tu prueba gratuita! Contáctanos ahora."
+      "p2": "Recuerda por qué te convertiste en doctor: sanar pacientes, no hacer papeleo. Nuestro escriba de inteligencia artificial te capacita para hacer precisamente eso. ¡Aprende más y recupera tu tiempo! Imagina un 30% más de risas, un 30% menos de registro. Nuestro escriba de inteligencia artificial escribe, tú sanas. Libérate para practicar en tu mejor forma. Descubre el escriba humano de inteligencia artificial: las notas SOAP, exámenes, códigos CPT, códigos de diagnóstico, recetas e incluso formularios de admisión de pacientes se completan mediante transcripción de voz. ¡Comienza tu prueba gratuita! Contáctanos ahora.",
+      "listenChat":"Escuchar charlar"
     }
   },
   "fourthSection": {
@@ -108,17 +108,18 @@
     ],
     "p1": "Descubre las capacidades innovadoras de AI Medical Scriber. Ya sea que estés ansioso por optimizar tu práctica o tengas preguntas, contáctanos hoy. Reserva tu demostración o consulta ahora para revolucionar la administración de tu atención médica.",
     "form": {
-      "label": "¡Formulario de Consulta!",
+      "label": "Quieres que te contactemos?",
       "fullName": "Nombre Completo",
       "email": "Correo Electrónico",
-      "country": "País",
-      "company": "Empresa",
+      "country": "Teléfono",
+      "company": "Clínica",
       "query": "Escribe tu consulta aquí."
     },
     "buttons": {
       "reset": "Reiniciar",
       "bookNow": "Reservar Ahora",
-      "submit": "Enviar"
+      "submit": "Enviar",
+      "tryNow":"Pruébalo Ahora"
     }
   }
 }

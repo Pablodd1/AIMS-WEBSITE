@@ -176,6 +176,17 @@ export default function Technology({ styles }) {
                         <VideoComponent buy={t('homePage.heroSection.buttons.bookNow')} isVisible={showVideo} src={video} onClose={() => setShowVideo(false)} onBuy={() => handleBooking(true)} />
                     </motion.div>
                 </article>
+                
+          <video
+            className={' rounded-lg bg-gray-100'}
+            controls={false}
+            controlsList="nodownload notimeline play volume fullscreen"
+            autoPlay playsInline muted loop preload="auto"
+            style={{ height: 'auto', width: "100%" }}
+            disablePictureInPicture
+          >
+            <source src={`/videos/AIMS-intro.mp4`} type={"video/mp4"} />
+          </video>
                 <ul className='max-w-7xl mx-auto px-4 md:px-0' >
                     {data.map((x, i) => (
                         <li key={i} className=' bg-cover px-2 md:px-8 my-44 mx-auto min-h-max lg:h-96 flex flex-col md:flex-row rounded-2xl'

@@ -5,8 +5,8 @@
       "ARTIFICIAL INTELLIGENCE",
       "Medical Scriber"
     ],
-    "p1": "At AI Medical Scriber, we're reshaping healthcare billing services with the latest in artificial intelligence. Say goodbye to traditional methods as we harness AI for medical billing and coding, ensuring precision and efficiency.",
-    "p2": "Experience the future of healthcare administration as our platform utilizes AI to revolutionize medical coding processes. Join us in embracing innovation and streamlining healthcare with AI Medical Scriber.",
+    "p1": "At AI Medical Scriber, we prioritize transforming medical note-taking and patient intake forms with cutting-edge technology. Our platform harnesses advanced speech-to-text AI to create accurate medical notes in real-time, freeing healthcare professionals from manual documentation.",
+    "p2": "Additionally, our OCR capabilities streamline patient intake by automatically extracting and organizing demographic information from forms. This dual approach enhances efficiency, reduces errors, and allows medical staff to focus more on patient care. Discover the future of healthcare administration with AI Medical Scriber, where innovation meets precision.",
     "facts": {
       "accuracy": "Accuracy",
       "timeSaving": "Time-Saving",
@@ -18,11 +18,10 @@
   },
   "secondSection": {
     "h2": [
-      "ARTIFICIAL INTELLIGENCE",
-      "Medical Billing and Coding"
+      "AI-Powered Medical Documentation",
+      "Try It for Free"
     ],
-    "p1": "The healthcare landscape is rapidly evolving, and those who embrace cutting-edge technology will gain a significant competitive edge. AI-powered medical scribes are the future of clinical documentation, and now is the time for forward-thinking practices to capitalize on this game-changing solution.",
-    "p2": "The market for AI medical scribes is exploding - projected to grow over 550% to $4.3 billion by 2028 across U.S. healthcare providers. Here's why physicians are rushing to implement this transformative technology:",
+    "p1": "Step into the future of medical transcription with our cutting-edge AI solution. Our free demo gives you full access to the tools that automate documentation, ensuring speed and precision. Try it now and experience how AI can transform your workflow and improve efficiency at your practice.",
     "h3": "Time Savings & Efficiency ",
     "ul": [
       "Save over 3 hours per day by automating clinical note documentation",
@@ -101,7 +100,8 @@
     },
     "footer": {
       "h3": "Go Green",
-      "p2": "Remember why you became a doctor: heal patients, not paperwork. Our AI scribe empowers you to do just that. Learn more & reclaim your time! Imagine 30% more laughter, 30% less charting. Our AI scribe writes, you heal. Free yourself to practice at your best. Discover the human scribe AI-powered voice transcription: SOAP notes, examinations, CPT codes, diagnosis codes, prescriptions, and even patient intake forms are completed via voice transcription.Start your free trial! Contact us Now."
+      "p2": "Remember why you became a doctor: heal patients, not paperwork. Our AI scribe empowers you to do just that. Learn more & reclaim your time! Imagine 30% more laughter, 30% less charting. Our AI scribe writes, you heal. Free yourself to practice at your best. Discover the human scribe AI-powered voice transcription: SOAP notes, examinations, CPT codes, diagnosis codes, prescriptions, and even patient intake forms are completed via voice transcription.Start your free trial! Contact us Now.",
+      "listenChat":"Listen Chat"
     }
   },
   "fourthSection": {
@@ -121,17 +121,18 @@
     ],
     "p1": "Discover the game-changing capabilities of AI Medical Scriber. Whether you are eager to optimize your practice or have questions, reach out today. Book your demo or inquire now to revolutionize your healthcare administration.",
     "form": {
-      "label": "Query Form",
+      "label": "Want us to contact you?",
       "fullName": "Full Name",
       "email": "Email",
-      "country": "Country",
-      "company": "Company",
+      "country": "Phone",
+      "company": "Clinic",
       "query": "Write your query here."
     },
     "buttons": {
       "reset": "Reset",
       "bookNow": "Book Now",
-      "submit": "Submit"
+      "submit": "Submit",
+      "tryNow":"Try Now"
     }
   }
 }
