@@ -140,7 +140,6 @@ const UserDashboard = () => {
                 }}
             >
                 <title>User Dashboard | AI Medical Scriber</title>
-
                 <meta name="description" content="Dashboard for clients of AI Medical Scriber " />
 
             </Helmet>

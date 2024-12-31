@@ -154,8 +154,7 @@ const CustomerCare = ({ styles }) => {
                 <title>Learning AI Medical Scriber</title>
                 <meta name="description" content="Stay informed with AI Medical Scriber's articles - Explore informative blogs and frequently asked questions. Stay updated on the latest advancements in medical AI." />
                 <meta name="keywords" content="best free medical dictation software,billing and coding for physicians,document,medical,new technology" />
-
-
+                <link rel="canonical" href="https://aimedicalscriber.com/customer-care" />
             </Helmet>
 
             <article className='max-w-3xl w-11/12 mx-auto my-24 min-h-96'>

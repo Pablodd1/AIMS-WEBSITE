@@ -73,6 +73,7 @@ export default function AboutUs({ styles }) {
                 <title>About Us | AI Medical Scriber</title>
                 <meta name="description" content="Learn about AI Medical Scriber - Our mission is to revolutionize medical documentation. Discover how our AI software empowers healthcare professionals." />
                 <meta name="keywords" content="ai services,virtual administrative assistant,document management,document controller,technical documentation,ai scribe medical,ai medical scribing" />
+                <link rel="canonical" href="https://aimedicalscriber.com/about-us" />
             </Helmet>
             <Query startWhatsAppChat={startWhatsAppChat} component={'ceo'} />
             <ul className=' mx-12 sm:mx-16 md:mx-20 lg:mx-28 xl:mx-auto lg:max-w-6xl my-16 flex-wrap flex items-center justify-start xl:justify-evenly' >

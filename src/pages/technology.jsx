@@ -150,7 +150,7 @@ export default function Technology({ styles }) {
                 <title>Technology | AI Medical Scribe</title>
                 <meta name="description" content="Discover the cutting-edge technology behind AI Medical Scriber - Harness the power of AI to transcribe and assist in medical coding, billing, and documentation." />
                 <meta name="keywords" content="medical coding practice for beginners,ai virtual scribe,virtual, medical transcriptionist,technology" />
-
+                <link rel="canonical" href="https://aimedicalscriber.com/technology" />
 
             </Helmet>
 

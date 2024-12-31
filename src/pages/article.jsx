@@ -201,6 +201,7 @@ export default function Article({ styles }) {
                 <title>{blog[0] != undefined ? `${blog[0].title} - AI Medical Scriber` : "AI Medical Scriber"}</title>
                 <meta name="description" content={blog[0] != undefined && blog[0].metaDescription} />
                 <meta name="keywords" content={blog[0] != undefined && blog[0].keywords} />
+                <link rel="canonical" href={`https://aimedicalscriber.com/customer-care/${blogId}`} />
 
             </Helmet>
 
