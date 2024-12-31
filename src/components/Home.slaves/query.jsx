@@ -215,7 +215,7 @@ export default function Query({ startWhatsAppChat, component }) {
                         <input onChange={handleInputChange} id="country" type="text" value={formData.country} name="country" maxLength={80} placeholder={t('homePage.fifthSection.form.country')} className={`  bg-transparent border-b border-teal_dark  focus:outline-none ${validationErrors.country && formData.country !== '' ? 'text-red-500 border-b-2  border-red-500' : ''}`} required />
                         <input onChange={handleInputChange} id="company" type="text" value={formData.company} name="company" maxLength={80} placeholder={t('homePage.fifthSection.form.company')} className={`  bg-transparent border-b border-teal_dark  focus:outline-none ${validationErrors.company && formData.company !== '' ? 'text-red-500 border-b-2  border-red-500' : ''}`} required />
                         <input onChange={handleInputChange} id="query" value={formData.query} name="query" maxLength={600} placeholder={t('homePage.fifthSection.form.query')} className={`col-span-full h-max bg-transparent border-b border-teal_dark  focus:outline-none ${validationErrors.query && formData.query !== '' ? 'text-red-500 border-b-2  border-red-500' : ''}`} required />
-                        <footer className="col-span-full flex flex-row items-center justify-evenly space-x-5" >
+                        <footer className="col-span-full flex flex-col md:flex-row items-center justify-evenly md:space-x-5" >
                             <button
                                 type="reset"
                                 onClick={() => [
