@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "paths": {
-      "@UTILS/*": ["./*"]
+      "@LG_Bank/*": [
+        "./dictionary/*"
+      ]
     }
   }
 }
