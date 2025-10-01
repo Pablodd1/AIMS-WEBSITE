@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import clsx from "clsx";
+import Arrow_Icon from "./Arrow_icon";
 
 // Base button classes (no arrow, no underline)
 export const secBtnClass = clsx(
@@ -23,7 +24,8 @@ export default function SecondaryButton({
     href = null,
     onClick,
     className = "",
-    withArrow = false, // toggle arrow optional
+    withArrow = false, 
+    reverse = false
 }) {
     const buttonClasses = clsx(secBtnClass, className, withArrow?'uppercase tracking-[4px] ':'');
 
@@ -34,19 +36,7 @@ export default function SecondaryButton({
 
             {/* Optional Arrow Icon */}
             {withArrow && (
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="30"
-                    height="10"
-                    viewBox="0 0 46 16"
-                    className="transform -translate-x-2 transition-transform duration-300 ease-out group-hover:translate-x-0 active:scale-90"
-                >
-                    <path
-                        d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
-                        transform="translate(30)"
-                        fill="currentColor"
-                    />
-                </svg>
+                <Arrow_Icon className={`transform transition-transform duration-300 ease-out group-hover:translate-x-0 active:scale-90 ${reverse?'rotate-180 translate-x-2 ':'-translate-x-2 '}`} />
             )}
         </>
     );

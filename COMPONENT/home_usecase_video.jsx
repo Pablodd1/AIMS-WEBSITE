@@ -19,7 +19,7 @@ const UseCase_Home = () => {
     // const isInView = useInView(ref)
 
     return (
-        <section className="text-xs md:text-sm lg:text-md font-sans bg-gradient-to-bl from-[#000080] to-[#00bfff] shadow-xl shadow-gray-400 text-white max-w-screen-full overflow-hidden pt-20 pb-20" >
+        <section className="text-xs md:text-sm lg:text-md font-sans bg-gradient-to-bl from-[#000080] to-[#00bfff]  text-white max-w-screen-full overflow-hidden pt-20 pb-20" >
             <article
                 className="max-w-6xl px-6 mt-8 mb-6 sm:mt-14 sm:mb-14 w-full  mx-auto" ref={ref}
             >
