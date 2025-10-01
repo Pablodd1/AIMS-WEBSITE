@@ -5,8 +5,8 @@ import {  SiLinkedin, SiInstagram,  SiYoutube } from "react-icons/si";
 
 
 export let linksLegal = [
-    { title: "Terms & Conditions", icon: <IoIosHome />, add: "/terms-and-conditions" },
-    { title: "Policies", icon: <FaBusinessTime />, add: "/policies" },
+    { label: "Terms & Conditions", icon: <IoIosHome />, href: "/terms-and-conditions" },
+    { label: "Policies", icon: <FaBusinessTime />, href: "/policies" },
 ]
 export const contactIcons = [{
     title: "Youtube",
@@ -55,4 +55,11 @@ export const BillingModes = [
         title: 'Trial',
         price: 'Free'
     },
+]
+export const links = [
+    { label: 'Features', href: '' },
+    { label: 'About', href: '' },
+    { label: 'Download', href: '' },
+    { label: 'Blogs', href: '' },
+    { label: 'Support', href: '' },
 ]

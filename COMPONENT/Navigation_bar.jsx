@@ -4,15 +4,9 @@ import Link from "next/link";
 import styles from './navigation_bar.module.css'
 import SecondaryButton, { bottomLineClass, secBtnClass } from "@UTILS/secondary_button";
 import clsx from "clsx";
+import { links } from "./assets/data/resources";
 const UseScrollEffect = dynamic(() => import('@MyHook/monitor_scroll'));
 
-const links = [
-    { label: 'Features', href: '' },
-    { label: 'About', href: '' },
-    { label: 'Download', href: '' },
-    { label: 'Blogs', href: '' },
-    { label: 'Support', href: '' },
-]
 
 export default function Navigation_Bar() {
     const buttonClasses = clsx(secBtnClass, " border-r-2 last:border-0 border-text/25 px-5 ");
