@@ -14,11 +14,16 @@
   --color-linkedin: #0A66C2;
 
   /* Color Pallate */
-  --color-primary: #3B82F6;   /* Healthcare blue */
-  --color-secondary: #22C55E; /* Green - vitality, healing */
-  --color-accent: #F472B6;    /* Soft pink - compassion */
-  --color-bg: #F8FAFC;        /* Light gray/white background */
-  --color-text: #1E293B;      /* Dark slate text */
+  --color-primary: #3B82F6;
+  /* Healthcare blue */
+  --color-secondary: #22C55E;
+  /* Green - vitality, healing */
+  --color-accent: #F472B6;
+  /* Soft pink - compassion */
+  --color-bg: #F8FAFC;
+  /* Light gray/white background */
+  --color-text: #1E293B;
+  /* Dark slate text */
 
 
 }
@@ -28,4 +33,22 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.my-animi {
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+    background-color 0.3s ease,
+    color 0.3s ease-in-out;
+}
+
+.my-animi-all {
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+    background-color 0.3s ease,
+    color 0.3s ease-in-out;
+}
+
+.my-animi-all>* {
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+    background-color 0.3s ease,
+    color 0.3s ease-in-out;
 }
