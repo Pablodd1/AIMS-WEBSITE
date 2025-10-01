@@ -1,13 +1,16 @@
 
 import { langHome } from "@LG_Bank/HOME/main";
+import { langSideBar } from "@LG_Bank/SIDEBAR/main";
+import FancyLinks from "@UI/fancySidebar";
 import Image from "next/image";
 
-export default async function Home({params}) {
-  console.log((await params).LANG)
+export default async function Home({ params }) {
   const dict = await langHome((await params).LANG)
+  const dict2 = await langSideBar((await params).LANG)
 
   return (
     <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
+      <FancyLinks dict={dict2} />
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
         <Image
           className="dark:invert"

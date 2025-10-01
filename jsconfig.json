@@ -3,6 +3,9 @@
     "paths": {
       "@LG_Bank/*": [
         "./dictionary/*"
+      ],
+      "@UI/*": [
+        "./COMPONENT/*"
       ]
     }
   }
