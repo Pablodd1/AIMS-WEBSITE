@@ -69,10 +69,10 @@ const SubscribeForm = () => {
     };
 
     return (
-        <section className="h-[628px] flex items-center justify-center bg-gray-50 border-y border-text/25">
+        <section className="py-55 flex items-center justify-center bg-gray-50 border-y border-text/25">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 className="text-4xl font-bold text-center text-primary">Get In Touch</h2>
-                <p className="mt-4 text-center max-w-2xl mx-auto text-gray-500">
+                <p className="my-7 text-center max-w-2xl mx-auto text-gray-500">
                     Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
                     impedit quo minus id quod maxime placeat facere possimus, omnis
                     voluptas assumenda est.
@@ -82,7 +82,7 @@ const SubscribeForm = () => {
                     <div className="mt-4 text-green-600 text-center">{successMessage}</div>
                 )}
 
-                <form onSubmit={handleSubmit} className="my-12 my-animi-all space-y-4 max-w-md mx-auto grid grid-cols-2 grid-rows-2 gap-5 items-center justify-evenly">
+                <form onSubmit={handleSubmit} className=" my-animi-all  max-w-md mx-auto grid grid-cols-2 grid-rows-2 gap-x-5 gap-y-2 items-center justify-evenly">
                     <div>
                         {/* <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                             Email address

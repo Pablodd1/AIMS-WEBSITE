@@ -45,6 +45,6 @@ export function middleware(request) {
 export const config = {
     matcher: [
         // Only apply the middleware to paths that are not static files
-        '/((?!_next/static|_next/image|svg|raster|video|public/).*)',
+        '/((?!_next/static|_next/image|svg|team|raster|video|public/).*)',
     ],
 };

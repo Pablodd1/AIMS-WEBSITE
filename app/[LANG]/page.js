@@ -1,6 +1,7 @@
 
 import { langHome } from "@LG_Bank/HOME/main";
 import { langSideBar } from "@LG_Bank/SIDEBAR/main";
+import CEO_msg from "@UI/ceo_messag";
 import FancyLinks from "@UI/fancy_sidebar";
 import Features_Home from "@UI/home_features";
 import Benefit_Home from "@UI/home_main_Benefit";
@@ -23,6 +24,7 @@ export default async function Home({ params }) {
       <Benefit_Home />
       <UseCase_Home />
       <Testimonials />
+      <CEO_msg />
       <SubscribeForm />
     </main>
   );

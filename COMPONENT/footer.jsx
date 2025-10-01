@@ -4,7 +4,7 @@ import { links, linksLegal } from "./assets/data/resources";
 export default function Footer() {
 
     return (
-        <section className="pt-14 pb-20 bg-text text-bg" >
+        <section className="pt-14 pb-5 h-[326px] bg-black text-bg flex flex-col" >
             <nav className="flex items-center justify-center" >
                 {links.map(x =>
                     <SecondaryButton
@@ -15,19 +15,22 @@ export default function Footer() {
                     />
                 )}
             </nav>
-            <p className=" text-sm text-center mt-15" >
-                © 2025 Aimedical Scriber. All rights reserved.
-            </p>
-            <nav className="flex items-center justify-center mt-5 mb-10 " >
-                {linksLegal.map(x =>
-                    <SecondaryButton
-                        label={x.label}
-                        href={x.href}
-                        key={x.label}
-                        className=" text-white/50 h-2 tracking-wide text-sm "
-                    />
-                )}
-            </nav>
+            <footer className="mt-auto  mb-5 justify-self-end py-5 " >
+
+                <p className=" text-sm text-center py-3.5" >
+                    © 2025 Aimedical Scriber. All rights reserved.
+                </p>
+                <nav className="flex items-center justify-center " >
+                    {linksLegal.map(x =>
+                        <SecondaryButton
+                            label={x.label}
+                            href={x.href}
+                            key={x.label}
+                            className=" text-white/50 h-2 tracking-wide text-sm "
+                        />
+                    )}
+                </nav>
+            </footer>
 
         </section>
     )

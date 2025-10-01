@@ -16,14 +16,14 @@ const Testimonials = () => {
         );
 
     return (
-        <section className="py-32 bg-gray-50 overflow-hidden">
+        <section className="py-65 bg-gray-50 overflow-hidden">
             {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> */}
             <h2 className="text-3xl font-bold text-center text-gray-900">
                 Testimonials
             </h2>
 
             {/* Slider wrapper */}
-            <div className="relative mt-8 flex items-center justify-center gap-6 h-[328px] ">
+            <div className="relative my-16 flex items-center justify-center gap-6 h-[328px] ">
                 {visibleTestimonials.map((testimonial, index) => {
                     const isCenter = index === 1;console.log(index,currentIndex,testimonial.name,isCenter)
                     return (
@@ -33,7 +33,7 @@ const Testimonials = () => {
                                 ${isCenter ? "scale-115 z-10 font-bold my-animi max-w-lg shadow-primary/50 " : "scale-75 max-w-sm opacity-90 shadow-gray-700 "}
                                 `}
                         >
-                            <p className={`text-lg my-animi italic ${isCenter ? ' text-primary' : 'text-gray-700'}`}>
+                            <p className={`text-lg my-animi italic py-5 ${isCenter ? ' text-primary' : 'text-gray-700'}`}>
                                 "{testimonial.quote}"
                             </p>
                             <p className="mt-4 text-gray-500 text-xs">{testimonial.name}</p>
