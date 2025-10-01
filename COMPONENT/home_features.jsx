@@ -33,11 +33,11 @@ const features = [
 
 export default function Features_Home() {
     return (
-        <section className='bg-gray-900 text-bg h-fit py-44 flex items-center justify-center' >
+        <section className='bg-gray-900 text-bg h-[928px] py-44 flex items-center justify-center' >
             <ul className="w-full  lg:w-5/6 mx-auto   max-w-md md:max-w-xl lg:max-w-7xl xl:max-w-5xl grid grid-flow-row grid-cols-3 gap-10  ">
                 {features.map((x, i) => (
                     <li
-                        className=" shadow-md shadow-text bg-text rounded-md  flex  flex-col items-center justify-start sm:justify-center py-5 sm:py-10 sm:px-3 w-auto mx-0"
+                        className=" shadow-md shadow-black/85 bg-black rounded-md  flex  flex-col items-center justify-start sm:justify-center py-5 sm:py-10 sm:px-3 w-auto mx-0"
                         key={i}
                     >
                         <div className={`flex items-center justify-center text-5xl text-secondary px-2 py-1 `}>
