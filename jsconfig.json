@@ -6,6 +6,12 @@
       ],
       "@UI/*": [
         "./COMPONENT/*"
+      ],
+      "@ASSETS/*": [
+        "./ASSETS/*"
+      ],
+      "@UTILS/*": [
+        "./UTILS/*"
       ]
     }
   }
