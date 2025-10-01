@@ -17,7 +17,7 @@ const links = [
 export default function Navigation_Bar() {
     const buttonClasses = clsx(secBtnClass, " border-r-2 last:border-0 border-text/25 px-5 ");
     return (
-        <section id="navbar" className=" sticky top-0 py-5 my-animi-all" >
+        <section id="navbar" className="z-40 sticky top-0 py-5 my-animi-all" >
             <nav className=" max-w-7xl mx-auto flex items-center justify-evenly gap-2" >
                 <figure className="flex grow gap-2 items-center justify-start" >
                     <Image
