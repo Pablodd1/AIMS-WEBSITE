@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F9FAFB;
+  --foreground: #111827;
 }
 
 @theme inline {
@@ -12,6 +12,15 @@
   --color-instagram: #E4405F;
   --color-youtube: #FF0000;
   --color-linkedin: #0A66C2;
+
+  /* Color Pallate */
+  --color-primary: #3B82F6;   /* Healthcare blue */
+  --color-secondary: #22C55E; /* Green - vitality, healing */
+  --color-accent: #F472B6;    /* Soft pink - compassion */
+  --color-bg: #F8FAFC;        /* Light gray/white background */
+  --color-text: #1E293B;      /* Dark slate text */
+
+
 }
 
 
