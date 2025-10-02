@@ -29,8 +29,8 @@ const Testimonials = () => {
                     return (
                         <div
                             key={index + currentIndex}
-                            className={`bg-white  text-center  px-4 py-10 rounded shadow-md min-w-[280px] sm:min-w-[320px] lg:min-w-[350px] 
-                                ${isCenter ? "scale-115 z-10 font-bold my-animi max-w-lg shadow-primary/50 " : "scale-75 max-w-sm opacity-90 shadow-gray-700 "}
+                            className={`text-center  px-4 py-10 rounded shadow-md min-w-[280px] sm:min-w-[320px] lg:min-w-[350px] 
+                                ${isCenter ? "scale-115 z-10 font-bold my-animi max-w-lg shadow-primary/50 bg-gray-200 " : "scale-75 max-w-sm opacity-90 shadow-gray-700 "}
                                 `}
                         >
                             <p className={`text-lg my-animi italic py-5 ${isCenter ? ' text-primary' : 'text-gray-700'}`}>
