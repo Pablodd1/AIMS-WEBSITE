@@ -58,7 +58,7 @@ export const BillingModes = [
 ]
 export const links = [
     { label: 'Features', href: '/features' },
-    { label: 'About', href: '' },
+    { label: 'About', href: '/about' },
     { label: 'Pricing', href: '' },
     { label: 'Blogs', href: '/articles' },
     { label: 'Support', href: '/customer-care' },
