@@ -179,7 +179,7 @@ const CustomerCare = ({ styles }) => {
                 </div>
                 <PremiumButton
                     label="Try AI — Automate Medical Notes"
-                    href="#"
+                    href="/Try-AI-Medical-Scribe"
                     className='my-5 w-fit'
                 />
 

@@ -56,15 +56,15 @@ export default function FancyLinks({ dict }) {
                 );
             })}
 
-            <button
-                onClick={() => handleBooking(true)}
+            <Link
+                href={'/Try-AI-Medical-Scribe'}
                 aria-label={dict.bookNow}
                 className="transform flex items-center justify-center skew-y-14 w-full h-32 bg-black text-white hover:bg-white hover:text-black cursor-pointer"
             >
                 <p className="transform -skew-y-0 min-w-32 flex items-center justify-center min-h-10 rotate-90">
                     {dict.bookNow}
                 </p>
-            </button>
+            </Link>
         </nav>
     );
 }

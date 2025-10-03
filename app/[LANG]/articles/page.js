@@ -36,7 +36,7 @@ export default async function CustomerCarePage({ params }) {
 
                 <PremiumButton
                     label="Try AI — Automate Medical Notes"
-                    href="#"
+                    href="/Try-AI-Medical-Scribe"
                     className="my-5 w-fit"
                 />
             </article>

@@ -1,10 +1,12 @@
 "use client";
+import Link from 'next/link';
 import styles from './cta_button.module.css'
 import clsx from "clsx";
 
 export default function SubscribeButton({ label = "SUBSCRIBE", className }) {
   return (
-    <button
+    <Link
+      href={'/Try-AI-Medical-Scribe'}
       className={clsx(
         styles.Btn,
         className
@@ -15,6 +17,6 @@ export default function SubscribeButton({ label = "SUBSCRIBE", className }) {
       >
         {label}
       </span>
-    </button>
+    </Link>
   );
 }

@@ -230,7 +230,7 @@ export default function ArticleUI({ ID, }) {
                         <nav className='px-4 mt-4 mb-24 flex flex-col md:flex-row gap-5 items-center min-w-max' >
                             <PremiumButton
                                 label="Try AI Medical Notes"
-                                href="#"
+                                href="/Try-AI-Medical-Scribe"
                             />
                             <SecondaryButton
                                 label="Features"
