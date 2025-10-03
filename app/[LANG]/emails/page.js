@@ -2,6 +2,8 @@
 import { render } from '@react-email/render';
 import AdminNotificationEmail from '@UI/email/subscriber_notification_admin';
 import UserSubscriptionEmail from '@UI/email/subscriber_notification_user';
+import SupportRequestEmailAdmin from '@UI/email/support_notification_admin';
+import SupportRequestEmailUser from '@UI/email/support_notification_user';
 
 const defaultValue = {
     compaign_title: 'First Test Compaign',
@@ -58,12 +60,20 @@ const defaultValue = {
 }
 const emailTemplates = [
     {
-        title: 'Payment Confirmation Preview',
+        title: 'Subscription User',
         component: <UserSubscriptionEmail userName={'Ahmed Chauhdri'} />
     },
     {
-        title: 'Status Update Preview',
+        title: 'Subcription Admin',
         component: <AdminNotificationEmail userName={'Admed Chauhdri'} email={'ahmed@example.com'} />
+    },
+    {
+        title: 'Support User',
+        component: <SupportRequestEmailUser userName={'Ahmed Chauhdri'} />
+    },
+    {
+        title: 'Support Admin',
+        component: <SupportRequestEmailAdmin userName={'Admed Chauhdri'} email={'ahmed@example.com'} />
     }
 ];
 
