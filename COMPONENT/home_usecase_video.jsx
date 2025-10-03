@@ -24,11 +24,6 @@ const UseCase_Home = () => {
                 className="max-w-6xl px-6 mt-8 mb-6 sm:mt-14 sm:mb-14 w-full  mx-auto" ref={ref}
             >
                 <h2
-                    // animate={isInView ?
-                    //     { opacity: 1, x: 0 } :
-                    //     { opacity: 0, x: 150 }
-                    // }
-                    // transition={{ duration: 1 }}
                     className="mb-4 w-full text-3xl lg:text-4xl xl:text-5xl font-sans font-bold max-w-md md:max-w-xl lg:max-w-4xl xl:max-w-5xl">
                     <strong className="uppercase text-secondary bg-black rounded-lg px-2.5 py-0.5 my-1 font-bold text-xs lg:text-sm tracking-wider">
                         {data.subtitle}

@@ -46,7 +46,7 @@ const SubscribeForm = () => {
         setIsSubmitting(true);
 
         try {
-            const response = await fetch("/server/subscribe", {
+            const response = await fetch("/server-API/subscribe", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -84,9 +84,6 @@ const SubscribeForm = () => {
 
                 <form onSubmit={handleSubmit} className=" my-animi-all  max-w-md mx-auto grid grid-cols-2 grid-rows-2 gap-x-5 gap-y-2 items-center justify-evenly">
                     <div>
-                        {/* <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                            Email address
-                        </label> */}
                         <input
                             type="email"
                             id="email"
@@ -101,9 +98,6 @@ const SubscribeForm = () => {
                     </div>
 
                     <div>
-                        {/* <label htmlFor="fullName" className="block text-sm font-medium text-gray-700">
-                            Full name
-                        </label> */}
                         <input
                             type="text"
                             id="fullName"
@@ -117,13 +111,13 @@ const SubscribeForm = () => {
                         {error.fullName && <p className="text-sm text-red-500 mt-1">{error.fullName}</p>}
                     </div>
 
-                        <button
-                            type="submit"
-                            disabled={isSubmitting}
-                            className=" col-span-full px-6 py-2 bg-primary hover:bg-secondary text-white hover:text-black rounded-md shadow-md  transition duration-300"
-                        >
-                            {isSubmitting ? "Subscribing..." : "Subscribe"}
-                        </button>
+                    <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className=" col-span-full px-6 py-2 bg-primary hover:bg-secondary text-white hover:text-black rounded-md shadow-md  transition duration-300"
+                    >
+                        {isSubmitting ? "Subscribing..." : "Subscribe"}
+                    </button>
                 </form>
             </div>
         </section>

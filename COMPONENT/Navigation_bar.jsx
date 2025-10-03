@@ -5,6 +5,7 @@ import styles from './navigation_bar.module.css'
 import SecondaryButton, { bottomLineClass, secBtnClass } from "@UTILS/secondary_button";
 import clsx from "clsx";
 import { links } from "./assets/data/resources";
+import CtaButton from "@UTILS/cta_button";
 const UseScrollEffect = dynamic(() => import('@MyHook/monitor_scroll'));
 
 
@@ -13,7 +14,7 @@ export default function Navigation_Bar() {
     return (
         <section id="navbar" className="z-40 sticky top-0 py-5 my-animi-all" >
             <nav className=" max-w-7xl mx-auto flex items-center justify-evenly gap-2" >
-                <figure className="flex grow gap-2 items-center justify-start" >
+                <Link href={'/'} className="flex grow gap-2 items-center justify-start" >
                     <Image
                         src={`/svg/image.svg`}
                         alt='AI Medical Scriber Logo'
@@ -24,7 +25,7 @@ export default function Navigation_Bar() {
                     <figcaption className="" >
                         AI Medical Scribe
                     </figcaption>
-                </figure>
+                </Link>
                 {links.map(x =>
                     <SecondaryButton
                         label={x.label}
@@ -33,6 +34,10 @@ export default function Navigation_Bar() {
                         className=" border-r-2 last:border-0 border-current/45 px-3 h-5 tracking-wide "
                     />
                 )}
+                <CtaButton
+                    label={'Get Started'}
+                    className={'mx-2 text-md tracking-wider'}
+                />
             </nav>
             <UseScrollEffect Id="navbar" className={styles.scroll_nav_bar} threshold={10} />
         </section>

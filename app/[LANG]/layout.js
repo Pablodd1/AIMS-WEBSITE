@@ -2,6 +2,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navigation_Bar from "@UI/Navigation_bar";
 import Footer from "@UI/footer";
+import { langSideBar } from "@LG_Bank/SIDEBAR/main";
+import FancyLinks from "@UI/fancy_sidebar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,6 +21,7 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children, params }) {
+  const dict2 = await langSideBar((await params).LANG)
 
   return (
     <html lang={(await params).LANG}>
@@ -27,6 +30,7 @@ export default async function RootLayout({ children, params }) {
       >
         <Navigation_Bar />
         {children}
+        <FancyLinks dict={dict2} />
         <Footer />
       </body>
     </html>
