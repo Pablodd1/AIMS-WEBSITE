@@ -1,7 +1,7 @@
 import { langFAQs } from "@LG_Bank/FAQS/main";
 import BlogsList from "@UI/blog_listing";
 import FaqsClient from "@UI/support_faq";
-import SearchClient from "@UI/support_search";
+import SearchClient from "@UI/blog_search";
 import PremiumButton from "@UTILS/premium_button";
 
 // 👇 This runs on the server side

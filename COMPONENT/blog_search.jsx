@@ -28,7 +28,7 @@ export default function SearchClient() {
         const searchParams = new URLSearchParams(window.location.search);
         searchParams.delete('q');  // Remove the 'q' parameter
 
-        router.push(`${router.pathname}?${searchParams.toString()}`);
+        router.push(`${pathname}?${searchParams.toString()}`);
     };
 
     return (

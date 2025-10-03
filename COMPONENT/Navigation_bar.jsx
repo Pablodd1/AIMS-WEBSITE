@@ -16,9 +16,9 @@ export default function Navigation_Bar() {
             <nav className=" max-w-7xl mx-auto flex items-center justify-evenly gap-2" >
                 <Link href={'/'} className="flex grow gap-2 items-center justify-start" >
                     <Image
-                        src={`/svg/image.svg`}
+                        src={`/logo.png`}
                         alt='AI Medical Scriber Logo'
-                        className=''
+                        className=' rounded-lg'
                         height={40}
                         width={40}
                     />
