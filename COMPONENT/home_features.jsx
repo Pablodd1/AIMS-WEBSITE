@@ -33,8 +33,8 @@ const features = [
 
 export default function Features_Home() {
     return (
-        <section className='bg-gray-900 text-bg h-[928px] py-44 flex items-center justify-center' >
-            <ul className="w-full  lg:w-5/6 mx-auto   max-w-md md:max-w-xl lg:max-w-7xl xl:max-w-5xl grid grid-flow-row grid-cols-3 gap-10  ">
+        <section className='bg-gray-900 text-bg min-h-[928px] py-24 md:py-44 flex items-center justify-center' >
+            <ul className="w-5/6 mx-auto   max-w-md md:max-w-xl lg:max-w-7xl xl:max-w-5xl grid grid-flow-row grid-rows-3 lg:grid-rows-1 lg:grid-cols-3 gap-10  ">
                 {features.map((x, i) => (
                     <li
                         className=" shadow-md shadow-black/85 bg-black rounded-md  flex  flex-col items-center justify-start sm:justify-center py-5 sm:py-10 sm:px-3 w-auto mx-0"
