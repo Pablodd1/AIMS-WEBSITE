@@ -10,10 +10,12 @@ const UseScrollEffect = dynamic(() => import('@MyHook/monitor_scroll'));
 
 
 export default function Navigation_Bar() {
-    const buttonClasses = clsx(secBtnClass, " border-r-2 last:border-0 border-text/25 px-5 ");
+    const btnClass = clsx(styles["icon--menu-toggle"], 'flex lg:hidden my-animi-all')
+    const navClass = clsx(styles["main-navigation"], 'flex lg:hidden my-animi-all')
+    const menuClass = clsx(styles["main-navigation-toggle"],'  ')
     return (
         <section id="navbar" className="z-40 sticky top-0 py-5 my-animi-all" >
-            <nav className=" max-w-7xl mx-auto flex items-center justify-evenly gap-2" >
+            <nav className=" px-5 max-w-7xl mx-auto flex items-center justify-evenly gap-2" >
                 <Link href={'/'} className="flex grow gap-2 items-center justify-start" >
                     <Image
                         src={`/logo.png`}
@@ -31,14 +33,44 @@ export default function Navigation_Bar() {
                         label={x.label}
                         href={x.href}
                         key={x.label}
-                        className=" border-r-2 last:border-0 border-current/45 px-3 h-5 tracking-wide "
+                        className=" hidden lg:inline-flex border-r-2 last:border-0 border-current/45 px-3 h-5 tracking-wide "
                     />
                 )}
                 <CtaButton
                     label={'Get Started'}
-                    className={'mx-2 text-md tracking-wider'}
+                    className={' hidden lg:block mx-1 md:mx-2 text-sm lg:text-md tracking-wider h-8 md:h-9 w-26 md:w-36'}
                 />
+                <input id="page-nav-toggle" className={menuClass} type="checkbox" />
+                <label for="page-nav-toggle">
+                    <svg className={btnClass} viewBox="0 0 60 30">
+                        <g className={styles["icon-group"]}>
+                            <g className={styles["icon--menu"]}>
+                                <path d="M 6 0 L 54 0" />
+                                <path d="M 6 15 L 54 15" />
+                                <path d="M 6 30 L 54 30" />
+                            </g>
+                            <g className={styles["icon--close"]}>
+                                <path d="M 15 0 L 45 30" />
+                                <path d="M 15 30 L 45 0" />
+                            </g>
+                        </g>
+                    </svg>
+                </label>
+                <nav className={navClass}>
+                    <ul className="flex flex-col gap-1.5 w-4/5 mx-auto">
+                        {links.map(x =>
+                            <SecondaryButton
+                                label={x.label}
+                                href={x.href}
+                                key={x.label}
+                                className=" text-xl border-b-2 last:border-0 border-current/45 py-2 px-3.5  tracking-wide "
+                            />
+                        )}
+                    </ul>
+                </nav>
             </nav>
+
+
             <UseScrollEffect Id="navbar" className={styles.scroll_nav_bar} threshold={10} />
         </section>
     )
