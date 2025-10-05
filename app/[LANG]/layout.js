@@ -30,7 +30,7 @@ export default async function RootLayout({ children, params }) {
       >
         <Navigation_Bar lang={lang} />
         {children}
-        <FancyLinks dict={await langSideBar(lang)} />
+        <FancyLinks dict={await langSideBar(lang)} lang={lang} />
         <Footer lang={lang} />
       </body>
     </html>

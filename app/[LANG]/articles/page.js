@@ -3,6 +3,8 @@ import BlogsList from "@UI/blog_listing";
 import FaqsClient from "@UI/support_faq";
 import SearchClient from "@UI/blog_search";
 import PremiumButton from "@UTILS/premium_button";
+import { Suspense } from "react";
+import { langArticle } from "@LG_Bank/ARTICLE/main";
 
 // 👇 This runs on the server side
 async function getBlogs(lang = "es") {
@@ -14,8 +16,8 @@ async function getBlogs(lang = "es") {
 }
 
 export default async function CustomerCarePage({ params }) {
-    const faqs = await langFAQs((await params).LANG)
-    const blogs = await getBlogs((await params).LANG);
+    const lang = (await params).LANG
+    const dict = await langArticle(lang);
 
     return (
         <main className="relative">
@@ -25,25 +27,27 @@ export default async function CustomerCarePage({ params }) {
             <article className="max-w-sm md:max-w-2xl lg:max-w-3xl xl:max-w-5xl mx-auto my-18">
                 <h1 className="my-5 w-full text-xl lg:text-3xl font-sans font-bold max-w-44 lg:max-w-65">
                     <strong className="uppercase text-primary rounded-lg my-1 font-bold text-xs lg:text-sm tracking-wider">
-                        NEED HELP?
+                        {dict.subtitle}
                     </strong>
                     <br />
-                    Find Articles
+                    {dict.h1}
                 </h1>
 
                 {/* Search (CSR) */}
                 <SearchClient />
 
                 <PremiumButton
-                    label="Try AI — Automate Medical Notes"
-                    href="/get-started"
+                    label={dict.btn}
+                    href={`/${lang}/get-started`}
                     className="my-5 w-fit"
                 />
             </article>
 
             {/* Blogs (CSR for interactivity like filtering) */}
             <section className="max-w-sm md:max-w-2xl lg:max-w-3xl xl:max-w-5xl mx-auto my-20">
-                <BlogsList titles={blogs} limit={5} />
+                <Suspense >
+                    <BlogsList dict={dict} titles={await getBlogs(lang)} limit={5} lang={lang} />
+                </Suspense>
             </section>
         </main>
     );

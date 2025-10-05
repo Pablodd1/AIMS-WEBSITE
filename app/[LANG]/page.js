@@ -22,7 +22,7 @@ export default async function Home({ params }) {
       <Testimonials />
       <CEO_msg lang={lang} />
       <Suspense fallback={<RiLoader2Line className="mx-auto my-animi  animate-spin" />} >
-        <SubscribeForm dict={await langHome(lang, 'newsletter')} />
+        <SubscribeForm dict={await langHome(lang, 'newsletter')} lang={lang} />
       </Suspense>
 
     </main>

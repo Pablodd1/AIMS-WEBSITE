@@ -18,7 +18,7 @@ export default async function Navigation_Bar({ lang = 'en' }) {
     return (
         <section id="navbar" className="z-40 sticky top-0 py-5 my-animi-all" >
             <nav className=" px-5 max-w-7xl mx-auto flex items-center justify-evenly gap-2" >
-                <Link href={'/'} className="flex grow gap-2 items-center justify-start" >
+                <Link href={`/${lang}`} className="flex grow gap-2 items-center justify-start" >
                     <Image
                         src={`/logo.png`}
                         alt='AI Medical Scriber Logo'
@@ -33,7 +33,7 @@ export default async function Navigation_Bar({ lang = 'en' }) {
                 {links.map(x =>
                     <SecondaryButton
                         label={dict[x.label]}
-                        href={x.href}
+                        href={`/${lang}${x.href}`}
                         key={x.label}
                         className=" hidden lg:inline-flex border-r-2 last:border-0 border-current/45 px-3 h-5 tracking-wide "
                     />
@@ -63,7 +63,7 @@ export default async function Navigation_Bar({ lang = 'en' }) {
                         {links.map(x =>
                             <SecondaryButton
                                 label={x.label}
-                                href={x.href}
+                                href={`/${lang}${x.href}`}
                                 key={x.label}
                                 className=" text-xl border-b-2 last:border-0 border-current/45 py-2 px-3.5  tracking-wide "
                             />

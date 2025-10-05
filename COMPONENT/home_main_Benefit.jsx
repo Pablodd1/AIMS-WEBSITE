@@ -28,11 +28,11 @@ export default async function Benefit_Home({ lang }) {
                 <footer className="my-12 flex flex-col lg:flex-row items-start  lg:items-center justify-start gap-5 " >
                     <PremiumButton
                         label={dict.btn1}
-                        href="/get-started"
+                        href={`/${lang}/get-started`}
                     />
                     <SecondaryButton
                         label={dict.btn2}
-                        href={'/features'}
+                        href={`/${lang}/features`}
                         withArrow
                         className="border-none font-semibold text-sm "
                     />

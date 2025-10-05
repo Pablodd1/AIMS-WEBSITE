@@ -3,11 +3,11 @@ import Link from 'next/link';
 import styles from './cta_button.module.css';
 import clsx from "clsx";
 
-export default function SubscribeButton({ label = "SUBSCRIBE", className }) {
+export default function SubscribeButton({ lang, label = "SUBSCRIBE", className }) {
   return (
     <Link
-      href={'/get-started'}
-      style={{ '--button-text':  `'${label}'` }} 
+      href={`/${lang}/get-started`}
+      style={{ '--button-text': `'${label}'` }}
       className={clsx(
         styles.Btn,
         className,

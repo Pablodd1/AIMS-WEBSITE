@@ -4,7 +4,7 @@ import SecondaryButton from "@UTILS/secondary_button";
 import { FcExpand } from 'react-icons/fc';
 const faqs = 30;
 
-export default function FaqsClient({ subtitle, title, Faqs }) {
+export default function FaqsClient({ subtitle, lang, title, Faqs }) {
     // const [FAQs, setFAQs] = useState([FAQs]);
     const [expanded, setExpanded] = useState(null);
     const [loadedQuestions, setLoadedQuestions] = useState(7);
@@ -49,7 +49,7 @@ export default function FaqsClient({ subtitle, title, Faqs }) {
 
             {loadedQuestions < faqs && (
                 <SecondaryButton
-                    label="Load More"
+                    label={lang == 'en' ? "Load More" : "Cargar Más"}
                     onClick={() =>
                         setLoadedQuestions((prev) =>
                             prev + 3 >= faqs ? faqs : prev + 3

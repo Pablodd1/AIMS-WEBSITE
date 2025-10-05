@@ -3,7 +3,7 @@ import React, {  useRef, useState } from 'react';
 import { contactIcons } from "./assets/data/resources";
 import Link from 'next/link';
 
-export default function FancyLinks({ dict }) {
+export default function FancyLinks({ dict, lang }) {
     // Create a state to track hover state for each icon
     const [hoveredIndex, setHoveredIndex] = useState(null);
 
@@ -57,7 +57,7 @@ export default function FancyLinks({ dict }) {
             })}
 
             <Link
-                href={'/get-started'}
+                href={`/${lang}/get-started`}
                 aria-label={dict.bookNow}
                 className="transform flex items-center justify-center skew-y-14 w-full h-32 bg-black text-white hover:bg-white hover:text-black cursor-pointer"
             >

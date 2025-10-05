@@ -43,7 +43,7 @@ const RenderQuestions = ({ loadedQuestions, setExpanded, expanded }) => {
 };
 
 
-const CustomerCare = ({ styles }) => {
+const CustomerCare = ({ lang }) => {
     const [expanded, setExpanded] = useState(false);
     const [filteredTitles, setFilteredTitles] = useState([]);
     const [filteredFAQs, setFilteredFAQs] = useState(null);
@@ -179,7 +179,7 @@ const CustomerCare = ({ styles }) => {
                 </div>
                 <PremiumButton
                     label="Try AI — Automate Medical Notes"
-                    href="/get-started"
+                    href={`/${lang}/get-started`}
                     className='my-5 w-fit'
                 />
 

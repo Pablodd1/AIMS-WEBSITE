@@ -16,7 +16,7 @@ export default async function CustomerCarePage({ params }) {
             <SupportForm dict={rest} />
             <section className="max-w-sm md:max-w-2xl lg:max-w-3xl xl:max-w-5xl mx-auto my-20">
                 <Suspense >
-                    <FaqsClient title={head_faq} subtitle={subtitle} Faqs={await langFAQs(lang)} />
+                    <FaqsClient title={head_faq} lang={lang} subtitle={subtitle} Faqs={await langFAQs(lang)} />
                 </Suspense>
             </section>
         </main>

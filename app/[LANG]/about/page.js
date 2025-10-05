@@ -90,7 +90,7 @@ export default async function AboutUs({ params }) {
                     <br />
                     <PremiumButton
                         label={mv.btn}
-                        href="/get-started"
+                        href={`/${lang}/get-started`}
                         className="w-fit"
                     />
                 </article>
@@ -114,7 +114,7 @@ export default async function AboutUs({ params }) {
                                     {x.msg}
                                 </p>
                                 <SecondaryButton
-                                    label={x.contact}
+                                    label={`${x.contact}`}
                                     href={x.action}
                                     withArrow
                                     className="border-none font-semibold text-sm "

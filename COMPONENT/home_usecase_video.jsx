@@ -25,7 +25,7 @@ const UseCase_Home = async ({ lang }) => {
                 )}
                 <SecondaryButton
                     label={dict.btn2}
-                    href={''}
+                    href={`/${lang}/features`}
                     withArrow
                     className="border-none font-semibold text-sm "
                 />
@@ -43,7 +43,7 @@ const UseCase_Home = async ({ lang }) => {
                 </section>
                 <PremiumButton
                     label={dict.btn1}
-                    href="/get-started"
+                    href={`/${lang}/get-started`}
                     className="w-fit"
                 />
                 <p

@@ -10,8 +10,8 @@ export default async function Footer({ lang }) {
             <nav className="flex items-center flex-wrap max-w-2/3 mx-auto justify-center gap-y-3 " >
                 {links.map(x =>
                     <SecondaryButton
-                        label={dict[x.label]}
-                        href={x.href}
+                        label={`${dict[x.label]}`}
+                        href={`/${lang}${x.href}`}
                         key={x.label}
                         className=" border-r-2 last:border-0 border-current/45 px-3 h-5 tracking-wide "
                     />

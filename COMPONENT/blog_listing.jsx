@@ -5,7 +5,7 @@ import Image from 'next/image';
 import SecondaryButton from '@UTILS/secondary_button';
 import { useSearchParams } from 'next/navigation';
 
-export default function BlogsList({ limit, titles, empty }) {
+export default function BlogsList({ dict, lang = 'en', limit, titles, empty }) {
     const query = useSearchParams().get('q') || '';  // Get search query from URL, default to an empty string
     const [currentLimit, setCurrentLimit] = useState(limit);
 
@@ -30,10 +30,10 @@ export default function BlogsList({ limit, titles, empty }) {
         <>
             <h2 className="w-full text-xl lg:text-3xl font-sans font-normal text-primary border-b-2 border-gray-300 py-2.5 mt-15 mb-2">
                 <strong className="uppercase text-secondary bg-bg rounded-lg px-1.5 font-medium py-0.5 my-2.5 text-xs lg:text-sm tracking-wider">
-                    FROM THE BLOG
+                    {dict.list_subtitle}
                 </strong>
                 <br />
-                Learn More About AI in Healthcare
+                {dict.list_h}
             </h2>
 
             <span className="mb-15">
@@ -48,7 +48,7 @@ export default function BlogsList({ limit, titles, empty }) {
                     searchedCount > 0
                         ? filteredTitles.slice(0, currentLimit).map((x, i) => (
                             <li className="rounded-xl overflow-hidden relative" key={i}>
-                                <Link href={`/customer-care/${x._id.$oid}`} rel="follow index">
+                                <Link href={`/${lang}/customer-care/${x._id.$oid}`} rel="follow index">
                                     <Image
                                         src={`/images/blogs/thumbnails/${encodeURI(x.icon)}.avif`}
                                         className="self-center h-auto w-full flex-grow saturate-200"
@@ -75,7 +75,7 @@ export default function BlogsList({ limit, titles, empty }) {
 
             {currentLimit < filteredTitles.length && (
                 <SecondaryButton
-                    label="Load More"
+                    label={lang == 'en' ? "Load More" : "Cargar Más"}
                     onClick={() => handleLoadMore(filteredTitles.length, 3)}
                     withArrow
                     className="col-span-full font-semibold text-sm"

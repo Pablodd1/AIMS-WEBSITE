@@ -16,7 +16,7 @@ import PremiumButton from "@UTILS/premium_button";
 import SecondaryButton from "@UTILS/secondary_button";
 import Image from "next/image";
 
-export default function ArticleUI({ ID, }) {
+export default function ArticleUI({ ID, lang, dict }) {
     const [titles, setTitles] = React.useState([]);
     const [hover, setHover] = React.useState(-1);
     const [value, setValue] = React.useState(4);
@@ -230,27 +230,17 @@ export default function ArticleUI({ ID, }) {
                         <nav className='px-4 mt-4 mb-24 flex flex-col md:flex-row gap-5 items-center min-w-max' >
                             <PremiumButton
                                 label="Try AI Medical Notes"
-                                href="/get-started"
+                                href={`/${lang}/get-started`}
                             />
                             <SecondaryButton
                                 label="Features"
-                                href={'/features'}
+                                href={`/${lang}/features`}
                                 withArrow
                                 className=" font-semibold text-sm "
                             />
                         </nav>
                     </article>) : (
-                    `  <Card  >
-                        <Skeleton variant="h1" height={'3rem'} width={'auto'} sx={{ m: 3 }} />
-                        <Skeleton variant="h2" width={'60%'} sx={{ m: 5, mb: 1 }} />
-                        <Skeleton variant="rounded" height={'10rem'} width={'auto'} sx={{ m: 5, mt: 1 }} />
-                        <Skeleton variant="h2" width={'60%'} sx={{ m: 5, mb: 1 }} />
-                        <Skeleton variant="rounded" height={'10rem'} width={'auto'} sx={{ m: 5, mt: 1 }} />
-                        <Skeleton variant="h2" width={'60%'} sx={{ m: 5, mb: 1 }} />
-                        <Skeleton variant="rounded" height={'10rem'} width={'auto'} sx={{ m: 5, mt: 1 }} />
-                        <Skeleton variant="rectangular" height="15rem" width='auto' sx={{ m: 5 }} />
-                        <Skeleton variant="rectangular" height='3rem' width={'auto'} sx={{ m: 5 }} />
-                    </Card>`
+                    `  Loading...`
                 )
 
                 }
@@ -264,7 +254,7 @@ export default function ArticleUI({ ID, }) {
                     alignItems='flex-start'
                 > */}
 
-                <BlogsList titles={titles} limit={3} search={true} />
+                <BlogsList titles={titles} limit={3} search={true} lang={lang} dict={dict} />
                 {/* </Grid> */}
             </section>
 
