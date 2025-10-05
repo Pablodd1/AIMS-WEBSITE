@@ -5,7 +5,7 @@ export default function Footer() {
 
     return (
         <section className="pt-14 pb-5 h-[326px] bg-black text-bg flex flex-col" >
-            <nav className="flex items-center justify-center" >
+            <nav className="flex items-center flex-wrap max-w-2/3 mx-auto justify-center gap-y-3 " >
                 {links.map(x =>
                     <SecondaryButton
                         label={x.label}
