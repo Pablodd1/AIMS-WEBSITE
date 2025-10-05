@@ -110,7 +110,7 @@ export default function AboutUs({ styles }) {
                     <br />
                     <PremiumButton
                         label="Try AI Now — It's Free"
-                        href="/Try-AI-Medical-Scribe"
+                        href="/get-started"
                         className="w-fit"
                     />
                 </article>

@@ -20,7 +20,7 @@ export default function Benefit_Home() {
                 <footer className="my-12 flex items-center justify-start gap-5 " >
                     <PremiumButton
                         label="Try Now — It's Free"
-                        href="/Try-AI-Medical-Scribe"
+                        href="/get-started"
                     />
                     <SecondaryButton
                         label="Learn More"

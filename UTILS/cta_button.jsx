@@ -6,7 +6,7 @@ import clsx from "clsx";
 export default function SubscribeButton({ label = "SUBSCRIBE", className }) {
   return (
     <Link
-      href={'/Try-AI-Medical-Scribe'}
+      href={'/get-started'}
       className={clsx(
         styles.Btn,
         className

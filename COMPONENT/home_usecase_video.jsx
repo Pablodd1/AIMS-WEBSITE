@@ -60,7 +60,7 @@ const UseCase_Home = () => {
                 </section>
                 <PremiumButton
                     label="Try Now — It's Free"
-                    href="/Try-AI-Medical-Scribe"
+                    href="/get-started"
                     className="w-fit"
                 />
                 <p

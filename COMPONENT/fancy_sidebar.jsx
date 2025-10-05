@@ -57,7 +57,7 @@ export default function FancyLinks({ dict }) {
             })}
 
             <Link
-                href={'/Try-AI-Medical-Scribe'}
+                href={'/get-started'}
                 aria-label={dict.bookNow}
                 className="transform flex items-center justify-center skew-y-14 w-full h-32 bg-black text-white hover:bg-white hover:text-black cursor-pointer"
             >

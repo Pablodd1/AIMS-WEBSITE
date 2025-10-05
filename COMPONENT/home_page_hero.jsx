@@ -17,7 +17,7 @@ export default function Hero_Home() {
                 <footer className="my-12 flex items-center justify-start gap-5 " >
                     <PremiumButton
                         label="Try Now — It's Free"
-                        href="/Try-AI-Medical-Scribe"
+                        href="/get-started"
                     />
                     <SecondaryButton
                         label="Learn More"
@@ -27,7 +27,7 @@ export default function Hero_Home() {
                     />
                 </footer>
             </article>
-            <figure className="w-full h-4/5 mt-auto mb-0 lg:w-1/2 relative">
+            <figure className="-full h-4/5 mt-auto mb-0 lg:w-1/2 relative">
                 <video
                     className="w-full h-full z-0 object-contain object-bottom lg:object-bottom-right"  // Use object-cover for the video to fill the area
                     autoPlay
