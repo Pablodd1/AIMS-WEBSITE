@@ -1,19 +1,18 @@
-'use client'
+'use client';
 import React, { useState, useEffect } from 'react';
 import { IoIosSend } from 'react-icons/io';
 import { BsFillCloudUploadFill } from 'react-icons/bs';
 import { FaTimes } from 'react-icons/fa';
-import PhoneNumberInput from './phone-input'; // Assuming you have this component
+import PhoneNumberInput from './phone-input';
+import clsx from 'clsx';
+import { adsOptions } from '@UI/assets/data/resources';
+import AI_Icon from '@UTILS/AI_icon';
 
 const OrganizationForm = ({ langDict }) => {
     const [sending, setSending] = useState(false);
-    const [emailCheck, setEmailCheck] = useState(false);
+    const [emailError, setEmailError] = useState(false);
     const [policyAccepted, setPolicyAccepted] = useState(false);
-    const [isValid, setIsValid] = useState(false);
-    const [alertMsg, setAlertMsg] = useState(false);
-    const [message, setMessage] = useState('');
-    const [signal, setSignal] = useState('');
-    const [adsOptions, setAdsOptions] = useState([]);
+    const [alert, setAlert] = useState({ show: false, type: '', msg: '' });
 
     const [user, setUser] = useState({
         firstName: '',
@@ -25,188 +24,222 @@ const OrganizationForm = ({ langDict }) => {
         HaveMS: '',
         ExperiancedUser: '',
         billing: 'trial',
-        referal: ''
+        referal: '',
     });
 
-    useEffect(() => {
-        // Fetch the ads options on component mount
-        fetch(`${process.env.BASE_URL}/ads-options`)
-            .then((response) => response.json())
-            .then((data) => {
-                setAdsOptions(data);  // Assuming data is an array of ads options
-            })
-            .catch((error) => console.error('Error fetching ads options:', error));
-    }, []);
+    const handleUpdate = (name, value) => setUser((prev) => ({ ...prev, [name]: value }));
 
-    const handleUpdate = (name, value) => {
-        setUser({ ...user, [name]: value });
+    const requiredFields = ['firstName', 'lastName', 'email', 'organization', 'phoneNumber'];
+    const isValid =
+        requiredFields.every((f) => user[f].trim() !== '') &&
+        !emailError &&
+        policyAccepted &&
+        !sending;
+
+    const validateEmail = (val) => {
+        const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+        setEmailError(!regex.test(val));
     };
 
-    const validateForm = () => {
-        const requiredFields = ['firstName', 'lastName', 'email', 'organization', 'phoneNumber'];
-        const isFormValid = requiredFields.every((field) => user[field].trim() !== '');
-        setIsValid(policyAccepted && isFormValid);
+    const resetForm = () => {
+        setUser({
+            firstName: '',
+            lastName: '',
+            email: '',
+            organization: '',
+            phoneNumber: '',
+            subscription: false,
+            HaveMS: '',
+            ExperiancedUser: '',
+            billing: 'trial',
+            referal: '',
+        });
+        setPolicyAccepted(false);
     };
 
-    useEffect(() => {
-        validateForm();
-    }, [user, policyAccepted]);
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!isValid) return;
+
         setSending(true);
-
-        const { firstName, lastName, email, organization, phoneNumber, subscription, HaveMS, ExperiancedUser, billing, referal } = user;
-
-        if (isValid) {
-            // POST request to submit form data
-            fetch(`${process.env.BASE_URL}/users/createuser`, {
+        try {
+            const res = await fetch(`${process.env.BASE_URL}/users/create-request`, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    firstName,
-                    lastName,
-                    email,
-                    organization,
-                    phoneNumber,
-                    subscription,
-                    billing,
-                    HaveMS,
-                    ExperiancedUser,
-                    referal,
-                }),
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    setSignal(data.status === 'success' ? 'success' : 'error');
-                    setAlertMsg(true);
-                    setMessage(data.message);
-                    setSending(false);
-                })
-                .catch((error) => {
-                    setSignal('error');
-                    setAlertMsg(true);
-                    setMessage('Something went wrong!');
-                    setSending(false);
-                });
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(user),
+            });
+            const data = await res.json();
+            setAlert({
+                show: true,
+                type: data.status === 'success' ? 'success' : 'error',
+                msg: data.message || 'Request processed.',
+            });
+            if (data.status === 'success') resetForm();
+        } catch (err) {
+            setAlert({ show: true, type: 'error', msg: 'Something went wrong. Please try again.' });
+        } finally {
+            setSending(false);
+            setTimeout(() => setAlert({ show: false, type: '', msg: '' }), 4000);
         }
     };
 
+    const inputClass = (hasError) =>
+        clsx(
+            'p-3 w-full border-b-2 outline-none  duration-300',
+            hasError
+                ? 'border-red-500 focus:border-red-500'
+                : 'border-gray-300 focus:border-primary'
+        );
+
     return (
-        <div className="form-container max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg">
-            <h1 className="text-center text-2xl font-bold text-primary">{'connect'}</h1>
-            <form onSubmit={handleSubmit} className="space-y-6 mt-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <input
-                        type="text"
-                        name="firstName"
-                        value={user.firstName}
-                        onChange={(e) => handleUpdate(e.target.name, e.target.value)}
-                        placeholder={'firstName'}
-                        required
-                        className="input-field"
-                    />
-                    <input
-                        type="text"
-                        name="lastName"
-                        value={user.lastName}
-                        onChange={(e) => handleUpdate(e.target.name, e.target.value)}
-                        placeholder={'lastName'}
-                        required
-                        className="input-field"
-                    />
-                </div>
-                <input
-                    type="email"
-                    name="email"
-                    value={user.email}
-                    onChange={(e) => {
-                        handleUpdate(e.target.name, e.target.value);
-                        const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-                        setEmailCheck(!regex.test(e.target.value));
-                    }}
-                    placeholder={'email'}
-                    className="input-field"
-                    required
-                />
-                {emailCheck && <p className="error-text">{'invalidEmail'}</p>}
+        <main className='relative ' >
+            <div className="bg-gradient-to-br from-[#0054b4] via-[#40e0d0] via-17% to-45% to-transparent min-h-screen h-[1400px] w-full absolute left-0 -top-20 -z-10 " />
+            <AI_Icon className={" self-start mt-auto mr-10 ml-auto w-auto h-32 my-animi fill-primary/25 group-hover:fill-white "} />
+            <div className="max-w-3xl mx-auto p-8 bg-white/25 backdrop-blur-sm shadow-xl shadow-text/50 rounded-lg my-15">
+                <h1 className="my-2 w-full text-xl lg:text-3xl font-sans font-bold max-w-2/3">
+                    <strong className="uppercase text-primary rounded-lg my-1 font-bold text-xs lg:text-sm tracking-wider">
+                        Reclaim Your Time
+                    </strong>
+                    <br />
+                    Let AI Handle Your Notes
+                </h1>
+                <hr />
+                <p className=" w-full max-w-10/12  text-text/75 my-5" >
+                    Say goodbye to tedious charting. Our AI Medical Scribe automates clinical documentation, so you can focus on what matters most — patient care. Get started in minutes with a free trial.
+                </p>
 
-                <PhoneNumberInput label={'phoneNumber'} onChange={handleUpdate} />
-
-                <input
-                    type="text"
-                    name="organization"
-                    value={user.organization}
-                    onChange={(e) => handleUpdate(e.target.name, e.target.value)}
-                    placeholder={'organization'}
-                    className="input-field"
-                    required
-                />
-
-                <div className="space-y-4">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <h2>{'haveMS'}</h2>
-                        {['Yes', 'No'].map((option) => (
-                            <button
-                                type="button"
-                                key={option}
-                                onClick={() => handleUpdate('HaveMS', option)}
-                                className={`option-button ${user.HaveMS === option ? 'selected' : ''}`}
-                            >
-                                {option}
-                            </button>
-                        ))}
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <h2>{'dyhBillingCoding'}</h2>
-                        {['Yes', 'No'].map((option) => (
-                            <button
-                                type="button"
-                                key={option}
-                                onClick={() => handleUpdate('ExperiancedUser', option)}
-                                className={`option-button ${user.ExperiancedUser === option ? 'selected' : ''}`}
-                            >
-                                {option}
-                            </button>
-                        ))}
+                <form onSubmit={handleSubmit} className="space-y-6 my-10 my-animi-all">
+                    <div className="grid sm:grid-cols-2 gap-6">
+                        <input
+                            type="text"
+                            name="firstName"
+                            value={user.firstName}
+                            onChange={(e) => handleUpdate(e.target.name, e.target.value)}
+                            placeholder="First Name"
+                            className={inputClass(!user.firstName)}
+                            required
+                        />
+                        <input
+                            type="text"
+                            name="lastName"
+                            value={user.lastName}
+                            onChange={(e) => handleUpdate(e.target.name, e.target.value)}
+                            placeholder="Last Name"
+                            className={inputClass(!user.lastName)}
+                            required
+                        />
                     </div>
 
                     <div>
-                        <label className="checkbox-label">
+                        <input
+                            type="email"
+                            name="email"
+                            value={user.email}
+                            onChange={(e) => {
+                                handleUpdate(e.target.name, e.target.value);
+                                validateEmail(e.target.value);
+                            }}
+                            placeholder="Email"
+                            className={inputClass(emailError)}
+                            required
+                        />
+                        {emailError && (
+                            <p className="text-red-500 text-sm mt-1">Invalid email address.</p>
+                        )}
+                    </div>
+
+                    <PhoneNumberInput label="Phone Number" onChange={handleUpdate} />
+
+                    <input
+                        type="text"
+                        name="organization"
+                        value={user.organization}
+                        onChange={(e) => handleUpdate(e.target.name, e.target.value)}
+                        placeholder="Organization Name"
+                        className={inputClass(!user.organization)}
+                        required
+                    />
+
+                    <div className="space-y-4">
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                            <span className="font-medium text-gray-700">Do you have MS?</span>
+                            <div className="flex gap-3">
+                                {['Yes', 'No'].map((option) => (
+                                    <button
+                                        key={option}
+                                        type="button"
+                                        onClick={() => handleUpdate('HaveMS', option)}
+                                        className={clsx(
+                                            'px-3.5 py-0.5 rounded-md border',
+                                            user.HaveMS === option
+                                                ? 'bg-primary text-white border-primary'
+                                                : 'border-gray-300 hover:border-primary hover:text-primary'
+                                        )}
+                                    >
+                                        {option}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                            <span className="font-medium text-gray-700">Experienced in billing/coding?</span>
+                            <div className="flex gap-3">
+                                {['Yes', 'No'].map((option) => (
+                                    <button
+                                        key={option}
+                                        type="button"
+                                        onClick={() => handleUpdate('ExperiancedUser', option)}
+                                        className={clsx(
+                                            'px-3.5 py-0.5 rounded-md border ',
+                                            user.ExperiancedUser === option
+                                                ? 'bg-primary text-white border-primary'
+                                                : 'border-gray-300 hover:border-primary hover:text-primary'
+                                        )}
+                                    >
+                                        {option}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="space-y-3">
+                        <label className="flex items-center gap-2 text-sm text-gray-700">
                             <input
                                 type="checkbox"
+                                name="subscription"
                                 checked={user.subscription}
                                 onChange={(e) => handleUpdate(e.target.name, e.target.checked)}
-                                name="subscription"
+                                className="accent-primary"
                             />
-                            {'subscribeCheck'}
+                            Subscribe for updates
                         </label>
 
-                        <label className="checkbox-label">
+                        <label className="flex items-center gap-2 text-sm text-gray-700">
                             <input
                                 type="checkbox"
                                 checked={policyAccepted}
                                 onChange={(e) => setPolicyAccepted(e.target.checked)}
+                                className="accent-primary"
                                 required
                             />
-                            {'termsCheck'}
+                            I agree to the Terms & Privacy Policy
                         </label>
                     </div>
 
-                    {/* Ads Options Dropdown */}
-                    <div className="py-4">
-                        <h2 className="block text-sm font-medium">{'hearAboutUs'}</h2>
+                    <div>
+                        <label className="block text-sm font-medium mb-2 text-gray-700">
+                            How did you hear about us?
+                        </label>
                         <select
                             id="referal"
                             name="referal"
-                            className="input-field"
+                            className={clsx(inputClass(false), 'bg-transparent')}
                             value={user.referal}
                             onChange={(e) => handleUpdate(e.target.name, e.target.value)}
                         >
-                            <option value="">{'selectOption'}</option>
+                            <option value="">Select option</option>
                             {adsOptions.map((option) => (
                                 <option key={option.value} value={option.value}>
                                     {option.label}
@@ -214,35 +247,48 @@ const OrganizationForm = ({ langDict }) => {
                             ))}
                         </select>
                     </div>
-                </div>
 
-                <div className="form-actions space-x-4">
-                    <button
-                        type="button"
-                        onClick={() => setUser({})}
-                        className="cancel-button"
-                        disabled={sending}
+                    <div className="flex justify-end gap-4 pt-4">
+                        <button
+                            type="button"
+                            onClick={resetForm}
+                            className="flex items-center gap-2 px-5 py-1.5 rounded-md border border-gray-300 text-gray-700 hover:bg-gray-100 transition"
+                            disabled={sending}
+                        >
+                            <FaTimes size={14} /> Cancel
+                        </button>
+
+                        <button
+                            type="submit"
+                            disabled={!isValid}
+                            className={clsx(
+                                'flex items-center gap-2 px-5 py-1.5 rounded-md text-white transition',
+                                isValid
+                                    ? 'bg-primary hover:bg-primary/90'
+                                    : 'bg-gray-400 cursor-not-allowed'
+                            )}
+                        >
+                            {sending ? <BsFillCloudUploadFill /> : <IoIosSend />}
+                            {sending ? 'Sending...' : 'Submit'}
+                        </button>
+                    </div>
+                </form>
+
+                {alert.show && (
+                    <div
+                        className={clsx(
+                            'mt-6 p-4 rounded-md text-center font-medium  duration-500',
+                            alert.type === 'success'
+                                ? 'bg-green-100 text-green-700 border border-green-400'
+                                : 'bg-red-100 text-red-700 border border-red-400'
+                        )}
                     >
-                        <FaTimes /> {'cancel'}
-                    </button>
+                        {alert.msg}
+                    </div>
+                )}
+            </div>
 
-                    <button
-                        type="submit"
-                        className="submit-button"
-                        disabled={!isValid || sending}
-                    >
-                        {sending ? <BsFillCloudUploadFill /> : <IoIosSend />}
-                        {sending ? 'sending' : 'submit'}
-                    </button>
-                </div>
-            </form>
-
-            {alertMsg && (
-                <div className={`alert ${signal === 'success' ? 'alert-success' : 'alert-error'}`}>
-                    {message}
-                </div>
-            )}
-        </div>
+        </main>
     );
 };
 
