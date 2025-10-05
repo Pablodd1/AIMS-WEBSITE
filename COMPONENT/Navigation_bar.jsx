@@ -41,7 +41,7 @@ export default function Navigation_Bar() {
                     className={' hidden lg:block mx-1 md:mx-2 text-sm lg:text-md tracking-wider h-8 md:h-9 w-26 md:w-36'}
                 />
                 <input id="page-nav-toggle" className={menuClass} type="checkbox" />
-                <label for="page-nav-toggle">
+                <label htmlFor="page-nav-toggle">
                     <svg className={btnClass} viewBox="0 0 60 30">
                         <g className={styles["icon-group"]}>
                             <g className={styles["icon--menu"]}>
