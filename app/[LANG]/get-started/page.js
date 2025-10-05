@@ -63,7 +63,7 @@ const OrganizationForm = ({ langDict }) => {
 
         setSending(true);
         try {
-            const res = await fetch(`${process.env.BASE_URL}/users/create-request`, {
+            const res = await fetch(`/server-API/create-request`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(user),

@@ -16,40 +16,37 @@ export default function EmailLayout({ title = 'AIMS Notification', children }) {
 
                 {/* Header */}
 
-                <Section
+                <Row
                     style={{
-                        paddingTop: 40,
-                        paddingBottom: 40,
-                        paddingLeft: 32,
-                        paddingRight: 32,
-                    }}
-                >
-                    <Row>
-                        <Column style={{ width: '80%' }}>
-                            <Img
-                                alt="AI Medical Scriber Logo"
-                                height={42} width={60}
-                                src={`${process.env.BASE_URL}/logo.png`}
-                            />
-                        </Column>
-                        <Column align="right">
-                            <Row align="right">
-                                {contactIcons.map(x => (
-                                    <Column key={x.title}>
-                                        <Link href={x.link || ''} target="_blank">
-                                            <Img
-                                                alt={x.title}
-                                                src={`${process.env.BASE_URL}/svg/${x.color}-AIMS-social-media-contact.svg`}
-                                                className='items-center flex'
-                                                style={{ maxWidth: '24px', height: '24px',width:'auto', display: 'flex', }}
-                                            />
-                                        </Link>
-                                    </Column>
-                                ))}
-                            </Row>
-                        </Column>
-                    </Row>
-                </Section>
+                        marginTop: 20,
+                        marginBottom: 40,
+                        marginLeft: 32,
+                        marginRight: 32,
+                    }}>
+                    <Column style={{ width: '75%' }}>
+                        <Img
+                            alt="AI Medical Scriber Logo"
+                            height={42} width={60}
+                            src={`${process.env.BASE_URL}/logo.png`}
+                        />
+                    </Column>
+                    <Column align="right" style={{width:'20%', marginRight: 32,}}>
+                        <Row align="right">
+                            {contactIcons.map(x => (
+                                <Column key={x.title}>
+                                    <Link href={x.link || ''} target="_blank">
+                                        <Img
+                                            alt={x.title}
+                                            src={`${process.env.BASE_URL}/svg/${x.color}-AIMS-social-media-contact.svg`}
+                                            className='items-center flex'
+                                            style={{ maxWidth: '24px', height: '24px', width: 'auto', display: 'flex', }}
+                                        />
+                                    </Link>
+                                </Column>
+                            ))}
+                        </Row>
+                    </Column>
+                </Row>
 
                 {/* Main Content */}
                 <Container style={{ paddingTop: '40px', display: 'block', padding: '40px 20px 75px', backgroundColor: 'inherit', width: '100%', maxWidth: 'fit-content', margin: '0 auto' }}>

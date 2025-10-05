@@ -1,5 +1,7 @@
 
 import { render } from '@react-email/render';
+import AdminNotificationEmailGS from '@UI/email/get_started_notification_admin';
+import UserConfirmationEmail from '@UI/email/get_started_notification_user';
 import AdminNotificationEmail from '@UI/email/subscriber_notification_admin';
 import UserSubscriptionEmail from '@UI/email/subscriber_notification_user';
 import SupportRequestEmailAdmin from '@UI/email/support_notification_admin';
@@ -74,6 +76,14 @@ const emailTemplates = [
     {
         title: 'Support Admin',
         component: <SupportRequestEmailAdmin userName={'Admed Chauhdri'} email={'ahmed@example.com'} />
+    },
+    {
+        title: 'Get Started User',
+        component: <UserConfirmationEmail userName={'Ahmed Chauhdri'} />
+    },
+    {
+        title: 'Get Started Admin',
+        component: <AdminNotificationEmailGS userName={'Admed Chauhdri'} email={'ahmed@example.com'} />
     }
 ];
 
@@ -84,7 +94,6 @@ const EmailPreviewCard = ({ title, emailHtml }) => (
             className="shadow-md shadow-gray-300 border border-blue-700 hover:border-blue-900 animate hover:bg-blue-100 p-3 rounded-2xl"
             dangerouslySetInnerHTML={{ __html: emailHtml }}
         />
-
     </div>
 );
 
