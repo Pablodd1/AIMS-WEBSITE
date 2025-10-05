@@ -65,12 +65,12 @@ export default function AboutUs({ styles }) {
         <>
         <CEO_msg />
             {/* <Query startWhatsAppChat={startWhatsAppChat} component={'ceo'} /> */}
-            <ul className=' mx-12 sm:mx-16 md:mx-20 lg:mx-28 xl:mx-auto lg:max-w-6xl my-16 flex-wrap flex items-center justify-start xl:justify-evenly' >
+            <ul className=' mx-12 sm:mx-16 md:mx-20 lg:mx-28 xl:mx-auto lg:max-w-6xl text-center md:text-left my-16 flex-wrap flex items-center justify-start xl:justify-evenly' >
                 {team.map((x, i) => {
                     return (
                         <li
                             key={i}
-                            className='my-2 mx-2 w-full sm:w-60 md:w-72 px-8 sm:px-4 md:px-6 lg:px-8 py-2 sm:py-1 lg:py-2   '
+                            className='my-2 mx-auto md:mx-2 w-fit sm:w-60 md:w-72 px-8 sm:px-4 md:px-6 lg:px-8 py-2 sm:py-1 lg:py-2   '
                         >
                             <img
                                 src={`/team/${x.img}.png`}
@@ -79,7 +79,7 @@ export default function AboutUs({ styles }) {
                                 height={512}
                                 className=' w-44 border border-primary border-dashed rounded-full shadow-2xl'
                             />
-                            <h2 className=' text-primary text-xl lg:text-2xl font-bold font-sans mt-2 ' >
+                            <h2 className=' text-primary  text-xl lg:text-2xl font-bold font-sans mt-2 ' >
                                 {x.title}
                             </h2>
                             <p className=' text-sm lg:text-md' >
