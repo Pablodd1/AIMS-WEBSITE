@@ -1,6 +1,6 @@
 import { FaBusinessTime } from "react-icons/fa";
 import { IoIosHome } from "react-icons/io";
-import {  SiLinkedin, SiInstagram,  SiYoutube } from "react-icons/si";
+import { SiLinkedin, SiInstagram, SiYoutube } from "react-icons/si";
 
 
 
@@ -57,9 +57,9 @@ export const BillingModes = [
     },
 ]
 export const links = [
-    { label: 'Features', href: '/features' },
-    { label: 'About', href: '/about' },
-    { label: 'Pricing', href: '' },
-    { label: 'Blogs', href: '/articles' },
-    { label: 'Support', href: '/customer-care' },
+    { label: 'features', href: '/features' },
+    { label: 'about', href: '/about' },
+    // { label: 'pricing', href: '' },
+    { label: 'blogs', href: '/articles' },
+    { label: 'support', href: '/customer-care' },
 ]

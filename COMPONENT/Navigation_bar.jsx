@@ -6,13 +6,15 @@ import SecondaryButton, { bottomLineClass, secBtnClass } from "@UTILS/secondary_
 import clsx from "clsx";
 import { links } from "./assets/data/resources";
 import CtaButton from "@UTILS/cta_button";
+import { langNav } from "@LG_Bank/NAV/main";
 const UseScrollEffect = dynamic(() => import('@MyHook/monitor_scroll'));
 
 
-export default function Navigation_Bar() {
+export default async function Navigation_Bar({ lang = 'en' }) {
+    const dict = await langNav(lang)
     const btnClass = clsx(styles["icon--menu-toggle"], 'flex lg:hidden my-animi-all')
     const navClass = clsx(styles["main-navigation"], 'flex lg:hidden my-animi-all')
-    const menuClass = clsx(styles["main-navigation-toggle"],'  ')
+    const menuClass = clsx(styles["main-navigation-toggle"], '  ')
     return (
         <section id="navbar" className="z-40 sticky top-0 py-5 my-animi-all" >
             <nav className=" px-5 max-w-7xl mx-auto flex items-center justify-evenly gap-2" >
@@ -30,15 +32,15 @@ export default function Navigation_Bar() {
                 </Link>
                 {links.map(x =>
                     <SecondaryButton
-                        label={x.label}
+                        label={dict[x.label]}
                         href={x.href}
                         key={x.label}
                         className=" hidden lg:inline-flex border-r-2 last:border-0 border-current/45 px-3 h-5 tracking-wide "
                     />
                 )}
                 <CtaButton
-                    label={'Get Started'}
-                    className={' hidden lg:block mx-1 md:mx-2 text-sm lg:text-md tracking-wider h-8 md:h-9 w-26 md:w-36'}
+                    label={dict["getStarted"]}
+                    className={' mx-1 md:mx-2 text-sm lg:text-md tracking-wider h-8 md:h-9 w-26 md:w-36'}
                 />
                 <input id="page-nav-toggle" className={menuClass} type="checkbox" />
                 <label htmlFor="page-nav-toggle">

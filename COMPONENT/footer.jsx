@@ -1,14 +1,16 @@
 import SecondaryButton from "@UTILS/secondary_button";
 import { links, linksLegal } from "./assets/data/resources";
+import { langNav } from "@LG_Bank/NAV/main";
 
-export default function Footer() {
+export default async function Footer({ lang }) {
+    const dict = await langNav(lang)
 
     return (
         <section className="pt-14 pb-5 h-[326px] bg-black text-bg flex flex-col" >
             <nav className="flex items-center flex-wrap max-w-2/3 mx-auto justify-center gap-y-3 " >
                 {links.map(x =>
                     <SecondaryButton
-                        label={x.label}
+                        label={dict[x.label]}
                         href={x.href}
                         key={x.label}
                         className=" border-r-2 last:border-0 border-current/45 px-3 h-5 tracking-wide "

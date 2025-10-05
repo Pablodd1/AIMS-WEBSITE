@@ -21,17 +21,17 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children, params }) {
-  const dict2 = await langSideBar((await params).LANG)
+  const lang = (await params).LANG;
 
   return (
     <html lang={(await params).LANG}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navigation_Bar />
+        <Navigation_Bar lang={lang} />
         {children}
-        <FancyLinks dict={dict2} />
-        <Footer />
+        <FancyLinks dict={await langSideBar(lang)} />
+        <Footer lang={lang} />
       </body>
     </html>
   );

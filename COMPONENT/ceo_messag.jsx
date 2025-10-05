@@ -1,10 +1,12 @@
+import { langAbout } from "@LG_Bank/ABOUT/main";
 import AI_Icon from "@UTILS/AI_icon";
 import SecondaryButton from "@UTILS/secondary_button";
 import Image from "next/image";
 import Link from "next/link";
 
 
-export default function CEO_msg() {
+export default async function CEO_msg({ lang = 'en' }) {
+    const dict = await langAbout(lang, 'ceo')
     return (
         <section className="relative h-fit shadow-md shadow-gray-800 " >
             <div className="bg-gradient-to-tr from-[#22C55E] via-[#40e0d0] via-25% to-65% to-[#3B82F6] min-h-screen w-full absolute right-0 bottom-0 -z-10 " />
@@ -26,11 +28,11 @@ export default function CEO_msg() {
                         {"Acosta"}
                     </h3>
                     <p className='my-4  text-sm sm:text-lg lg:text-xl ' >
-                        {"As the CEO of AI Medical Scriber, I am proud to lead a team that is dedicated to transforming healthcare through artificial intelligence. We are committed to improving the lives of medical practitioners and patients alike by revolutionizing medical documentation and enhancing patient care."}
+                        {dict.p}
                     </p>
                     <footer className='flex ' >
                         <SecondaryButton
-                            label={"Send Email"}
+                            label={dict.btn}
                             href={'mailto:Jasmel@aimedicalscriber.com'}
                             withArrow
                             className="  h-full tracking-wider "
