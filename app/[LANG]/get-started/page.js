@@ -95,7 +95,7 @@ const OrganizationForm = ({ langDict }) => {
         <main className='relative ' >
             <div className="bg-gradient-to-br from-[#0054b4] via-[#40e0d0] via-17% to-45% to-transparent min-h-screen h-[1400px] w-full absolute left-0 -top-20 -z-10 " />
             <AI_Icon className={" self-start mt-auto mr-10 ml-auto w-auto h-32 my-animi fill-primary/25 group-hover:fill-white "} />
-            <div className="max-w-3xl mx-auto p-8 bg-white/25 backdrop-blur-sm shadow-xl shadow-text/50 rounded-lg my-15">
+            <div className="max-w-4/5 md:max-w-3xl mx-auto p-8 bg-white/25 backdrop-blur-sm shadow-xl shadow-text/50 rounded-lg my-15">
                 <h1 className="my-2 w-full text-xl lg:text-3xl font-sans font-bold max-w-2/3">
                     <strong className="uppercase text-primary rounded-lg my-1 font-bold text-xs lg:text-sm tracking-wider">
                         Reclaim Your Time
