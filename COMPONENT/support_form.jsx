@@ -1,6 +1,13 @@
 "use client";
 import { useState } from "react";
+const dict = {
+    "h2": "Experience the Future of Medical Documentation",
+    "p": "Join hundreds of medical professionals using AIMS to save hours, eliminate errors, and get paid faster. No credit card required. Try it free today.",
+    btn1:"Subscribe",
+    msg:"message",
+    
 
+}
 const SupportForm = () => {
     // State for form fields and validation errors
     const [email, setEmail] = useState("");
@@ -89,9 +96,11 @@ const SupportForm = () => {
     return (
         <section className="py-16 border-t border-text/25">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="text-4xl font-bold text-center text-primary">Support Form</h2>
+                <h2 className="text-4xl font-bold text-center text-primary">
+                    {dict.h2}
+                </h2>
                 <p className="my-7 text-center max-w-2xl mx-auto text-gray-500">
-                    If you need assistance, feel free to reach out. Our support team will get back to you as soon as possible.
+                    {dict.p}
                 </p>
 
                 {successMessage && (

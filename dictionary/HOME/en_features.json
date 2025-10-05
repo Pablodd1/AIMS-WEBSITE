@@ -1,0 +1,20 @@
+[
+  {
+    "label": "Real-Time Scribing",
+    "subtitle": "No typing, no transcription delays — just instant documentation.",
+    "description": "AIMS captures every detail of your conversation in real time and builds structured SOAP notes as you speak. You don’t need to dictate separately or wait for transcription — your documentation is ready the moment the visit ends.~nPhysicians using AIMS report 70% less documentation time and a noticeable improvement in patient connection and care quality.",
+    "number": "≈ 95–98%"
+  },
+  {
+    "label": "Automatic ICD-10 & CPT Extraction",
+    "subtitle": "Accurate billing codes, automatically extracted from your notes.",
+    "description": "Incorrect or missing codes are among the top reasons for insurance claim denials. AIMS eliminates that risk by automatically identifying and tagging ICD-10 and CPT codes within each note.~nIt’s designed to comply with payer and PIP documentation standards, ensuring your claims are processed faster — and your revenue cycle runs smoother.",
+    "number": "≈ 98%"
+  },
+  {
+    "label": "HIPAA-Compliant EHR Integration",
+    "subtitle": "Seamless sync with EHRs. Built for privacy-first clinics.",
+    "description": "AIMS integrates directly with leading EHR systems, allowing your notes and codes to sync automatically. Every transaction and transfer is encrypted, meeting HIPAA and HITECH standards.~nYour patient data remains private, secure, and never resold — unlike many other AI note-taking platforms.",
+    "number": "≈ 99.99%"
+  }
+]

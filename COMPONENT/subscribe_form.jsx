@@ -1,7 +1,8 @@
 "use client"
 import { useState } from "react";
+import { RiLoader2Line } from 'react-icons/ri';
 
-const SubscribeForm = () => {
+const SubscribeForm = ({ dict = {} }) => {
     // State for form fields and validation errors
     const [email, setEmail] = useState("");
     const [fullName, setFullName] = useState("");
@@ -71,11 +72,9 @@ const SubscribeForm = () => {
     return (
         <section className=" mx-auto max-w-4/5 py-32 lg:py-55 flex items-center justify-center bg-gray-50 border-y border-text/25">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="text-4xl font-bold text-center text-primary">Get In Touch</h2>
+                <h2 className="text-4xl font-bold text-center text-primary">{dict.h2}</h2>
                 <p className="my-7 text-center max-w-2xl mx-auto text-gray-500">
-                    Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
-                    impedit quo minus id quod maxime placeat facere possimus, omnis
-                    voluptas assumenda est.
+                    {dict.p}
                 </p>
 
                 {successMessage && (
@@ -92,7 +91,7 @@ const SubscribeForm = () => {
                             onChange={(e) => setEmail(e.target.value)}
                             className={`mt-2 p-3 block w-full border-b-4 border-gray-300 outline-0 focus:border-primary ${error.email ? "border-red-500" : ""
                                 }`}
-                            placeholder="Email address"
+                            placeholder={dict.email}
                         />
                         {error.email && <p className="text-sm text-red-500 mt-1">{error.email}</p>}
                     </div>
@@ -106,7 +105,7 @@ const SubscribeForm = () => {
                             onChange={(e) => setFullName(e.target.value)}
                             className={`mt-2 p-3 block w-full border-b-4 border-gray-300 outline-0 focus:border-primary ${error.fullName ? "border-red-500" : ""
                                 }`}
-                            placeholder="Full name"
+                            placeholder={dict.fullName}
                         />
                         {error.fullName && <p className="text-sm text-red-500 mt-1">{error.fullName}</p>}
                     </div>
@@ -116,7 +115,7 @@ const SubscribeForm = () => {
                         disabled={isSubmitting}
                         className=" col-span-full px-6 py-2 bg-primary hover:bg-secondary text-white hover:text-black rounded-md shadow-md  transition duration-300"
                     >
-                        {isSubmitting ? "Subscribing..." : "Subscribe"}
+                        {isSubmitting ? <RiLoader2Line className="mx-auto my-animi  animate-spin" /> : dict.btn1}
                     </button>
                 </form>
             </div>

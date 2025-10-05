@@ -1,47 +1,30 @@
-'use client'
+import { langHome } from "@LG_Bank/HOME/main";
 import PremiumButton from "@UTILS/premium_button";
 import SecondaryButton from "@UTILS/secondary_button";
-import React, { useRef } from "react";
-// import { motion, useInView } from "framer-motion";
-// import { useTranslation } from "react-i18next";
-import { FaOpencart } from "react-icons/fa";
 
-const data = {
-    label: "Medical Scribe",
-    description: 'Step into the future of medical transcription with our cutting-edge AI solution. Our free demo gives you full access to the tools that automate documentation, ensuring speed and precision. Try it now and experience how AI can transform your workflow and improve efficiency at your practice.',
-    subtitle: 'AI powered ',
-    footerNote: "Don't get left behind - the AI medical scribe revolution has arrived. Request a demo today and discover how this technology can instantly turbocharge your productivity, profitability, and passion for better patient care."
-
-}
-const UseCase_Home = () => {
-    // const { t } = useTranslation();
-    const ref = useRef(null)
-    // const isInView = useInView(ref)
+const UseCase_Home = async ({ lang }) => {
+    const dict = await langHome(lang, 'ms')
 
     return (
         <section className="font-sans bg-gradient-to-bl from-[#000080] to-[#00bfff]  text-white max-w-screen-full overflow-hidden pt-20 pb-20" >
             <article
-                className="max-w-6xl px-6 mt-8 mb-6 sm:mt-14 sm:mb-14 w-full md:w-4/5 mx-auto" ref={ref}
+                className="max-w-6xl px-6 mt-8 mb-6 sm:mt-14 sm:mb-14 w-full md:w-4/5 mx-auto"
             >
                 <h2
                     className="mb-4 w-full text-3xl lg:text-4xl xl:text-5xl font-sans font-bold max-w-md md:max-w-xl lg:max-w-4xl xl:max-w-5xl">
                     <strong className="uppercase text-secondary bg-black rounded-lg px-2.5 py-0.5 my-1 font-bold text-xs lg:text-sm tracking-wider">
-                        {data.subtitle}
+                        {dict.subtitle}
                     </strong>
                     <br />
-                    {data.label}
+                    {dict.label}
                 </h2>
-                <p
-                    // animate={isInView ?
-                    //     { opacity: 1, x: 0 } :
-                    //     { opacity: 0, x: 150 }
-                    // }
-                    // transition={{ duration: 1, delay: 0.2 }}
-                    className="my-2 w-11/12 text-bg/85 ">
-                    {data.description}
-                </p>
+                {dict.p.split('~n').map((x, i) =>
+                    <p key={i} className="my-2 w-11/12 text-bg/85 leading-tight ">
+                        {x}
+                    </p>
+                )}
                 <SecondaryButton
-                    label="Learn More"
+                    label={dict.btn2}
                     href={''}
                     withArrow
                     className="border-none font-semibold text-sm "
@@ -59,14 +42,14 @@ const UseCase_Home = () => {
                     </video>
                 </section>
                 <PremiumButton
-                    label="Try Now — It's Free"
+                    label={dict.btn1}
                     href="/get-started"
                     className="w-fit"
                 />
                 <p
                     // transition={{ duration: 1, delay: 0.6 }}
                     className="mb-8 w-full border-t-4 border-text my-10 py-2 pr-10 text-sm text-gray-900">
-                    {data.footerNote}
+                    {dict.footerNote}
                 </p>
 
             </article>
