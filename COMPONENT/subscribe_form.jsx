@@ -69,7 +69,7 @@ const SubscribeForm = () => {
     };
 
     return (
-        <section className="py-55 flex items-center justify-center bg-gray-50 border-y border-text/25">
+        <section className=" mx-auto max-w-4/5 py-32 lg:py-55 flex items-center justify-center bg-gray-50 border-y border-text/25">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 className="text-4xl font-bold text-center text-primary">Get In Touch</h2>
                 <p className="my-7 text-center max-w-2xl mx-auto text-gray-500">

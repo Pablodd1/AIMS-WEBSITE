@@ -19,9 +19,9 @@ const UseCase_Home = () => {
     // const isInView = useInView(ref)
 
     return (
-        <section className="text-xs md:text-sm lg:text-md font-sans bg-gradient-to-bl from-[#000080] to-[#00bfff]  text-white max-w-screen-full overflow-hidden pt-20 pb-20" >
+        <section className="font-sans bg-gradient-to-bl from-[#000080] to-[#00bfff]  text-white max-w-screen-full overflow-hidden pt-20 pb-20" >
             <article
-                className="max-w-6xl px-6 mt-8 mb-6 sm:mt-14 sm:mb-14 w-full  mx-auto" ref={ref}
+                className="max-w-6xl px-6 mt-8 mb-6 sm:mt-14 sm:mb-14 w-full md:w-4/5 mx-auto" ref={ref}
             >
                 <h2
                     className="mb-4 w-full text-3xl lg:text-4xl xl:text-5xl font-sans font-bold max-w-md md:max-w-xl lg:max-w-4xl xl:max-w-5xl">
@@ -37,7 +37,7 @@ const UseCase_Home = () => {
                     //     { opacity: 0, x: 150 }
                     // }
                     // transition={{ duration: 1, delay: 0.2 }}
-                    className="my-2 w-11/12 text-bg/85 text-xl leading-tight ">
+                    className="my-2 w-11/12 text-bg/85 ">
                     {data.description}
                 </p>
                 <SecondaryButton
@@ -46,7 +46,7 @@ const UseCase_Home = () => {
                     withArrow
                     className="border-none font-semibold text-sm "
                 />
-                <section className="my-12" >
+                <section className="my-12 " >
                     <video
                         className={' rounded-lg'}
                         controls={false}
@@ -65,7 +65,7 @@ const UseCase_Home = () => {
                 />
                 <p
                     // transition={{ duration: 1, delay: 0.6 }}
-                    className="mb-8 w-full border-t-4 border-text my-10 py-2 pr-10 text-gray-900">
+                    className="mb-8 w-full border-t-4 border-text my-10 py-2 pr-10 text-sm text-gray-900">
                     {data.footerNote}
                 </p>
 
