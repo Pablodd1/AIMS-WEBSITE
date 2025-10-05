@@ -1,3 +1,4 @@
+import { langAbout } from '@LG_Bank/ABOUT/main';
 import CEO_msg from '@UI/ceo_messag';
 import PremiumButton from '@UTILS/premium_button';
 import SecondaryButton from '@UTILS/secondary_button';
@@ -36,34 +37,13 @@ let team = [
     }
 ]
 
-export default function AboutUs({ styles }) {
-    let contact = [
-        {
-            head: "support",
-            msg: 'We are always here to help.',
-            action: 'mailto:Jasmel@aimedicalscriber.com',
-            icon: "support-blue",
-            contact: 'Email Us'
-        },
-        {
-            head: "FAQ",
-            msg: 'Explore predefined queries.',
-            action: 'https://aimedicalscriber.com/customercare',
-            icon: "article",
-            contact: 'Explore FAQs'
-        },
-        {
-            head: "Contact",
-            msg: `24/7 services`,
-            action: 'tel:1-(786)743-2499',
-            icon: "phone",
-            contact: 'Call Us'
-        },
-    ]
+export default async function AboutUs({ params }) {
+    const lang = (await params).LANG
+    const mv = await langAbout(lang, 'visions')
 
     return (
         <>
-        <CEO_msg />
+            <CEO_msg lang={lang} />
             {/* <Query startWhatsAppChat={startWhatsAppChat} component={'ceo'} /> */}
             <ul className=' mx-12 sm:mx-16 md:mx-20 lg:mx-28 xl:mx-auto lg:max-w-6xl text-center md:text-left my-16 flex-wrap flex items-center justify-start xl:justify-evenly' >
                 {team.map((x, i) => {
@@ -95,27 +75,27 @@ export default function AboutUs({ styles }) {
             <section className='my-32 px-2 mx-auto max-w-fit sm:max-w-2xl  md:max-w-4xl xl:max-w-6xl' >
                 <article className='  my-6 mx-auto w-4/5  ' >
                     <h1 className='text-4xl font-semibold font-sans my-2 ' >
-                        {"Vision"}
+                        {mv.vision_h}
                     </h1>
                     <p className='' >
-                        Our vision is to be the leading provider of AI-powered solutions in the healthcare industry. We strive to continuously innovate and improve our products, delivering seamless and efficient medical documentation solutions that positively impact medical practices and patient outcomes.
+                        {mv.vision}
                     </p>
                     <br />
                     <h1 className='text-4xl font-semibold font-sans my-2 ' >
-                        {"Mission"}
+                        {mv.mission_h}
                     </h1>
                     <p className='' >
-                        At AI Medical Scriber, our mission is to simplify medical documentation and enhance patient care through our virtual AI medical scribe assistant. We aim to revolutionize the healthcare industry with cutting-edge technology.
+                        {mv.mission}
                     </p>
                     <br />
                     <PremiumButton
-                        label="Try AI Now — It's Free"
+                        label={mv.btn}
                         href="/get-started"
                         className="w-fit"
                     />
                 </article>
                 <ul className=' my-16  mx-12 sm:mx-16 md:mx-20 lg:mx-28 xl:mx-auto max-w-fit lg:max-w-6xl flex-wrap flex items-center justify-start xl:justify-evenly' >
-                    {contact.map((x, i) => {
+                    {(await langAbout(lang, 'contact')).map((x, i) => {
                         return (
                             <li
                                 key={i}

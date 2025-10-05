@@ -1,14 +1,8 @@
 "use client";
 import { useState } from "react";
-const dict = {
-    "h2": "Experience the Future of Medical Documentation",
-    "p": "Join hundreds of medical professionals using AIMS to save hours, eliminate errors, and get paid faster. No credit card required. Try it free today.",
-    btn1:"Subscribe",
-    msg:"message",
-    
+import { RiLoader2Line } from "react-icons/ri";
 
-}
-const SupportForm = () => {
+const SupportForm = ({ dict = {} }) => {
     // State for form fields and validation errors
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
@@ -117,7 +111,7 @@ const SupportForm = () => {
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             className={`mt-2 p-3 block w-full border-b-4 border-gray-300 outline-0 focus:border-primary ${error.email ? "border-red-500" : ""}`}
-                            placeholder="Email Address"
+                            placeholder={dict.email}
                         />
                         {error.email && <p className="text-sm text-red-500 mt-1">{error.email}</p>}
                     </div>
@@ -131,7 +125,7 @@ const SupportForm = () => {
                             value={phone}
                             onChange={(e) => setPhone(e.target.value)}
                             className={`mt-2 p-3 block w-full border-b-4 border-gray-300 outline-0 focus:border-primary ${error.phone ? "border-red-500" : ""}`}
-                            placeholder="Phone Number (Optional)"
+                            placeholder={dict.phone}
                         />
                         {error.phone && <p className="text-sm text-red-500 mt-1">{error.phone}</p>}
                     </div>
@@ -145,7 +139,7 @@ const SupportForm = () => {
                             value={clinic}
                             onChange={(e) => setClinic(e.target.value)}
                             className={`mt-2 p-3 block w-full border-b-4 border-gray-300 outline-0 focus:border-primary ${error.clinic ? "border-red-500" : ""}`}
-                            placeholder="Clinic Name"
+                            placeholder={dict.clinicName}
                         />
                         {error.clinic && <p className="text-sm text-red-500 mt-1">{error.clinic}</p>}
                     </div>
@@ -158,7 +152,7 @@ const SupportForm = () => {
                             value={message}
                             onChange={(e) => setMessage(e.target.value)}
                             className={`mt-2 p-3 block w-full border-b-4 border-gray-300 outline-0 focus:border-primary ${error.message ? "border-red-500" : ""}`}
-                            placeholder="Your Message"
+                            placeholder={dict.msg}
                             rows={4}
                         />
                         {error.message && <p className="text-sm text-red-500 mt-1">{error.message}</p>}
@@ -170,7 +164,7 @@ const SupportForm = () => {
                         disabled={isSubmitting}
                         className="w-full px-6 py-3 bg-primary hover:bg-secondary text-white hover:text-black rounded-md shadow-md transition duration-300"
                     >
-                        {isSubmitting ? "Sending..." : "Submit Support Request"}
+                        {isSubmitting ? <RiLoader2Line className="mx-auto my-animi  animate-spin" /> : dict.btn}
                     </button>
                 </form>
             </div>

@@ -4,7 +4,7 @@ import SecondaryButton from "@UTILS/secondary_button";
 import { FcExpand } from 'react-icons/fc';
 const faqs = 30;
 
-export default function FaqsClient({ Faqs }) {
+export default function FaqsClient({ subtitle, title, Faqs }) {
     // const [FAQs, setFAQs] = useState([FAQs]);
     const [expanded, setExpanded] = useState(null);
     const [loadedQuestions, setLoadedQuestions] = useState(7);
@@ -13,10 +13,10 @@ export default function FaqsClient({ Faqs }) {
         <section className="my-12 px-2 ">
             <h2 className="w-full text-xl lg:text-3xl font-sans font-normal text-primary border-b-2 border-gray-300 py-2.5 mt-15 mb-2">
                 <strong className="uppercase text-secondary bg-bg rounded-lg px-1.5 font-medium py-0.5 my-2.5 text-xs lg:text-sm tracking-wider">
-                    QUICK ANSWERS
+                    {subtitle}
                 </strong>
                 <br />
-                Get Help with AI Medical Notes
+                {title}
             </h2>
 
             <ul className="w-full  flex flex-col">

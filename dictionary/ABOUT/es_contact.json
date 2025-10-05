@@ -1,0 +1,23 @@
+[
+    {
+        "head": "soporte",
+        "msg": "Siempre estamos aquí para ayudar.",
+        "action": "mailto:Jasmel@aimedicalscriber.com",
+        "icon": "support-blue",
+        "contact": "Envíanos un correo"
+    },
+    {
+        "head": "Preguntas Frecuentes",
+        "msg": "Explora consultas predefinidas.",
+        "action": "https://aimedicalscriber.com/customer-care",
+        "icon": "article",
+        "contact": "Explorar preguntas frecuentes"
+    },
+    {
+        "head": "Contacto",
+        "msg": "Servicios 24/7",
+        "action": "tel:1-(786)743-2499",
+        "icon": "phone",
+        "contact": "Llámanos"
+    }
+]
