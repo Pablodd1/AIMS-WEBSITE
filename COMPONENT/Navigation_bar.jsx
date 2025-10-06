@@ -43,8 +43,8 @@ export default async function Navigation_Bar({ lang = 'en' }) {
                     lang={lang}
                     className={' mx-1 md:mx-2 text-sm lg:text-md tracking-wider h-8 md:h-9 w-26 md:w-36'}
                 />
-                <input id="page-nav-toggle" className={menuClass} type="checkbox" />
-                <label htmlFor="page-nav-toggle">
+                <input id="page-nav-toggle" aria-labelledby="page-nav-label" className={menuClass} aria-label="Toggle navigation menu" type="checkbox" />
+                <label id="page-nav-label" htmlFor="page-nav-toggle">
                     <svg className={btnClass} viewBox="0 0 60 30">
                         <g className={styles["icon-group"]}>
                             <g className={styles["icon--menu"]}>
