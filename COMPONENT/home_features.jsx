@@ -44,9 +44,9 @@ export default async function Features_Home({ lang }) {
                         <p className="text-md sm:text-2xl text-secondary py-1">
                             {x.number}
                         </p>
-                        <h3 className=" text-lg sm:text-xl font-semibold text-center my-5 text-white  ">
+                        <h2 className=" text-lg sm:text-xl font-semibold text-center my-5 text-white  ">
                             {x.label}
-                        </h3>
+                        </h2>
                         {x.description.split('~n').map((x, i) =>
                             <p key={i} className=" text-xs sm:text-sm tracking-wide my-1 w-11/12 text-center text-bg/75 ">
                                 {x}

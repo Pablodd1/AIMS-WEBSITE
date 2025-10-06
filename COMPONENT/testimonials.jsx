@@ -25,19 +25,19 @@ const Testimonials = () => {
             {/* Slider wrapper */}
             <div className="relative my-16 flex items-center justify-center gap-6 h-[328px] ">
                 {visibleTestimonials.map((testimonial, index) => {
-                    const isCenter = index === 1;console.log(index,currentIndex,testimonial.name,isCenter)
+                    const isCenter = index === 1;
                     return (
                         <div
                             key={index + currentIndex}
                             className={`text-center  px-4 py-10 rounded shadow-md min-w-[280px] sm:min-w-[320px] lg:min-w-[350px] 
-                                ${isCenter ? "scale-115 z-10 font-bold my-animi max-w-lg shadow-primary/50 bg-gray-200 " : "scale-75 max-w-sm opacity-90 shadow-gray-700 "}
+                                ${isCenter ? "scale-115 z-10 font-bold my-animi max-w-lg shadow-primary/50 bg-gray-100 " : "scale-75 max-w-sm opacity-90 shadow-gray-700 "}
                                 `}
                         >
                             <p className={`text-lg my-animi italic py-5 ${isCenter ? ' text-primary' : 'text-gray-700'}`}>
                                 "{testimonial.quote}"
                             </p>
-                            <p className="mt-4 text-gray-500 text-xs">{testimonial.name}</p>
-                            <p className="text-gray-500 text-xs">{testimonial.position}</p>
+                            <p className="mt-4 text-gray-700 text-xs">{testimonial.name}</p>
+                            <p className="text-gray-600 text-xs">{testimonial.position}</p>
                         </div>
                     );
                 })}

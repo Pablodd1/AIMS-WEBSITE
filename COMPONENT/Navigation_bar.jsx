@@ -13,7 +13,7 @@ const UseScrollEffect = dynamic(() => import('@MyHook/monitor_scroll'));
 export default async function Navigation_Bar({ lang = 'en' }) {
     const dict = await langNav(lang)
     const btnClass = clsx(styles["icon--menu-toggle"], 'flex lg:hidden my-animi-all')
-    const navClass = clsx(styles["main-navigation"], 'flex lg:hidden my-animi-all')
+    const navClass = clsx(styles["main-navigation"], 'flex lg:hidden my-animi-all bg-gradient-to-br from-[#000080] to-[#00bfff] ')
     const menuClass = clsx(styles["main-navigation-toggle"], '  ')
     return (
         <section id="navbar" className="z-40 sticky top-0 py-5 my-animi-all" >
@@ -40,6 +40,7 @@ export default async function Navigation_Bar({ lang = 'en' }) {
                 )}
                 <CtaButton
                     label={dict["getStarted"]}
+                    lang={lang}
                     className={' mx-1 md:mx-2 text-sm lg:text-md tracking-wider h-8 md:h-9 w-26 md:w-36'}
                 />
                 <input id="page-nav-toggle" className={menuClass} type="checkbox" />
@@ -59,7 +60,7 @@ export default async function Navigation_Bar({ lang = 'en' }) {
                     </svg>
                 </label>
                 <nav className={navClass}>
-                    <ul className="flex flex-col gap-1.5 w-4/5 mx-auto">
+                    <section className="flex flex-col gap-1.5 w-4/5 text-white mx-auto">
                         {links.map(x =>
                             <SecondaryButton
                                 label={x.label}
@@ -68,7 +69,7 @@ export default async function Navigation_Bar({ lang = 'en' }) {
                                 className=" text-xl border-b-2 last:border-0 border-current/45 py-2 px-3.5  tracking-wide "
                             />
                         )}
-                    </ul>
+                    </section>
                 </nav>
             </nav>
 
