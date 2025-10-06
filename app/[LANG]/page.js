@@ -24,7 +24,6 @@ export default async function Home({ params }) {
       <Suspense fallback={<RiLoader2Line className="mx-auto my-animi  animate-spin" />} >
         <SubscribeForm dict={await langHome(lang, 'newsletter')} lang={lang} />
       </Suspense>
-
     </main>
   );
 }

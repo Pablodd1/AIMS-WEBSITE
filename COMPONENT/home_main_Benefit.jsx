@@ -40,7 +40,7 @@ export default async function Benefit_Home({ lang }) {
             </article>
             <figure className="w-full h-fit lg:w-1/2 p-2 relative">
                 <Image
-                    src={`/images/AIMS-banner.png`}
+                    src={`/images/AIMS-Banner.png`}
                     height={1920}
                     width={1080}
                     alt="AIMS benefit"

@@ -5,6 +5,7 @@ import SearchClient from "@UI/blog_search";
 import PremiumButton from "@UTILS/premium_button";
 import { Suspense } from "react";
 import { langArticle } from "@LG_Bank/ARTICLE/main";
+import { RiLoader2Line } from "react-icons/ri";
 
 // 👇 This runs on the server side
 async function getBlogs(lang = "es") {
@@ -45,7 +46,7 @@ export default async function CustomerCarePage({ params }) {
 
             {/* Blogs (CSR for interactivity like filtering) */}
             <section className="max-w-sm md:max-w-2xl lg:max-w-3xl xl:max-w-5xl mx-auto my-20">
-                <Suspense >
+                <Suspense fallback={<RiLoader2Line className="mx-auto my-animi  animate-spin" />}  >
                     <BlogsList dict={dict} titles={await getBlogs(lang)} limit={5} lang={lang} />
                 </Suspense>
             </section>
