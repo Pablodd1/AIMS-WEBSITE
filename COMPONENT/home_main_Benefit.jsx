@@ -38,13 +38,13 @@ export default async function Benefit_Home({ lang }) {
                     />
                 </footer>
             </article>
-            <figure className="w-full h-fit bg-gray-200 lg:w-1/2 relative">
+            <figure className="w-full h-fit lg:w-1/2 p-2 relative">
                 <Image
-                    src={`/svg/image.svg`}
-                    height={512}
-                    width={512}
+                    src={`/images/AIMS-banner.png`}
+                    height={1920}
+                    width={1080}
                     alt="AIMS benefit"
-                    className=" mx-auto"
+                    className=" w-full h-fit mx-auto"
                 />
             </figure>
         </section>
