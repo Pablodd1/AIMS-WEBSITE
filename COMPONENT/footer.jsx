@@ -1,6 +1,7 @@
 import SecondaryButton from "@UTILS/secondary_button";
 import { links, linksLegal } from "./assets/data/resources";
 import { langNav } from "@LG_Bank/NAV/main";
+import Switch_Lang from "@UTILS/switch_lang";
 
 export default async function Footer({ lang }) {
     const dict = await langNav(lang)
@@ -33,7 +34,7 @@ export default async function Footer({ lang }) {
                     )}
                 </nav>
             </footer>
-
+            <Switch_Lang lang={lang} />
         </section>
     )
 }
