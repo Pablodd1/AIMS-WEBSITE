@@ -6,7 +6,16 @@ import { FaLanguage } from "react-icons/fa";
 export default function Switch_Lang({ lang }) {
     const pathname = usePathname();
     const switchLang = lang === 'en' ? 'es' : 'en';
-    const generateLangLink = () => `/${switchLang}${pathname.slice(pathname.indexOf('/', 1))}`;
+
+    const generateLangLink = () => {
+        // If homepage (/en or /es), just return the root of switchLang
+        if (pathname === `/${lang}` || pathname === `/${lang}/`) {
+            return `/${switchLang}`;
+        }
+
+        // Otherwise, replace only the first segment (the lang)
+        return pathname.replace(`/${lang}`, `/${switchLang}`);
+    };
 
     return (
         <Link
