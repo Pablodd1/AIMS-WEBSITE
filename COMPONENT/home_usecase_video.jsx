@@ -25,7 +25,7 @@ const UseCase_Home = async ({ lang }) => {
                 )}
                 <SecondaryButton
                     label={dict.btn2}
-                    href={`/${lang}/features`}
+                    href={`/${lang}/technology`}
                     withArrow
                     className="border-none font-semibold text-sm "
                 />

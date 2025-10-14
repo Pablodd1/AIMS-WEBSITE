@@ -4,7 +4,7 @@ import { contactIcons } from '@UI/assets/data/resources';
 const links = [
     { href: `${process.env.BASE_URL}/Shop`, label: 'Shop' },
     { href: `${process.env.BASE_URL}/Products`, label: 'Products' },
-    { href: `${process.env.BASE_URL}/about`, label: 'About' },
+    { href: `${process.env.BASE_URL}/about-us`, label: 'About' },
 ];
 
 export default function EmailLayout({ title = 'AIMS Notification', children }) {
@@ -103,11 +103,11 @@ export default function EmailLayout({ title = 'AIMS Notification', children }) {
                                             </Text>
                                         </td>
                                         <td style={{ width: '50%', textAlign: 'right', paddingRight: '20px' }}>
-                                            <Link href={`${process.env.BASE_URL}/features`} style={{ fontSize: '14px', color: '#333', textDecoration: 'none' }}>
+                                            <Link href={`${process.env.BASE_URL}/technology`} style={{ fontSize: '14px', color: '#333', textDecoration: 'none' }}>
                                                 Features
                                             </Link>
                                             <span style={{ fontSize: '12px', color: '#333', paddingLeft: '10px' }}>|</span>
-                                            <Link href={`${process.env.BASE_URL}/about`} style={{ fontSize: '14px', color: '#333', textDecoration: 'none', paddingLeft: '10px' }}>
+                                            <Link href={`${process.env.BASE_URL}/about-us`} style={{ fontSize: '14px', color: '#333', textDecoration: 'none', paddingLeft: '10px' }}>
                                                 About
                                             </Link>
                                         </td>

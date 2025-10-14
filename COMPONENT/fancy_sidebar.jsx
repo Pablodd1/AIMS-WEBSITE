@@ -3,7 +3,7 @@ import React, {  useRef, useState } from 'react';
 import { contactIcons } from "./assets/data/resources";
 import Link from 'next/link';
 
-export default function FancyLinks({ dict, lang }) {
+export default function FancyLinks({ dict, lang='en' }) {
     // Create a state to track hover state for each icon
     const [hoveredIndex, setHoveredIndex] = useState(null);
 

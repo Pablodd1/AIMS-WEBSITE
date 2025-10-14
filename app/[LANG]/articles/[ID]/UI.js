@@ -234,7 +234,7 @@ export default function ArticleUI({ ID, lang, dict }) {
                             />
                             <SecondaryButton
                                 label="Features"
-                                href={`/${lang}/features`}
+                                href={`/${lang}/technology`}
                                 withArrow
                                 className=" font-semibold text-sm "
                             />
