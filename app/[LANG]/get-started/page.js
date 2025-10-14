@@ -22,6 +22,8 @@ const OrganizationForm = ({ langDict }) => {
         phoneNumber: '',
         subscription: false,
         HaveMS: '',
+        ehrEmr: '',
+        HaveCmpany: '',
         ExperiancedUser: '',
         billing: 'trial',
         referal: '',
@@ -48,8 +50,10 @@ const OrganizationForm = ({ langDict }) => {
             email: '',
             organization: '',
             phoneNumber: '',
+            ehrEmr: '',
             subscription: false,
             HaveMS: '',
+            HaveCmpany: '',
             ExperiancedUser: '',
             billing: 'trial',
             referal: '',
@@ -159,10 +163,39 @@ const OrganizationForm = ({ langDict }) => {
                         className={inputClass(!user.organization)}
                         required
                     />
+                    <input
+                        type="text"
+                        name="ehrEmr"
+                        value={user.organization}
+                        onChange={(e) => handleUpdate(e.target.name, e.target.value)}
+                        placeholder="Which EHR/EMR do you use."
+                        className={inputClass(!user.organization)}
+                        required
+                    />
 
                     <div className="space-y-4">
                         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                            <span className="font-medium text-gray-700">Do you have MS?</span>
+                            <span className="font-medium text-gray-700">Do you have your own Medical Billing/coding company?</span>
+                            <div className="flex gap-3">
+                                {['Yes', 'No'].map((option) => (
+                                    <button
+                                        key={option}
+                                        type="button"
+                                        onClick={() => handleUpdate('HaveCmpany', option)}
+                                        className={clsx(
+                                            'px-3.5 py-0.5 rounded-md border',
+                                            user.HaveMS === option
+                                                ? 'bg-primary text-white border-primary'
+                                                : 'border-gray-300 hover:border-primary hover:text-primary'
+                                        )}
+                                    >
+                                        {option}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                            <span className="font-medium text-gray-700">Do you need a blood lab interpreter?</span>
                             <div className="flex gap-3">
                                 {['Yes', 'No'].map((option) => (
                                     <button
@@ -183,7 +216,7 @@ const OrganizationForm = ({ langDict }) => {
                         </div>
 
                         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                            <span className="font-medium text-gray-700">Experienced in billing/coding?</span>
+                            <span className="font-medium text-gray-700">Have You used a human scriber?</span>
                             <div className="flex gap-3">
                                 {['Yes', 'No'].map((option) => (
                                     <button
