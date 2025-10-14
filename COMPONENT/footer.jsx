@@ -2,6 +2,8 @@ import SecondaryButton from "@UTILS/secondary_button";
 import { links, linksLegal } from "./assets/data/resources";
 import { langNav } from "@LG_Bank/NAV/main";
 import Switch_Lang from "@UTILS/switch_lang";
+import Image from "next/image";
+import Link from "next/link";
 
 export default async function Footer({ lang }) {
     const dict = await langNav(lang)
@@ -34,7 +36,25 @@ export default async function Footer({ lang }) {
                     )}
                 </nav>
             </footer>
-            <Switch_Lang lang={lang} />
+            <div className="flex flex-col-reverse md:flex-row justify-center md:items-center md:justify-between" >
+                <Sign />
+                <Switch_Lang lang={lang} />
+            </div>
         </section>
+    )
+}
+
+
+function Sign() {
+
+    return (
+        <aside className=' px-2 py-1 mt-2 lg:my-1 self-center lg:self-start text-white flex items-center w-fit md:w-max lg:w-max font-sans text-xs sm:text-sm ' >
+            {/* <Image src={'/svg/info.svg'} loading='lazy' width={16} height={20} alt='icon MyAbabeel info about this website developer and designer' className='  mr-1 inline-flex' /> */}
+            <Image src={'https://www.myababeel.com/logo.svg'} loading='lazy' width={37} height={20} alt='logo MyAbabeel | React.js Next.js express.js js Developer  | designer | on-page SEO consultant company' className=' inline-flex' />
+            Designed & Developed By
+            <Link className='mx-1 font-sans tracking-wide uppercase' href={'https://www.myababeel.com'} >
+                My<strong className=' text-myababeel' >Ababeel</strong>
+            </Link>
+        </aside>
     )
 }
