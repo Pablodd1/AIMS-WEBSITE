@@ -1,8 +1,8 @@
 {
-    "features": "Features",
-    "about": "About",
-    "pricing": "Pricing",
-    "blogs": "Blogs",
-    "support": "Support",
-    "getStarted": "Get Started"
+  "solutions": "Solutions",
+  "doctors": "For Doctors",
+  "managers": "Office Managers",
+  "patients": "Patient Experience",
+  "roi": "Proven ROI",
+  "getStarted": "Get Started"
 }

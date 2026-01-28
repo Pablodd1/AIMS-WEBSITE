@@ -1,28 +1,27 @@
 // utils/broadcast.js
 class Broadcast {
-    constructor(name) {
-        this.channel = typeof window !== "undefined"
-            ? new BroadcastChannel(name)
-            : null;
-        this.listeners = new Set();
+  constructor(name) {
+    this.channel =
+      typeof window !== "undefined" ? new BroadcastChannel(name) : null;
+    this.listeners = new Set();
 
-        if (this.channel) {
-            this.channel.onmessage = (event) => {
-                this.listeners.forEach((cb) => cb(event.data));
-            };
-        }
+    if (this.channel) {
+      this.channel.onmessage = (event) => {
+        this.listeners.forEach((cb) => cb(event.data));
+      };
     }
+  }
 
-    subscribe(cb) {
-        this.listeners.add(cb);
-        return () => this.listeners.delete(cb); // cleanup fn
-    }
+  subscribe(cb) {
+    this.listeners.add(cb);
+    return () => this.listeners.delete(cb); // cleanup fn
+  }
 
-    publish(data) {
-        if (this.channel) this.channel.postMessage(data);
-        // Also trigger locally (current tab)
-        this.listeners.forEach((cb) => cb(data));
-    }
+  publish(data) {
+    if (this.channel) this.channel.postMessage(data);
+    // Also trigger locally (current tab)
+    this.listeners.forEach((cb) => cb(data));
+  }
 }
 
 // Export a singleton instance (so same channel is reused)

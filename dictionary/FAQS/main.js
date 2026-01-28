@@ -1,8 +1,8 @@
-import 'server-only'
+import "server-only";
 
 const dictionaries = {
-  en: () => import('./en.json').then((module) => module.default),
-  es: () => import('./es.json').then((module) => module.default),
-}
+  en: () => import("./en.json").then((module) => module.default),
+  es: () => import("./es.json").then((module) => module.default),
+};
 
-export const langFAQs = async (locale) => dictionaries[locale]()
+export const langFAQs = async (locale) => dictionaries[locale]();

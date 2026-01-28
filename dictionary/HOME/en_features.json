@@ -1,20 +1,38 @@
 [
   {
-    "label": "Real-Time Scribing",
-    "subtitle": "No typing, no transcription delays — just instant documentation.",
-    "description": "AIMS captures every detail of your conversation in real time and builds structured SOAP notes as you speak. You don’t need to dictate separately or wait for transcription — your documentation is ready the moment the visit ends.~nPhysicians using AIMS report 70% less documentation time and a noticeable improvement in patient connection and care quality.",
-    "number": "≈ 95–98%"
+    "label": "Voice-Powered Medical Intake",
+    "subtitle": "Convert patient speech directly into structured clinical records.",
+    "description": "Patients and providers can complete complex intake forms using natural voice. AIMS automatically fills lengthy medical notes, saving hours of manual entry and ensuring zero data loss during transcription.",
+    "number": "01"
   },
   {
-    "label": "Automatic ICD-10 & CPT Extraction",
-    "subtitle": "Accurate billing codes, automatically extracted from your notes.",
-    "description": "Incorrect or missing codes are among the top reasons for insurance claim denials. AIMS eliminates that risk by automatically identifying and tagging ICD-10 and CPT codes within each note.~nIt’s designed to comply with payer and PIP documentation standards, ensuring your claims are processed faster — and your revenue cycle runs smoother.",
-    "number": "≈ 98%"
+    "label": "Intelligent OCR Scanning",
+    "subtitle": "Instant ID and insurance verification for front-desk efficiency.",
+    "description": "Simply take a picture of various IDs and insurance cards. Our OCR engine extracts data instantly, providing doctors with a fast summary and the front desk with all necessary documentation automatically.",
+    "number": "02"
   },
   {
-    "label": "HIPAA-Compliant EHR Integration",
-    "subtitle": "Seamless sync with EHRs. Built for privacy-first clinics.",
-    "description": "AIMS integrates directly with leading EHR systems, allowing your notes and codes to sync automatically. Every transaction and transfer is encrypted, meeting HIPAA and HITECH standards.~nYour patient data remains private, secure, and never resold — unlike many other AI note-taking platforms.",
-    "number": "≈ 99.99%"
+    "label": "Self-Service Clinic Kiosks",
+    "subtitle": "Streamlined patient check-in and check-out workflows.",
+    "description": "Automate the patient journey from arrival to departure. Our integrated kiosk system handles registrations, updates, and exits, reducing wait times and freeing up administrative staff.",
+    "number": "03"
+  },
+  {
+    "label": "Hands-Free Voice Commands",
+    "subtitle": "Maneuver your EHR platform entirely by voice.",
+    "description": "True clinical mobility. Navigate charts, pull up labs, and issue system commands without touching a keyboard or mouse, allowing for a completely sterile and efficient workflow.",
+    "number": "04"
+  },
+  {
+    "label": "MD Clinical AI Chatbot",
+    "subtitle": "Advanced decision support trained on exhaustive medical data.",
+    "description": "Consult our MD-trained chatbot for instant dosages, treatment plans, and medication interactions. Get real-time answers based on updated clinical guidelines and patient symptoms.",
+    "number": "05"
+  },
+  {
+    "label": "Comprehensive Data Analysis",
+    "subtitle": "DNA, Blood Markers, and Advanced Lab Interpretation.",
+    "description": "The most comprehensive data analysis in the world. AI and doctors work together to analyze DNA results, blood markers, and medical documents to deliver hyper-personalized patient care.",
+    "number": "06"
   }
 ]

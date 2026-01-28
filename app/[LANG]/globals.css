@@ -1,66 +1,131 @@
 @import "tailwindcss";
 
 :root {
-  --background: #F9FAFB;
-  --foreground: #111827;
+  --background: #fdfdfd;
+  --foreground: #0f172a;
 }
 
 @theme inline {
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-inter), var(--font-geist-sans);
+  --font-display: var(--font-outfit), sans-serif;
   --font-mono: var(--font-geist-mono);
   --text-md: 1rem;
 
-  /* Social Colors */
-  --color-instagram: #E4405F;
-  --color-youtube: #FF0000;
-  --color-linkedin: #0A66C2;
+  /* Simplified Professional Palette */
+  --color-primary: #0066cc;
+  --color-primary-dark: #004c99;
+  --color-primary-light: #3385d6;
+  --color-accent: #00b894;
+  --color-clinical-bg: #f8f9fa;
+  --color-clinical-gray: #6c757d;
+  --color-text-dark: #212529;
+  --color-border: #dee2e6;
 
-  /* Color Pallate */
-  --color-primary: #073C92;
-  /* Healthcare blue */
-  --color-secondary: #22C55E;
-  /* Green - vitality, healing */
-  --color-accent: #F472B6;
-  /* Soft pink - compassion */
-  --color-bg: #F8FAFC;
-  /* Light gray/white background */
-  --color-text: #1E293B;
-  /* Dark slate text */
-  --color-myababeel: #009797;
-  --color-myababeel2: #006c6c;
-
-
+  /* Glassmorphism */
+  --color-glass-bg: rgba(255, 255, 255, 0.9);
+  --color-glass-border: rgba(0, 102, 204, 0.15);
+  --color-glass-dark-bg: rgba(15, 23, 42, 0.98);
+  --color-glass-dark-border: rgba(255, 255, 255, 0.1);
 }
 
+.glass {
+  background: var(--color-glass-bg);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-glass-border);
+  box-shadow: 0 4px 20px 0 rgba(0, 50, 150, 0.05);
+}
+
+.glass-dark {
+  background: var(--color-glass-dark-bg);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--color-glass-dark-border);
+}
+
+.premium-gradient {
+  background: linear-gradient(135deg, #0066cc 0%, #3385d6 100%);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #0066cc 0%, #3385d6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 body {
-  background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), var(--font-geist-sans), sans-serif;
+  background-color: var(--background);
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-outfit), sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.compact-section {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .compact-section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
 }
 
 .my-animi {
-  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55),
-    background-color 0.3s ease,
-    color 0.3s ease-in-out;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.my-animi-all {
-  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55),
-    background-color 0.3s ease,
-    color 0.3s ease-in-out;
+.hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
 }
 
-.my-animi-all>* {
-  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55),
-    background-color 0.3s ease,
-    color 0.3s ease-in-out;
+/* Floating Animation */
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
 }
 
-/* Custom CSS */
-.golden_button {
-  background-size: 250%;
-  background-position: left;
-  color: #ffd277;
-  background: linear-gradient(to right, #77530a, #ffd277, #77530a, #77530a, #ffd277, #77530a);
+.animate-floating {
+  animation: floating 4s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }

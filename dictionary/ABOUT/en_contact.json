@@ -1,23 +1,23 @@
 [
-    {
-        "head": "support",
-        "msg": "We are always here to help.",
-        "action": "mailto:Jasmel@aimedicalscriber.com",
-        "icon": "support-blue",
-        "contact": "Email Us"
-    },
-    {
-        "head": "FAQ",
-        "msg": "Explore predefined queries.",
-        "action": "https://aimedicalscriber.com/customer-care",
-        "icon": "article",
-        "contact": "Explore FAQs"
-    },
-    {
-        "head": "Contact",
-        "msg": "24/7 services",
-        "action": "tel:1-(786)743-2499",
-        "icon": "phone",
-        "contact": "Call Us"
-    }
+  {
+    "head": "support",
+    "msg": "We are always here to help.",
+    "action": "mailto:Jasmel@aimedicalscriber.com",
+    "icon": "support-blue",
+    "contact": "Email Us"
+  },
+  {
+    "head": "FAQ",
+    "msg": "Explore predefined queries.",
+    "action": "https://aimedicalscriber.com/customer-care",
+    "icon": "article",
+    "contact": "Explore FAQs"
+  },
+  {
+    "head": "Contact",
+    "msg": "24/7 services",
+    "action": "tel:1-(786)743-2499",
+    "icon": "phone",
+    "contact": "Call Us"
+  }
 ]

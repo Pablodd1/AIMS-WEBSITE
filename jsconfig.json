@@ -1,21 +1,12 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
-      "@LG_Bank/*": [
-        "./dictionary/*"
-      ],
-      "@UI/*": [
-        "./COMPONENT/*"
-      ],
-      "@ASSETS/*": [
-        "./ASSETS/*"
-      ],
-      "@UTILS/*": [
-        "./UTILS/*"
-      ],
-      "@MyHook/*": [
-        "./HOOKS/*"
-      ]
+      "@dictionary/*": ["./dictionary/*"],
+      "@components/*": ["./components/*"],
+      "@assets/*": ["./components/assets/*"],
+      "@utils/*": ["./utils/*"],
+      "@hooks/*": ["./hooks/*"]
     }
   }
 }

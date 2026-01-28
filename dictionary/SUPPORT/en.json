@@ -1,11 +1,11 @@
 {
-    "h2": "Experience the Future of Medical Documentation",
-    "p": "Join hundreds of medical professionals using AIMS to save hours, eliminate errors, and get paid faster. No credit card required. Try it free today.",
-    "btn": "Submit",
-    "msg": "Your Message",
-    "email": "Email Address",
-    "phone": "Phone Number (Optional)",
-    "clinicName": "Clinic Name",
-    "subtitle":"Quick Answers",
-    "head_faq":"Get Help with AI Medical Notes"
+  "h2": "Experience the Future of Medical Documentation",
+  "p": "Join hundreds of medical professionals using AIMS to save hours, eliminate errors, and get paid faster. No credit card required. Try it free today.",
+  "btn": "Submit",
+  "msg": "Your Message",
+  "email": "Email Address",
+  "phone": "Phone Number (Optional)",
+  "clinicName": "Clinic Name",
+  "subtitle": "Quick Answers",
+  "head_faq": "Get Help with AI Medical Notes"
 }
