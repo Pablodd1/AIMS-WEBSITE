@@ -1,5 +1,57 @@
-# https://www.robotstxt.org/robotstxt.html
-User-agent: *
-Disallow: /crm-login
+# robots.txt for AI Medical Scriber (AIMS)
+# https://www.aimedicalscriber.com/robots.txt
+# Last updated: February 2025
 
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
 Sitemap: https://www.aimedicalscriber.com/sitemap.xml
+
+# Specific crawler rules
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# Private/admin areas
+Disallow: /crm-login
+Disallow: /admin
+Disallow: /api/
+Disallow: /server-API/
+Disallow: /*.json$
+Disallow: /*?*
+
+# Allow specific file types
+Allow: /*.js$
+Allow: /*.css$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /*.webp$
+Allow: /*.ico$
+Allow: /*.pdf$
+
+# Host
+Host: https://www.aimedicalscriber.com

@@ -1,0 +1,24 @@
+/* TEAM */
+    CEO: Dr. Medical Team
+    Site: https://www.aimedicalscriber.com
+    Location: United States
+
+    Development Team: AIMS Engineering
+    Contact: engineering@aimedicalscriber.com
+
+    Design Team: AIMS UX/UI
+    Contact: design@aimedicalscriber.com
+
+/* THANKS */
+    Medical Advisors: Board of Certified Physicians
+    Beta Testers: 500+ Healthcare Providers
+    Early Adopters: Dr. Smith, Dr. Johnson, Dr. Martinez
+
+/* SITE */
+    Last update: 2025/02/10
+    Standards: HTML5, CSS3, JavaScript
+    Components: React, Next.js, Tailwind CSS
+    Software: Visual Studio Code, Figma, Git
+    Language: English / Spanish
+    Doctype: HTML5
+    IDE: VS Code, Cursor

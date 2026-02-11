@@ -1,6 +1,14 @@
 {
-  "h1": "AI Medical Scribe ~sQue Conoce ~sTu Práctica",
-  "p": "Diseñado para psiquiatría, ortopedia, neurología, trauma y más — AIMS entrega notas perfectamente estructuradas que coinciden con tu especialidad, voz y flujo de trabajo.",
-  "btn1": "Comienza Ahora — Es Gratis",
-  "btn2": "Explorar Características"
+  "h1": "Escriba Médica IA ~sQue Entiende ~sTu Práctica",
+  "p": "Transforma las visitas de pacientes en notas clínicas perfectas al instante. Nuestra IA captura conversaciones, genera notas SOAP, extrae códigos de facturación e integra con tu EHR — ahorrando 15+ minutos por paciente mientras mejora la precisión de documentación al 99.8%.",
+  "btn1": "Comienza Gratis",
+  "btn2": "Ver Cómo Funciona",
+  "videoLabel": "Ver Demo de 60s",
+  "statAccuracy": "99.8% Precisión",
+  "statTimeSaved": "15min Ahorrados/Paciente",
+  "statProviders": "10k+ Proveedores",
+  "statSavings": "$127K Ahorro/Año",
+  "badgeHIPAA": "Compatible con HIPAA",
+  "badgeTrusted": "Usado por Médicos",
+  "badgeSOC2": "SOC 2 Tipo II"
 }

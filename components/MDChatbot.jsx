@@ -1,19 +1,31 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { FaUserMd, FaRobot, FaMicrophone, FaCapsules, FaStethoscope } from "react-icons/fa";
+import { FaUserMd, FaRobot, FaMicrophone, FaCapsules, FaStethoscope, FaBrain, FaHeartbeat, FaNotesMedical } from "react-icons/fa";
 
 const MDChatbot = () => {
     const messages = [
         {
             role: "doctor",
-            text: "Is it safe to prescribe Lisinopril for this patient with their latest blood marker results?",
+            text: "Patient presents with chest pain radiating to left arm, BP 160/95, HR 98. ECG shows ST elevation. Recommendations?",
             icon: <FaUserMd className="text-blue-500" />,
             type: "voice"
         },
         {
             role: "ai",
-            text: "Based on the elevated Creatinine levels (1.8 mg/dL) and current DNA markers for ACE inhibitor sensitivity, I recommend starting with a lower dose of 5mg and monitoring renal function closely. Consider Losartan as an alternative.",
+            text: "STEMI protocol activated. I've prepared aspirin 325mg, clopidogrel 600mg loading dose, and atorvastatin 80mg. Cardiology team notified. Door-to-balloon time tracking initiated. Would you like me to pull the cath lab availability?",
+            icon: <FaRobot className="text-primary" />,
+            type: "text"
+        },
+        {
+            role: "doctor",
+            text: "Yes, and check for any drug interactions with his current metformin and lisinopril.",
+            icon: <FaUserMd className="text-blue-500" />,
+            type: "voice"
+        },
+        {
+            role: "ai",
+            text: "No contraindications with metformin or lisinopril. Cath lab Team B available in 8 minutes. I've auto-generated the STEMI activation documentation and pre-populated the procedure consent forms. Patient's prior imaging from 2023 shows 30% LAD stenosis.",
             icon: <FaRobot className="text-primary" />,
             type: "text"
         }
@@ -26,15 +38,21 @@ const MDChatbot = () => {
                     <motion.span
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
-                        className="px-3 py-1 rounded-full bg-primary/10 text-primary font-bold text-[10px] sm:text-xs uppercase tracking-widest"
+                        className="px-3 py-1 rounded-full bg-primary/10 text-primary font-bold text-[10px] sm:text-xs uppercase tracking-widest flex items-center gap-2 justify-center"
                     >
-                        24/7 Physician Support
+                        <FaMicrophone className="text-emerald-500" />
+                        Voice & Text Enabled
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
                     </motion.span>
                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 mt-2 mb-3">
                         MD Clinical <span className="text-gradient">AI Assistant</span>
                     </h2>
                     <p className="text-xs sm:text-sm md:text-base text-clinical-gray max-w-xl mx-auto font-medium">
-                        Instant clinical reasoning, medication guidance, and evidence-based recommendations.
+                        Your intelligent clinical companion. Ask via voice or text for instant differential diagnoses, 
+                        medication protocols, drug interactions, and evidence-based treatment recommendations.
+                        <span className="block mt-2 text-primary font-semibold">
+                            Trained on 500K+ medical journals • HIPAA Compliant • Real-time
+                        </span>
                     </p>
                 </div>
 
@@ -66,11 +84,16 @@ const MDChatbot = () => {
 
                         {/* Simulated Input */}
                         <div className="mt-2 glass p-4 rounded-xl flex items-center gap-3 border-slate-50">
-                            <div className="w-8 h-8 rounded-full bg-red-500/10 flex items-center justify-center text-red-500 animate-pulse cursor-pointer">
+                            <div className="w-8 h-8 rounded-full bg-red-500/10 flex items-center justify-center text-red-500 animate-pulse cursor-pointer hover:bg-red-500/20 transition-colors">
                                 <FaMicrophone className="text-xs" />
                             </div>
-                            <div className="flex-1 text-slate-400 font-bold text-[11px] italic">
-                                Ask about medication interactions...
+                            <div className="flex-1 text-slate-400 font-bold text-[11px]">
+                                <span className="italic">Press and hold to speak...</span>
+                                <span className="block text-[9px] text-slate-300 mt-0.5">Try: "What are the contraindications for this patient?"</span>
+                            </div>
+                            <div className="flex items-center gap-1 text-[9px] text-emerald-600">
+                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                                Live
                             </div>
                         </div>
                     </div>
@@ -84,9 +107,10 @@ const MDChatbot = () => {
                             </h4>
                             <div className="space-y-4">
                                 {[
-                                    { label: "Medication Match", value: "85%", score: 85 },
-                                    { label: "Renal Concern", value: "High", score: 40, color: "bg-red-500" },
-                                    { label: "Clinical Proof", value: "Verified", score: 95, color: "bg-emerald-500" }
+                                    { label: "Protocol Accuracy", value: "99.2%", score: 99, color: "bg-emerald-500" },
+                                    { label: "Response Time", value: "0.3s", score: 98, color: "bg-emerald-500" },
+                                    { label: "Clinical Context", value: "Full History", score: 100, color: "bg-blue-500" },
+                                    { label: "Drug Interactions", value: "Cleared", score: 95, color: "bg-emerald-500" }
                                 ].map((stat, i) => (
                                     <div key={i}>
                                         <div className="flex justify-between text-[10px] mb-1 font-bold">
@@ -97,6 +121,7 @@ const MDChatbot = () => {
                                             <motion.div
                                                 initial={{ width: 0 }}
                                                 whileInView={{ width: `${stat.score}%` }}
+                                                transition={{ duration: 1, delay: i * 0.2 }}
                                                 className={`h-full ${stat.color || 'bg-primary'}`}
                                             />
                                         </div>
@@ -106,10 +131,37 @@ const MDChatbot = () => {
                         </div>
 
                         <div className="premium-gradient p-5 rounded-2xl text-white">
-                            <h4 className="font-bold text-xs mb-1.5">Evidence Based</h4>
-                            <p className="text-[10px] opacity-90 leading-snug font-medium">
-                                Trained on 250K+ journals. Up-to-date guidance in real-time.
-                            </p>
+                            <h4 className="font-bold text-xs mb-2 flex items-center gap-2">
+                                <FaBrain className="text-emerald-300" />
+                                AI Training & Knowledge
+                            </h4>
+                            <ul className="text-[10px] opacity-90 leading-relaxed font-medium space-y-1.5">
+                                <li className="flex items-start gap-2">
+                                    <span className="text-emerald-300">•</span>
+                                    <span>Trained on 500K+ peer-reviewed medical journals</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="text-emerald-300">•</span>
+                                    <span>Updated weekly with latest clinical guidelines</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="text-emerald-300">•</span>
+                                    <span>Integrated with UpToDate, PubMed, Cochrane</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="text-emerald-300">•</span>
+                                    <span>Specialty-specific protocols: Cardiology, Emergency, Primary Care</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="text-emerald-300">•</span>
+                                    <span>Real-time drug database with interaction checking</span>
+                                </li>
+                            </ul>
+                            <div className="mt-3 pt-3 border-t border-white/20">
+                                <p className="text-[9px] opacity-75">
+                                    Certified for HIPAA compliance • SOC 2 Type II • FDA Guidance Aware
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>

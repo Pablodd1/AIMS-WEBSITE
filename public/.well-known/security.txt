@@ -1,0 +1,25 @@
+# Security Policy for AI Medical Scriber (AIMS)
+# https://www.aimedicalscriber.com/.well-known/security.txt
+# Last updated: February 2025
+
+# Contact Information
+Contact: mailto:security@aimedicalscriber.com
+Contact: https://www.aimedicalsubscriber.com/customer-care
+
+# Expiration
+Expires: 2026-02-01T00:00:00.000Z
+
+# Preferred Languages
+Preferred-Languages: en, es
+
+# Canonical URL
+Canonical: https://www.aimedicalscriber.com/.well-known/security.txt
+
+# Security Policy
+Policy: https://www.aimedicalsubscriber.com/policies
+
+# Acknowledgments
+Acknowledgments: https://www.aimedicalsubscriber.com/security/hall-of-fame
+
+# Hiring
+Hiring: https://www.aimedicalsubscriber.com/careers
