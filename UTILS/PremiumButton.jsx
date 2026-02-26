@@ -3,26 +3,32 @@ import clsx from "clsx";
 import AI_Icon from "./AIIcon";
 
 export default function PremiumButton({
-  label = "Unlock Pro",
+  label = "Get Started",
   href = null,
   onClick,
   className = "",
+  glow = true,
+  size = "medium",
 }) {
+  const sizeClasses = {
+    small: "px-4 py-2 text-sm",
+    medium: "px-6 py-3 text-base",
+    large: "px-8 py-4 text-lg",
+  };
+
   const buttonClasses = clsx(
-    "flex items-center gap-2 px-2.5 py-1 font-bold rounded-full cursor-pointer",
-    "text-white shadow-md shadow-gray-400 transition-all ease-in-out duration-700",
-    "bg-gradient-to-r from-[#880088] via-[#aa2068] via-[#cc3f47] via-[#de6f3d] via-[#f09f33] via-[#de6f3d] via-[#cc3f47] via-[#aa2068] to-[#880088]  ",
-    "bg-[length:300%] bg-left hover:bg-[length:320%] hover:bg-right",
-    "text-shadow-[2px_2px_3px_rgba(136,0,136,0.5)] text-shadow-gray-800 tracking-wide ",
+    "relative inline-flex items-center gap-2 font-bold rounded-xl cursor-pointer",
+    "text-[#030712] transition-all duration-400 ease-out",
+    "bg-gradient-to-r from-[#00d4ff] via-[#06b6d4] to-[#00d4ff] bg-[length:200%] bg-left hover:bg-right",
+    glow && "shadow-[0_0_30px_-5px_rgba(0,212,255,0.4)] hover:shadow-[0_0_50px_-15px_rgba(0,212,255,0.5)]",
+    sizeClasses[size],
     className,
   );
 
   const content = (
     <span className="flex items-center gap-2 group">
       <AI_Icon
-        className={
-          "w-auto h-7 transition-all  duration-300 fill-black group-hover:fill-white"
-        }
+        className="w-auto h-5 transition-all duration-300"
       />
       {label}
     </span>

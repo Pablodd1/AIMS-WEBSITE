@@ -1,56 +1,48 @@
-/* From Uiverse.io by vinodjangid07 */
 .Btn {
-  /* width: 128px; */
-  /* height: 34px; */
-  border: none;
-  border-radius: 10px;
-  background: linear-gradient(
-    to right,
-    #77530a,
-    #ffd277,
-    #77530a,
-    #77530a,
-    #ffd277,
-    #77530a
-  );
-  background-size: 250%;
-  background-position: left;
-  color: #ffd277;
   position: relative;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  padding: 14px 32px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  color: var(--bg-primary, #030712);
+  background: linear-gradient(135deg, var(--accent-primary, #00d4ff) 0%, var(--accent-tertiary, #06b6d4) 100%);
+  border: none;
+  border-radius: 12px;
   cursor: pointer;
-  transition-duration: 1s;
   overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .Btn::before {
+  content: '';
   position: absolute;
-  content: var(--button-text);
-  /* content: var(--button-text); */
-  color: #ffd277;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 97%;
-  height: 90%;
-  border-radius: 8px;
-  transition-duration: 1s;
-  background-color: rgba(0, 0, 0, 0.842);
-  background-size: 200%;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.2) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
 .Btn:hover {
-  background-position: right;
-  transition-duration: 1s;
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px -15px rgba(0, 212, 255, 0.4);
 }
 
 .Btn:hover::before {
-  background-position: right;
-  transition-duration: 1s;
+  opacity: 1;
 }
 
 .Btn:active {
-  transform: scale(0.95);
+  transform: scale(0.98);
+}
+
+/* Glow effect variant */
+.Btn.glow {
+  box-shadow: 0 0 30px -5px rgba(0, 212, 255, 0.3);
+}
+
+.Btn.glow:hover {
+  box-shadow: 0 0 50px -15px rgba(0, 212, 255, 0.5), 0 0 30px -10px rgba(124, 58, 237, 0.3);
 }
