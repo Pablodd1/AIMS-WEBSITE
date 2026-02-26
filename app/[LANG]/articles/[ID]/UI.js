@@ -11,7 +11,7 @@ import React from "react";
 
 import Link from "next/link";
 import BlogsList from "@components/BlogListing";
-import BlogLayout from "@utils/BlogLayout";
+import BlogLayout from "@utils/blogLayout";
 import PremiumButton from "@utils/PremiumButton";
 import SecondaryButton from "@utils/SecondaryButton";
 import Image from "next/image";
@@ -204,35 +204,35 @@ export default function ArticleUI({ ID, lang, dict }) {
       <section className={"max-w-5xl lg:max-w-7xl mx-auto my-24 px-6"}>
         {blog != undefined
           ? <article className="w-full ">
-              <header className="relative h-72 overflow-hidden rounded-3xl shadow-lg max-w-5xl mx-auto shadow-black">
-                <Image
-                  src={`/images/blogs/${encodeURI(blog.icon)}.avif`}
-                  className=" object-cover w-full h-full saturate-200 "
-                  height={260}
-                  width={1024}
-                  alt={blog.title}
-                />
-                <h1 className="  lg:font-bold bg-gradient-to-t from-black to-transparent text-white flex flex-wrap items-end justify-start absolute bottom-0 h-full px-5 py-10 text-3xl bg-opacity-25 w-full">
-                  <span className="max-w-2/3">{blog.title}</span>
-                </h1>
-              </header>
-              <section className="mt-14 mb-10 px-2 md:px-8 mx-auto max-w-5xl ">
-                <BlogLayout data={blog.blog} />
-              </section>
-              <hr />
-              <nav className="px-4 mt-4 mb-24 flex flex-col md:flex-row gap-5 items-center min-w-max">
-                <PremiumButton
-                  label="Try AI Medical Notes"
-                  href={`/${lang}/get-started`}
-                />
-                <SecondaryButton
-                  label="Features"
-                  href={`/${lang}/technology`}
-                  withArrow
-                  className=" font-semibold text-sm "
-                />
-              </nav>
-            </article>
+            <header className="relative h-72 overflow-hidden rounded-3xl shadow-lg max-w-5xl mx-auto shadow-black">
+              <Image
+                src={`/images/blogs/${encodeURI(blog.icon)}.avif`}
+                className=" object-cover w-full h-full saturate-200 "
+                height={260}
+                width={1024}
+                alt={blog.title}
+              />
+              <h1 className="  lg:font-bold bg-gradient-to-t from-black to-transparent text-white flex flex-wrap items-end justify-start absolute bottom-0 h-full px-5 py-10 text-3xl bg-opacity-25 w-full">
+                <span className="max-w-2/3">{blog.title}</span>
+              </h1>
+            </header>
+            <section className="mt-14 mb-10 px-2 md:px-8 mx-auto max-w-5xl ">
+              <BlogLayout data={blog.blog} />
+            </section>
+            <hr />
+            <nav className="px-4 mt-4 mb-24 flex flex-col md:flex-row gap-5 items-center min-w-max">
+              <PremiumButton
+                label="Try AI Medical Notes"
+                href={`/${lang}/get-started`}
+              />
+              <SecondaryButton
+                label="Features"
+                href={`/${lang}/technology`}
+                withArrow
+                className=" font-semibold text-sm "
+              />
+            </nav>
+          </article>
           : `  Loading...`}
 
         <BlogLayout blogId={ID} />

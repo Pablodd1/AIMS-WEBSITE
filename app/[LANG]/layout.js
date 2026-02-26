@@ -61,10 +61,10 @@ const generateOrganizationSchema = () => ({
   "sameAs": [
     "https://linkedin.com/company/aimedicalscriber",
     "https://twitter.com/aims_health",
-    "https://instagram.com/aimedicalscriber://youtube.com/@aimedicalscriber"
+    "https://instagram.com/aimedicalscriber",
+    "https://youtube.com/@aimedicalscriber"
   ],
-  "areaServed":",
-    "https {
+  "areaServed": {
     "@type": "Place",
     "name": "United States"
   },
@@ -306,7 +306,7 @@ const generateBreadcrumbSchema = (lang) => ({
 
 export async function generateMetadata({ params }) {
   const lang = (await params).LANG || "en";
-  
+
   const titles = {
     en: {
       default: "AI Medical Scriber (AIMS) | Automate Clinical Documentation & Save 15+ Minutes/Patient",
@@ -349,7 +349,7 @@ export async function generateMetadata({ params }) {
     },
     description: currentDescriptions.default,
     keywords: keywords[lang] || keywords.en,
-    
+
     authors: [
       { name: "AI Medical Scriber Team", url: baseUrl },
       { name: "AIMS Healthcare", url: baseUrl }
@@ -359,9 +359,9 @@ export async function generateMetadata({ params }) {
     generator: "Next.js 15",
     applicationName: "AIMS - AI Medical Scriber",
     category: "Healthcare Technology, Software as a Service",
-    
+
     authors: [{ name: "AI Medical Scriber" }],
-    
+
     alternates: {
       canonical: `${baseUrl}/${lang}`,
       languages: {
@@ -370,7 +370,7 @@ export async function generateMetadata({ params }) {
         "x-default": `${baseUrl}/en`
       }
     },
-    
+
     openGraph: {
       type: "website",
       locale: lang === "es" ? "es_ES" : "en_US",
@@ -403,7 +403,7 @@ export async function generateMetadata({ params }) {
         alt: "AIMS Product Demo"
       }
     },
-    
+
     twitter: {
       card: "summary_large_image",
       site: "@aims_health",
@@ -425,11 +425,11 @@ export async function generateMetadata({ params }) {
         }
       }
     },
-    
+
     facebook: {
       appId: "1234567890123"
     },
-    
+
     robots: {
       index: true,
       follow: true,
@@ -445,13 +445,13 @@ export async function generateMetadata({ params }) {
       "max-image-preview": "large",
       "max-snippet": -1
     },
-    
+
     verification: {
       google: "google-site-verification-code",
       yandex: "yandex-verification-code",
       bing: "bing-site-verification-code"
     },
-    
+
     manifest: "/manifest.json",
     icons: {
       icon: [
@@ -468,7 +468,7 @@ export async function generateMetadata({ params }) {
         { url: "/icon-maskable-512x512.png", sizes: "512x512", type: "image/png", purpose: "maskable" }
       ]
     },
-    
+
     appleWebApp: {
       capable: true,
       statusBarStyle: "black-translucent",
@@ -477,7 +477,7 @@ export async function generateMetadata({ params }) {
         "/icon-512x512.png"
       ]
     },
-    
+
     formatDetection: {
       telephone: true,
       date: true,
@@ -485,12 +485,12 @@ export async function generateMetadata({ params }) {
       email: true,
       url: true
     },
-    
+
     themeColor: [
       { media: "(prefers-color-scheme: light)", color: "#00d4ff" },
       { media: "(prefers-color-scheme: dark)", color: "#030712" }
     ],
-    
+
     other: {
       "article:published_time": "2024-01-01T00:00:00+00:00",
       "article:modified_time": new Date().toISOString(),
@@ -521,31 +521,31 @@ export default async function RootLayout({ children, params }) {
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
+
         <link rel="dns-prefetch" href="//www.google.com" />
         <link rel="dns-prefetch" href="//www.google-analytics.com" />
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
-        
+
         <link rel="canonical" href={`${baseUrl}/${lang}`} />
         <link rel="alternate" hrefLang="en" href={`${baseUrl}/en`} />
         <link rel="alternate" hrefLang="es" href={`${baseUrl}/es`} />
         <link rel="alternate" hrefLang="x-default" href={`${baseUrl}/en`} />
-        
+
         <meta name="google" content="notranslate" />
-        
+
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="AIMS" />
-        
+
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="application-name" content="AIMS - AI Medical Scriber" />
         <meta name="msapplication-TileColor" content="#030712" />
         <meta name="msapplication-config" content="none" />
-        
+
         <meta name="theme-color" content="#030712" />
-        
+
         <meta name="facebook-domain-verification" content="facebook-verification-code" />
-        
+
         <Script
           id="organization-schema"
           type="application/ld+json"
@@ -553,7 +553,7 @@ export default async function RootLayout({ children, params }) {
             __html: JSON.stringify(generateOrganizationSchema()),
           }}
         />
-        
+
         <Script
           id="software-schema"
           type="application/ld+json"
@@ -561,7 +561,7 @@ export default async function RootLayout({ children, params }) {
             __html: JSON.stringify(generateSoftwareApplicationSchema()),
           }}
         />
-        
+
         <Script
           id="faq-schema"
           type="application/ld+json"
@@ -569,7 +569,7 @@ export default async function RootLayout({ children, params }) {
             __html: JSON.stringify(generateFAQSchema()),
           }}
         />
-        
+
         <Script
           id="howto-schema"
           type="application/ld+json"
@@ -577,7 +577,7 @@ export default async function RootLayout({ children, params }) {
             __html: JSON.stringify(generateHowToSchema()),
           }}
         />
-        
+
         <Script
           id="website-schema"
           type="application/ld+json"
@@ -585,7 +585,7 @@ export default async function RootLayout({ children, params }) {
             __html: JSON.stringify(generateWebSiteSchema()),
           }}
         />
-        
+
         <Script
           id="breadcrumb-schema"
           type="application/ld+json"
@@ -593,7 +593,7 @@ export default async function RootLayout({ children, params }) {
             __html: JSON.stringify(generateBreadcrumbSchema(lang)),
           }}
         />
-        
+
         <Script
           id="core-web-vitals"
           strategy="afterInteractive"
@@ -619,7 +619,7 @@ export default async function RootLayout({ children, params }) {
       >
         <div className="mesh-bg" aria-hidden="true" />
         <div className="noise-overlay" aria-hidden="true" />
-        
+
         <NavigationBar lang={lang} />
         {children}
         <FancySidebar dict={await langSideBar(lang)} lang={lang} />

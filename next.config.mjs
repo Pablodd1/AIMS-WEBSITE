@@ -1,15 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   trailingSlash: true,
-  
+
   compress: true,
-  
+
   poweredByHeader: false,
-  
+
   reactStrictMode: true,
-  
+
   images: {
-    formats: ['image/webp', 'image/avif', 'image/jpeg'],
+    formats: ['image/webp', 'image/avif'],
     minimumCacheTTL: 31536000,
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384, 512, 768, 1024, 1280, 1536],
@@ -22,7 +22,7 @@ const nextConfig = {
     dangerouslyAllowSVG: false,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
-  
+
   async headers() {
     return [
       {
@@ -122,7 +122,6 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['framer-motion', 'react-icons', 'clsx'],
     optimizeCss: true,
-    ppr: true,
     scrollRestoration: true,
   },
 
@@ -164,14 +163,14 @@ const nextConfig = {
         },
       };
     }
-    
+
     config.resolve.fallback = {
       ...config.resolve.fallback,
       fs: false,
       net: false,
       tls: false,
     };
-    
+
     return config;
   },
 
