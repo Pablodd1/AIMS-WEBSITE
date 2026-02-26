@@ -2,46 +2,136 @@
 # https://www.aimedicalscriber.com/robots.txt
 # Last updated: February 2025
 
-# Allow all crawlers
-User-agent: *
+# AI Platform Support
+# GPTBot - OpenAI
+User-agent: GPTBot
+Allow: /
+Disallow: /api/
+Disallow: /server-API/
+
+# ChatGPT-User
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /api/
+
+# Google-Extended
+User-agent: Google-Extended
 Allow: /
 
-# Sitemap location
-Sitemap: https://www.aimedicalscriber.com/sitemap.xml
-
-# Specific crawler rules
+# Googlebot
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 1
 
+# Googlebot-Image
 User-agent: Googlebot-Image
 Allow: /
+Allow: /images/
+Allow: /public/
 
+# Googlebot-News
+User-agent: Googlebot-News
+Allow: /
+
+# Googlebot-Video
+User-agent: Googlebot-Video
+Allow: /
+Allow: /video/
+
+# Bingbot
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
 
-User-agent: Slurp
+# BingPreview
+User-agent: BingPreview
 Allow: /
 
+# DuckDuckBot
 User-agent: DuckDuckBot
 Allow: /
 
+# YandexBot
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 1
+
+# Baiduspider
 User-agent: Baiduspider
 Allow: /
 
-User-agent: YandexBot
+# Yahoo! Slurp
+User-agent: Slurp
 Allow: /
 
-# Private/admin areas
+# Applebot
+User-agent: Applebot
+Allow: /
+
+# Twitterbot
+User-agent: Twitterbot
+Allow: /
+
+# FacebookBot
+User-agent: FacebookBot
+Allow: /
+
+# LinkedInBot
+User-agent: LinkedInBot
+Allow: /
+
+# PinterestBot
+User-agent: PinterestBot
+Allow: /
+
+# DiscordBot
+User-agent: Discordbot
+Allow: /
+
+# TelegramBot
+User-agent: TelegramBot
+Allow: /
+
+# Anthropic (Claude)
+User-agent: ClaudeBot
+Allow: /
+Disallow: /api/
+
+# Common Crawl
+User-agent: CCBot
+Allow: /
+Disallow: /api/
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+Disallow: /api/
+
+# All other bots
+User-agent: *
+Allow: /
+
+# Sitemap locations
+Sitemap: https://www.aimedicalscriber.com/sitemap.xml
+Sitemap: https://www.aimedicalscriber.com/sitemap-news.xml
+Sitemap: https://www.aimedicalscriber.com/sitemap-video.xml
+
+# Host
+Host: https://www.aimedicalscriber.com
+
+# Crawl-delay for general bots (optional)
+Crawl-delay: 1
+
+# Private/admin areas - NO INDEX
 Disallow: /crm-login
 Disallow: /admin
 Disallow: /api/
 Disallow: /server-API/
 Disallow: /*.json$
-Disallow: /*?*
+Disallow: /?
+Disallow: /*?
 
-# Allow specific file types
+# Allow static assets
 Allow: /*.js$
 Allow: /*.css$
 Allow: /*.png$
@@ -52,6 +142,16 @@ Allow: /*.svg$
 Allow: /*.webp$
 Allow: /*.ico$
 Allow: /*.pdf$
+Allow: /*.mp4$
+Allow: /*.webm$
 
-# Host
-Host: https://www.aimedicalscriber.com
+# Allow media
+Allow: /images/
+Allow: /video/
+Allow: /public/
+Allow: /thumbnails/
+Allow: /team/
+Allow: /svg/
+Allow: /blog/
+Allow: /blogs/
+Allow: /images/blogs/

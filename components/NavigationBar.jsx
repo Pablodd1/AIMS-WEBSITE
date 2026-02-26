@@ -1,100 +1,204 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./NavigationBar.module.css";
-import SecondaryButton, {
-  bottomLineClass,
-  secBtnClass,
-} from "@utils/SecondaryButton";
 import clsx from "clsx";
-import { links } from "./assets/data/resources";
-import CtaButton from "@utils/CtaButton";
-import { langNav } from "@dictionary/NAV/main";
-const UseScrollEffect = dynamic(() => import("@hooks/useMonitorScroll"));
+import { motion, AnimatePresence } from "framer-motion";
 
-export default async function Navigation_Bar({ lang = "en" }) {
-  const dict = await langNav(lang);
-  const btnClass = clsx(
-    styles["icon--menu-toggle"],
-    "flex lg:hidden my-animi-all",
-  );
-  const navClass = clsx(
-    styles["main-navigation"],
-    "flex lg:hidden my-animi-all premium-gradient",
-  );
-  const menuClass = clsx(styles["main-navigation-toggle"], "  ");
+const UseScrollEffect = dynamic(() => import("@hooks/useMonitorScroll"), { ssr: false });
+
+const navLinks = [
+  { href: "/technology", label: "technology" },
+  { href: "/articles", label: "articles" },
+  { href: "/about-us", label: "aboutUs" },
+  { href: "/customer-care", label: "customerCare" },
+];
+
+export default function Navigation_Bar({ lang = "en", dict = {} }) {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const getLabel = (key) => {
+    if (dict && dict[key]) return dict[key];
+    const labels = {
+      technology: lang === "es" ? "Tecnología" : "Technology",
+      articles: lang === "es" ? "Artículos" : "Articles",
+      aboutUs: lang === "es" ? "Nosotros" : "About Us",
+      customerCare: lang === "es" ? "Soporte" : "Support",
+      getStarted: lang === "es" ? "Comenzar" : "Get Started",
+    };
+    return labels[key] || key;
+  };
+
   return (
-    <section id="navbar" className="z-50 sticky top-0 py-4 my-animi-all">
-      <nav className="px-5 max-w-7xl mx-auto flex items-center justify-between gap-4 glass rounded-3xl py-3 px-6 shadow-lg">
-        <Link
-          href={`/${lang}`}
-          className="flex gap-3 items-center justify-start group"
-        >
-          <div className="relative w-12 h-12 rounded-xl overflow-hidden shadow-md group-hover:scale-110 transition-transform">
-            <Image
-              src={`/logo.png`}
-              alt="AIMS Logo"
-              className="object-cover"
-              fill
-            />
-          </div>
-          <div className="flex flex-col">
-            <span className="font-extrabold text-lg text-gray-900 tracking-tight">AIMS</span>
-            <span className="text-xs text-clinical-gray font-medium">Medical Intelligence</span>
-          </div>
-        </Link>
+    <header 
+      className={clsx(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+        isScrolled 
+          ? "py-3" 
+          : "py-5"
+      )}
+    >
+      <nav 
+        className={clsx(
+          "mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-500",
+          isScrolled 
+            ? "max-w-6xl glass rounded-2xl" 
+            : "max-w-7xl"
+        )}
+      >
+        <div className="flex items-center justify-between">
+          {/* Logo */}
+          <Link 
+            href={`/${lang}`} 
+            className="flex items-center gap-3 group"
+            aria-label="AIMS - AI Medical Scriber Home"
+          >
+            <div className={clsx(
+              "relative overflow-hidden transition-all duration-500",
+              isScrolled ? "w-10 h-10" : "w-12 h-12"
+            )}>
+              <Image
+                src="/logo.png"
+                alt="AIMS - AI Medical Scriber"
+                className="object-cover"
+                fill
+                sizes="(max-width: 768px) 40px, 48px"
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-[var(--accent-primary)]/20 to-[var(--accent-secondary)]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </div>
+            <div className="flex flex-col">
+              <span className={clsx(
+                "font-extrabold tracking-tight transition-all duration-300",
+                isScrolled ? "text-base text-[var(--text-primary)]" : "text-lg text-[var(--text-primary)]"
+              )}>
+                AIMS
+              </span>
+              <span className={clsx(
+                "font-medium transition-all duration-300",
+                isScrolled ? "text-[10px]" : "text-xs",
+                "text-[var(--text-muted)]"
+              )}>
+                {lang === "es" ? "Inteligencia Médica" : "Medical Intelligence"}
+              </span>
+            </div>
+          </Link>
 
-        <div className="hidden lg:flex items-center gap-1">
-          {links.map((x) => (
-            <SecondaryButton
-              label={dict[x.label]}
-              href={`/${lang}${x.href}`}
-              key={x.label}
-              className="px-4 py-2 rounded-xl hover:bg-primary/5 transition-colors font-medium text-gray-700 hover:text-primary"
-            />
-          ))}
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center gap-1">
+            {navLinks.map((link, index) => (
+              <motion.div
+                key={link.href}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <Link
+                  href={`/${lang}${link.href}`}
+                  className="relative px-4 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-300 group"
+                >
+                  {getLabel(link.label)}
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] group-hover:w-full transition-all duration-300 rounded-full" />
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* CTA Button */}
+          <div className="flex items-center gap-3">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.3 }}
+            >
+              <Link
+                href={`/${lang}/get-started`}
+                className="btn-primary text-sm"
+              >
+                {getLabel("getStarted")}
+              </Link>
+            </motion.div>
+
+            {/* Mobile Menu Toggle */}
+            <button
+              className="lg:hidden relative w-10 h-10 flex items-center justify-center"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMobileMenuOpen}
+            >
+              <div className="flex flex-col gap-1.5 w-5">
+                <span className={clsx(
+                  "h-0.5 bg-[var(--text-primary)] transition-all duration-300",
+                  isMobileMenuOpen ? "rotate-45 translate-y-2" : ""
+                )} />
+                <span className={clsx(
+                  "h-0.5 bg-[var(--text-primary)] transition-all duration-300",
+                  isMobileMenuOpen ? "opacity-0" : ""
+                )} />
+                <span className={clsx(
+                  "h-0.5 bg-[var(--text-primary)] transition-all duration-300",
+                  isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""
+                )} />
+              </div>
+            </button>
+          </div>
         </div>
 
-        <CtaButton
-          label={dict["getStarted"]}
-          lang={lang}
-          className="px-6 py-2.5 rounded-xl font-bold text-sm shadow-lg hover:shadow-xl transition-all"
-        />
-
-        <input
-          id="page-nav-toggle"
-          aria-labelledby="page-nav-label"
-          className={menuClass}
-          aria-label="Toggle navigation menu"
-          type="checkbox"
-        />
-        <label id="page-nav-label" htmlFor="page-nav-toggle">
-          <svg className={btnClass} viewBox="0 0 60 30">
-            <g className={styles["icon-group"]}>
-              <g className={styles["icon--menu"]}>
-                <path d="M 6 0 L 54 0" />
-                <path d="M 6 15 L 54 15" />
-                <path d="M 6 30 L 54 30" />
-              </g>
-              <g className={styles["icon--close"]}>
-                <path d="M 15 0 L 45 30" />
-                <path d="M 15 30 L 45 0" />
-              </g>
-            </g>
-          </svg>
-        </label>
-        <nav className={navClass}>
-          <section className="flex flex-col gap-4 w-4/5 text-white mx-auto mt-24">
-            {links.map((x) => (
-              <SecondaryButton
-                label={dict[x.label]}
-                href={`/${lang}${x.href}`}
-                key={x.label}
-                className="text-xl border-b border-white/20 last:border-0 py-4 px-4 tracking-wide hover:bg-white/10 rounded-xl transition-colors"
-              />
-            ))}
-          </section>
-        </nav>
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="lg:hidden overflow-hidden"
+            >
+              <div className="py-6 space-y-2">
+                {navLinks.map((link, index) => (
+                  <motion.div
+                    key={link.href}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <Link
+                      href={`/${lang}${link.href}`}
+                      className="block py-3 px-4 text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--glass-bg)] rounded-xl transition-all duration-300"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {getLabel(link.label)}
+                    </Link>
+                  </motion.div>
+                ))}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: navLinks.length * 0.1 }}
+                >
+                  <Link
+                    href={`/${lang}/get-started`}
+                    className="block py-3 px-4 mt-4 text-center btn-primary"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {getLabel("getStarted")}
+                  </Link>
+                </motion.div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
 
       <UseScrollEffect
@@ -102,6 +206,6 @@ export default async function Navigation_Bar({ lang = "en" }) {
         className={styles.scroll_nav_bar}
         threshold={10}
       />
-    </section>
+    </header>
   );
 }
