@@ -2,12 +2,12 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  FaRobot, 
-  FaPaperPlane, 
-  FaMicrophone, 
-  FaMicrophoneSlash, 
-  FaTimes, 
+import {
+  FaRobot,
+  FaPaperPlane,
+  FaMicrophone,
+  FaMicrophoneSlash,
+  FaTimes,
   FaCommentDots,
   FaUser,
   FaPhone,
@@ -34,12 +34,12 @@ const AIMS_KNOWLEDGE_BASE = {
     email: "support@aimedicalscriber.com",
     demoEmail: "jasmelacosta@gmail.com"
   },
-  
+
   products: {
     aiMedicalScriber: {
       name: "AI Medical Scriber",
       description: "Ambient listening during patient consultations that automatically generates structured SOAP notes",
-      features: ["Real-time transcription", "SOAP note generation", "EHR integration", "99.8% accuracy"],
+      features: ["Real-time transcription", "SOAP note generation", "99.8% accuracy"],
       benefits: ["Saves 15+ minutes per patient", "Reduces physician burnout", "Improves documentation quality"]
     },
     voiceIntake: {
@@ -75,8 +75,8 @@ const AIMS_KNOWLEDGE_BASE = {
   },
 
   integration: {
-    ehrs: ["Epic", "Cerner", "Athenahealth", "eClinicalWorks", "NextGen", "Allscripts"],
-    compatibility: "Works with all major EHR systems"
+    ehrs: ["Standalone Platform"],
+    compatibility: "Independent and secure standalone platform that requires no complex integration."
   },
 
   compliance: {
@@ -86,7 +86,7 @@ const AIMS_KNOWLEDGE_BASE = {
 
   specialties: [
     "Primary Care",
-    "Cardiology", 
+    "Cardiology",
     "Orthopedics",
     "Neurology",
     "Psychiatry",
@@ -117,7 +117,7 @@ const PREDEFINED_RESPONSES = {
     en: ["Hello! I'm AIMS Assistant. How can I help you with medical documentation today?", "Welcome! I'm here to answer questions about AI Medical Scriber. What would you like to know?"],
     es: ["¡Hola! Soy el Asistente de AIMS. ¿Cómo puedo ayudarte con la documentación médica hoy?", "¡Bienvenido! Estoy aquí para responder preguntas sobre AI Medical Scriber. ¿Qué te gustaría saber?"]
   },
-  
+
   pricing: {
     en: `Our pricing is $200-400 per provider per month, with no enterprise minimums. Most practices see an ROI within 3-12 months with an average annual savings of $127K per physician. We also offer a free trial. Would you like me to connect you with our sales team?`,
     es: `Nuestros precios son de $200-400 por proveedor por mes, sin mínimos empresariales. La mayoría de las prácticas ven un ROI en 3-12 meses con un ahorro anual promedio de $127K por médico. También ofrecemos una prueba gratuita. ¿Te gustaría que te conecte con nuestro equipo de ventas?`
@@ -134,8 +134,8 @@ const PREDEFINED_RESPONSES = {
   },
 
   integration: {
-    en: `AIMS integrates with all major EHR systems including Epic, Cerner, Athenahealth, eClinicalWorks, NextGen, and Allscripts. Implementation typically takes 48 hours with no IT department required. Which EHR do you currently use?`,
-    es: `AIMS se integra con todos los sistemas EHR principales incluyendo Epic, Cerner, Athenahealth, eClinicalWorks, NextGen y Allscripts. La implementación típicamente toma 48 horas sin necesidad de departamento de TI. ¿Qué EHR usas actualmente?`
+    en: `AIMS operates as an independent, secure standalone platform that generates structured medical documentation without requiring complex EHR integrations. Implementation takes just a few minutes.`,
+    es: `AIMS opera como una plataforma independiente y segura que genera documentación médica estructurada sin requerir integraciones complejas con EHR. La implementación toma solo unos minutos.`
   },
 
   contact: {
@@ -233,39 +233,39 @@ const FrontDeskChatbot = ({ lang = "en" }) => {
 
   const generateResponse = (userMessage) => {
     const lowerMessage = userMessage.toLowerCase();
-    
+
     // Check for pricing-related queries
     if (lowerMessage.includes("price") || lowerMessage.includes("cost") || lowerMessage.includes("$") || lowerMessage.includes("dollar") || lowerMessage.includes("precio") || lowerMessage.includes("cuánto cuesta")) {
       return PREDEFINED_RESPONSES.pricing[lang];
     }
-    
+
     // Check for feature-related queries
     if (lowerMessage.includes("feature") || lowerMessage.includes("what does") || lowerMessage.includes("do") || lowerMessage.includes("function") || lowerMessage.includes("característica") || lowerMessage.includes("qué hace")) {
       return PREDEFINED_RESPONSES.features[lang];
     }
-    
+
     // Check for demo/trial requests
     if (lowerMessage.includes("demo") || lowerMessage.includes("trial") || lowerMessage.includes("see it") || lowerMessage.includes("prueba") || lowerMessage.includes("demo")) {
       setShowLeadForm(true);
       return PREDEFINED_RESPONSES.demo[lang];
     }
-    
+
     // Check for integration questions
     if (lowerMessage.includes("integration") || lowerMessage.includes("ehr") || lowerMessage.includes("epic") || lowerMessage.includes("cerner") || lowerMessage.includes("integración")) {
       return PREDEFINED_RESPONSES.integration[lang];
     }
-    
+
     // Check for contact info
     if (lowerMessage.includes("contact") || lowerMessage.includes("email") || lowerMessage.includes("phone") || lowerMessage.includes("reach") || lowerMessage.includes("contacto")) {
       return PREDEFINED_RESPONSES.contact[lang];
     }
-    
+
     // Check for greetings
     if (lowerMessage.includes("hello") || lowerMessage.includes("hi") || lowerMessage.includes("hey") || lowerMessage.includes("hola") || lowerMessage.includes("buenos")) {
       const greetings = PREDEFINED_RESPONSES.greetings[lang];
       return greetings[Math.floor(Math.random() * greetings.length)];
     }
-    
+
     // Default response
     setShowLeadForm(true);
     return PREDEFINED_RESPONSES.fallback[lang];
@@ -289,7 +289,7 @@ const FrontDeskChatbot = ({ lang = "en" }) => {
     // Simulate AI processing delay
     setTimeout(() => {
       const response = generateResponse(text);
-      
+
       const assistantMessage = {
         role: "assistant",
         content: response,
@@ -304,7 +304,7 @@ const FrontDeskChatbot = ({ lang = "en" }) => {
 
   const handleLeadSubmit = async (e) => {
     e.preventDefault();
-    
+
     // Send email notification
     try {
       const response = await fetch("/server-API/chatbot-lead", {
@@ -326,7 +326,7 @@ const FrontDeskChatbot = ({ lang = "en" }) => {
         setLeadSubmitted(true);
         setMessages(prev => [...prev, {
           role: "assistant",
-          content: lang === "es" 
+          content: lang === "es"
             ? `¡Gracias ${leadData.name}! Hemos recibido tu información y te contactaremos en menos de 24 horas.`
             : `Thank you ${leadData.name}! We've received your information and will contact you within 24 hours.`,
           timestamp: new Date(),
@@ -337,7 +337,7 @@ const FrontDeskChatbot = ({ lang = "en" }) => {
       console.error("Error submitting lead:", error);
       setMessages(prev => [...prev, {
         role: "assistant",
-        content: lang === "es" 
+        content: lang === "es"
           ? "Lo siento, hubo un error al enviar tu información. Por favor intenta de nuevo o contáctanos directamente."
           : "Sorry, there was an error submitting your information. Please try again or contact us directly.",
         timestamp: new Date(),
@@ -350,7 +350,7 @@ const FrontDeskChatbot = ({ lang = "en" }) => {
     { icon: <FaDollarSign />, label: lang === "es" ? "Precios" : "Pricing", query: lang === "es" ? "¿Cuál es el precio?" : "What is the pricing?" },
     { icon: <FaStethoscope />, label: lang === "es" ? "Funciones" : "Features", query: lang === "es" ? "¿Qué funciones tienen?" : "What features do you have?" },
     { icon: <FaCalendarAlt />, label: lang === "es" ? "Agendar Demo" : "Schedule Demo", query: lang === "es" ? "Quiero una demo" : "I want a demo" },
-    { icon: <FaHospital />, label: lang === "es" ? "Integración EHR" : "EHR Integration", query: lang === "es" ? "¿Con qué EHR se integran?" : "What EHR do you integrate with?" }
+    { icon: <FaHospital />, label: lang === "es" ? "Operación" : "Standalone Access", query: lang === "es" ? "¿Cómo funciona sin EHR?" : "How does it work without EHR?" }
   ];
 
   return (
@@ -393,7 +393,7 @@ const FrontDeskChatbot = ({ lang = "en" }) => {
                   </p>
                 </div>
               </div>
-              <button 
+              <button
                 onClick={() => setIsOpen(false)}
                 className="text-white/80 hover:text-white transition-colors"
               >
@@ -410,16 +410,14 @@ const FrontDeskChatbot = ({ lang = "en" }) => {
                   animate={{ opacity: 1, y: 0 }}
                   className={`flex gap-2 mb-4 ${message.role === "user" ? "flex-row-reverse" : ""}`}
                 >
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
-                    message.role === "user" ? "bg-blue-500 text-white" : "bg-primary text-white"
-                  }`}>
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${message.role === "user" ? "bg-blue-500 text-white" : "bg-primary text-white"
+                    }`}>
                     {message.role === "user" ? <FaUser className="text-xs" /> : <FaRobot className="text-xs" />}
                   </div>
-                  <div className={`max-w-[75%] p-3 rounded-2xl text-sm ${
-                    message.role === "user" 
-                      ? "bg-blue-500 text-white rounded-br-none" 
+                  <div className={`max-w-[75%] p-3 rounded-2xl text-sm ${message.role === "user"
+                      ? "bg-blue-500 text-white rounded-br-none"
                       : "bg-white text-gray-800 rounded-bl-none shadow-sm border border-gray-100"
-                  }`}>
+                    }`}>
                     {message.type === "voice" && message.role === "user" && (
                       <div className="flex items-center gap-1 text-xs opacity-70 mb-1">
                         <FaMicrophone className="text-[10px]" />
@@ -430,7 +428,7 @@ const FrontDeskChatbot = ({ lang = "en" }) => {
                   </div>
                 </motion.div>
               ))}
-              
+
               {isProcessing && (
                 <div className="flex gap-2 mb-4">
                   <div className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center">
@@ -441,7 +439,7 @@ const FrontDeskChatbot = ({ lang = "en" }) => {
                   </div>
                 </div>
               )}
-              
+
               <div ref={messagesEndRef} />
             </div>
 
@@ -461,7 +459,7 @@ const FrontDeskChatbot = ({ lang = "en" }) => {
                     type="text"
                     placeholder={lang === "es" ? "Nombre completo" : "Full name"}
                     value={leadData.name}
-                    onChange={(e) => setLeadData({...leadData, name: e.target.value})}
+                    onChange={(e) => setLeadData({ ...leadData, name: e.target.value })}
                     className="w-full px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                     required
                   />
@@ -469,7 +467,7 @@ const FrontDeskChatbot = ({ lang = "en" }) => {
                     type="email"
                     placeholder={lang === "es" ? "Correo electrónico" : "Email address"}
                     value={leadData.email}
-                    onChange={(e) => setLeadData({...leadData, email: e.target.value})}
+                    onChange={(e) => setLeadData({ ...leadData, email: e.target.value })}
                     className="w-full px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                     required
                   />
@@ -477,7 +475,7 @@ const FrontDeskChatbot = ({ lang = "en" }) => {
                     type="tel"
                     placeholder={lang === "es" ? "Teléfono (opcional)" : "Phone (optional)"}
                     value={leadData.phone}
-                    onChange={(e) => setLeadData({...leadData, phone: e.target.value})}
+                    onChange={(e) => setLeadData({ ...leadData, phone: e.target.value })}
                     className="w-full px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                   <button
@@ -517,29 +515,28 @@ const FrontDeskChatbot = ({ lang = "en" }) => {
               <div className="flex items-center gap-2">
                 <button
                   onClick={toggleRecording}
-                  className={`p-2.5 rounded-full transition-all ${
-                    isRecording 
-                      ? "bg-red-500 text-white animate-pulse" 
+                  className={`p-2.5 rounded-full transition-all ${isRecording
+                      ? "bg-red-500 text-white animate-pulse"
                       : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                  }`}
+                    }`}
                   title={isRecording ? (lang === "es" ? "Detener grabación" : "Stop recording") : (lang === "es" ? "Grabar voz" : "Record voice")}
                 >
                   {isRecording ? <FaMicrophoneSlash /> : <FaMicrophone />}
                 </button>
-                
+
                 <input
                   type="text"
                   value={inputText}
                   onChange={(e) => setInputText(e.target.value)}
                   onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
-                  placeholder={isRecording 
-                    ? (lang === "es" ? "Escuchando..." : "Listening...") 
+                  placeholder={isRecording
+                    ? (lang === "es" ? "Escuchando..." : "Listening...")
                     : (lang === "es" ? "Escribe tu mensaje..." : "Type your message...")
                   }
                   className="flex-1 px-4 py-2.5 bg-gray-100 border-0 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                   disabled={isRecording}
                 />
-                
+
                 <button
                   onClick={() => handleSendMessage()}
                   disabled={!inputText.trim() || isProcessing}
@@ -548,9 +545,9 @@ const FrontDeskChatbot = ({ lang = "en" }) => {
                   <FaPaperPlane />
                 </button>
               </div>
-              
+
               <p className="text-[9px] text-gray-400 mt-2 text-center">
-                {lang === "es" 
+                {lang === "es"
                   ? "Respaldado por IA • Las conversaciones se envían a jasmelacosta@gmail.com"
                   : "AI Powered • Conversations sent to jasmelacosta@gmail.com"
                 }

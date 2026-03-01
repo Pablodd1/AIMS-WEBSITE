@@ -8,15 +8,25 @@ import { langArticle } from "@dictionary/ARTICLE/main";
 import { RiLoader2Line } from "react-icons/ri";
 
 // 👇 This runs on the server side
-async function getBlogs(lang = "es") {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/server-API/blogs?lang=${lang}&keys=title,_id,icon`,
+async function getBlogs(lang = "en") {
+  // Return static fallback content since there is no connected backend CMS currently
+  return [
     {
-      next: { revalidate: 60 }, // ISR cache for performance
+      _id: "1",
+      title: lang === "es" ? "Revolucionando la Productividad Clínica" : "Revolutionizing Clinical Productivity",
+      icon: "FaStethoscope"
     },
-  );
-  if (!res.ok) return [];
-  return res.json();
+    {
+      _id: "2",
+      title: lang === "es" ? "El Futuro de la IA" : "The Future of Ambient AI",
+      icon: "FaBrain"
+    },
+    {
+      _id: "3",
+      title: lang === "es" ? "Menos Pantallas, Más Pacientes" : "Less Screens, More Patients",
+      icon: "FaUserMd"
+    }
+  ];
 }
 
 export default async function CustomerCarePage({ params }) {
