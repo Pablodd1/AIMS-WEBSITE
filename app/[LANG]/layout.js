@@ -508,7 +508,14 @@ export async function generateMetadata({ params }) {
       "twitter:app:id:googleplay": "com.aimedicalscriber.app",
       "twitter:player": `${baseUrl}/video/AIMS_Hero.mp4`,
       "twitter:player:width": "1920",
-      "twitter:player:height": "1080"
+      "twitter:player:height": "1080",
+      // SEO for LLMs / Conversational AI Crawlers
+      "chatgpt-user": "index, follow, max-snippet:-1",
+      "google-extended": "index, follow, max-snippet:-1",
+      "anthropic-ai": "index, follow, max-snippet:-1",
+      "claude-web": "index, follow, max-snippet:-1",
+      "perplexity": "index, follow, max-snippet:-1",
+      "applebot": "index, follow, max-snippet:-1"
     }
   };
 }

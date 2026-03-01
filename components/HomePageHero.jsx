@@ -6,6 +6,7 @@ import PremiumButton from "@utils/PremiumButton";
 import SecondaryButton from "@utils/SecondaryButton";
 import Image from "next/image";
 import { FaWaveSquare, FaMicrophone, FaBrain, FaPlay, FaPause, FaVolumeUp, FaStethoscope, FaUserMd } from "react-icons/fa";
+import Hero3DBackground from "./Hero3DBackground";
 
 const HomePageHero = ({ lang, dict }) => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
@@ -16,6 +17,7 @@ const HomePageHero = ({ lang, dict }) => {
 
   return (
     <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden pt-16 pb-12">
+      <Hero3DBackground />
       {/* Dynamic Background Elements */}
       <div className="absolute top-0 w-full h-full pointer-events-none overflow-hidden">
         <motion.div
@@ -143,7 +145,7 @@ const HomePageHero = ({ lang, dict }) => {
         >
           {/* Main Visual Container */}
           <figure className="relative w-full aspect-square rounded-3xl md:rounded-[4rem] overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] border-8 md:border-[12px] border-white/50 backdrop-blur-3xl">
-            
+
             {/* Video Player */}
             <AnimatePresence mode="wait">
               {isVideoPlaying ? (
@@ -178,10 +180,10 @@ const HomePageHero = ({ lang, dict }) => {
                     height={800}
                     priority
                   />
-                  
+
                   {/* Play Button Overlay */}
                   <div className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors cursor-pointer group"
-                       onClick={() => setIsVideoPlaying(true)}>
+                    onClick={() => setIsVideoPlaying(true)}>
                     <motion.div
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
@@ -189,7 +191,7 @@ const HomePageHero = ({ lang, dict }) => {
                     >
                       <FaPlay className="text-2xl sm:text-3xl text-primary ml-1" />
                     </motion.div>
-                    
+
                     {/* Video Label */}
                     <div className="absolute bottom-8 left-1/2 -translate-x-1/2 glass-dark px-4 py-2 rounded-full flex items-center gap-2 text-white">
                       <FaPlay className="text-xs" />
