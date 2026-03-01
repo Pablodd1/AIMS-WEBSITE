@@ -9,7 +9,6 @@ import VoiceIntakeDemo from "@components/VoiceIntakeDemo";
 import ComprehensiveDataAnalysis from "@components/ComprehensiveDataAnalysis";
 import ROIShowcase from "@components/ROIShowcase";
 import TrustSection from "@components/TrustSection";
-import EHRCompatibility from "@components/EHRCompatibility";
 import Footer from "@components/Footer";
 import FrontDeskChatbot from "@components/FrontDeskChatbot";
 
@@ -37,7 +36,6 @@ export default async function Home({ params }) {
 
       {/* Footer Content */}
       <TrustSection />
-      <EHRCompatibility />
       <Footer lang={LANG} />
 
       {/* Live Chat Widget - Real-time AI Front Desk */}
