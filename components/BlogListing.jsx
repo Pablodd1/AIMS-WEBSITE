@@ -49,7 +49,7 @@ export default function BlogsList({ dict, lang = "en", limit, titles, empty }) {
           ? filteredTitles.slice(0, currentLimit).map((x, i) => (
               <li className="rounded-xl overflow-hidden relative" key={i}>
                 <Link
-                  href={`/${lang}/customer-care/${x._id.$oid}`}
+                  href={`/${lang}/articles/${x._id?.$oid || x._id}`}
                   rel="follow index"
                 >
                   <Image

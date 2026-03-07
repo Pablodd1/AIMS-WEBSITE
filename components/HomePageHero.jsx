@@ -75,7 +75,7 @@ const HomePageHero = ({ lang, dict }) => {
   useEffect(() => {
     const timer = window.setInterval(() => {
       setActiveMoment((current) => (current + 1) % transcriptMoments.length);
-    }, 3200);
+    }, 8000);
 
     return () => window.clearInterval(timer);
   }, [transcriptMoments.length]);
@@ -90,14 +90,14 @@ const HomePageHero = ({ lang, dict }) => {
       {/* Deep Space / Futuristic Background */}
       <div className="absolute inset-0 pointer-events-none bg-[var(--bg-primary)]">
         <motion.div
-          animate={{ x: [0, 50, 0], y: [0, 30, 0] }}
-          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-          className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[var(--accent-violet-glow)] rounded-full blur-[150px] opacity-40"
+          animate={{ x: [0, 30, 0], y: [0, 20, 0] }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[var(--accent-violet-glow)] rounded-full blur-[150px] opacity-30"
         />
         <motion.div
-          animate={{ x: [0, -50, 0], y: [0, -30, 0] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-[var(--accent-glow)] rounded-full blur-[150px] opacity-30"
+          animate={{ x: [0, -30, 0], y: [0, -20, 0] }}
+          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+          className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-[var(--accent-glow)] rounded-full blur-[150px] opacity-20"
         />
       </div>
 
