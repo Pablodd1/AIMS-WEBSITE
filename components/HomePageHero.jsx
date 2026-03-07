@@ -1,18 +1,89 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PremiumButton from "@utils/PremiumButton";
 import SecondaryButton from "@utils/SecondaryButton";
 import Image from "next/image";
-import { FaWaveSquare, FaMicrophone, FaBrain, FaPlay, FaStethoscope, FaUserMd } from "react-icons/fa";
+import {
+  FaWaveSquare,
+  FaMicrophone,
+  FaPlay,
+  FaStethoscope,
+  FaUserMd,
+  FaLanguage,
+  FaNotesMedical,
+} from "react-icons/fa";
+
+const heroTranscriptMoments = {
+  en: [
+    {
+      stage: "Live Intake",
+      speaker: "Patient audio",
+      source: '"I have had chest tightness and shortness of breath for two days."',
+      targetLabel: "Clinical translation",
+      target: "Chest tightness and dyspnea x48 hours. Prioritize cardiopulmonary review.",
+    },
+    {
+      stage: "Bilingual Translation",
+      speaker: "Spanish output",
+      source: '"Dolor de garganta, fiebre y tos desde ayer por la noche."',
+      targetLabel: "Doctor-ready summary",
+      target: "Sore throat, fever, and cough since last night. Viral URI workflow suggested.",
+    },
+    {
+      stage: "SOAP Draft",
+      speaker: "Ambient capture",
+      source: '"Medication refill requested. Blood pressure has been stable at home."',
+      targetLabel: "Chart note",
+      target: "Medication refill visit. Home BP stable. Continue current regimen and monitor.",
+    },
+  ],
+  es: [
+    {
+      stage: "Captura en Vivo",
+      speaker: "Audio del paciente",
+      source: '"Tengo opresion en el pecho y falta de aire desde hace dos dias."',
+      targetLabel: "Traduccion clinica",
+      target: "Opresion toracica y disnea por 48 horas. Priorizar evaluacion cardiopulmonar.",
+    },
+    {
+      stage: "Traduccion Bilingue",
+      speaker: "Salida en ingles",
+      source: '"Sore throat, fever, and cough since last night."',
+      targetLabel: "Resumen para el medico",
+      target: "Dolor de garganta, fiebre y tos desde anoche. Flujo de URI viral sugerido.",
+    },
+    {
+      stage: "Borrador SOAP",
+      speaker: "Captura ambiental",
+      source: '"Solicita resurtido de medicamento. Presion arterial estable en casa."',
+      targetLabel: "Nota para expediente",
+      target: "Consulta para resurtido. PA estable en casa. Continuar regimen actual y vigilar.",
+    },
+  ],
+};
 
 const HomePageHero = ({ lang, dict }) => {
-  const [isVideoPlaying, setIsVideoPlaying] = useState(true); // Auto-play video
-  
-  // High-quality stock video representing Doctor + AI Voice Tech
-  // (Using a reliable Pexels stock video of a doctor consultation)
-  const heroVideoUrl = "https://videos.pexels.com/video-files/7579896/7579896-hd_1920_1080_25fps.mp4"; 
+  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
+  const [activeMoment, setActiveMoment] = useState(0);
+
+  const transcriptMoments = useMemo(
+    () => heroTranscriptMoments[lang] || heroTranscriptMoments.en,
+    [lang],
+  );
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActiveMoment((current) => (current + 1) % transcriptMoments.length);
+    }, 3200);
+
+    return () => window.clearInterval(timer);
+  }, [transcriptMoments.length]);
+
+  const heroVideoUrl = "/video/AIMS_Hero.mp4";
   const posterImage = "/images/smart_ehr_hero.png";
+  const currentMoment = transcriptMoments[activeMoment];
+  const waveformBars = [28, 52, 70, 44, 82, 62, 36, 76, 48];
 
   return (
     <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden pt-20 pb-16">
@@ -46,7 +117,7 @@ const HomePageHero = ({ lang, dict }) => {
               <span className="w-1.5 h-2 bg-[var(--accent-secondary)] rounded-full animate-[pulse_0.8s_ease-in-out_infinite_0.4s]" />
             </div>
             <span className="text-[var(--text-primary)] font-bold text-xs tracking-wider uppercase">
-              {lang === "es" ? "Reconocimiento de Voz con IA" : "AI Voice Recognition"}
+              {lang === "es" ? "Voz Medica + Traduccion IA" : "Medical Voice + AI Translation"}
             </span>
           </motion.div>
 
@@ -120,9 +191,7 @@ const HomePageHero = ({ lang, dict }) => {
           transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
           className="relative perspective-1000 w-full"
         >
-          {/* Main Video Container */}
-          <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-[0_0_50px_-15px_rgba(0,212,255,0.3)] border border-[var(--glass-border)] bg-[var(--bg-secondary)] group">
-            
+          <div className="relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden shadow-[0_0_50px_-15px_rgba(0,212,255,0.3)] border border-[var(--glass-border)] bg-[var(--bg-secondary)] group">
             <AnimatePresence mode="wait">
               {isVideoPlaying ? (
                 <motion.video
@@ -135,6 +204,7 @@ const HomePageHero = ({ lang, dict }) => {
                   loop
                   muted
                   playsInline
+                  poster={posterImage}
                 >
                   <source src={heroVideoUrl} type="video/mp4" />
                 </motion.video>
@@ -165,45 +235,115 @@ const HomePageHero = ({ lang, dict }) => {
               )}
             </AnimatePresence>
 
-            {/* AI Audio Translation Overlay */}
-            <div className="absolute bottom-6 left-6 right-6 glass-solid rounded-2xl p-4 border border-[var(--accent-primary)]/30 shadow-lg transform transition-transform group-hover:-translate-y-2">
-              <div className="flex items-center justify-between gap-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-[var(--accent-primary)]/10 flex items-center justify-center">
-                    <FaMicrophone className="text-[var(--accent-primary)] text-xl" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[rgba(3,7,18,0.18)] via-transparent to-[rgba(3,7,18,0.92)]" />
+
+            <div className="absolute left-5 top-5 right-5 flex flex-wrap items-start justify-between gap-3">
+              <div className="glass-solid rounded-full px-4 py-2 border border-[var(--glass-border-hover)] flex items-center gap-2 text-xs font-semibold text-[var(--text-primary)]">
+                <FaWaveSquare className="text-[var(--accent-primary)]" />
+                {lang === "es" ? "Captura de audio en tiempo real" : "Real-time audio capture"}
+              </div>
+              <div className="glass-solid rounded-full px-4 py-2 border border-[var(--glass-border)] flex items-center gap-2 text-xs font-semibold text-[var(--text-primary)]">
+                <FaStethoscope className="text-[var(--accent-secondary)]" />
+                {lang === "es" ? "Flujo para medicos" : "Doctor workflow"}
+              </div>
+            </div>
+
+            <div className="absolute inset-x-5 bottom-5 grid gap-4 lg:grid-cols-[1.1fr_0.95fr]">
+              <div className="glass-solid rounded-[1.4rem] border border-[var(--glass-border-hover)] p-4 shadow-lg transition-transform duration-300 group-hover:-translate-y-1">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[rgba(0,212,255,0.12)]">
+                      <FaMicrophone className="text-lg text-[var(--accent-primary)]" />
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--text-muted)]">
+                        {currentMoment.stage}
+                      </p>
+                      <p className="mt-1 text-sm font-semibold text-[var(--text-primary)]">
+                        {lang === "es" ? "Audio del paciente detectado" : "Patient audio detected"}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-[var(--text-primary)] text-sm font-semibold flex items-center gap-2">
-                      {lang === "es" ? "Traduciendo y Transcribiendo..." : "Translating & Transcribing..."}
-                    </p>
-                    <p className="text-[var(--text-muted)] text-xs mt-0.5">
-                      {lang === "es" ? "Inglés → Español (Médico)" : "English → Spanish (Medical)"}
-                    </p>
+                  <div className="rounded-full border border-[var(--glass-border)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--accent-primary)]">
+                    {currentMoment.speaker}
                   </div>
                 </div>
-                
-                {/* Simulated Audio Waveform */}
-                <div className="flex items-center gap-1.5 h-8">
-                  {[...Array(8)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      animate={{ height: ["20%", "100%", "20%"] }}
-                      transition={{ 
-                        duration: 1, 
-                        repeat: Infinity, 
-                        delay: i * 0.1,
-                        ease: "easeInOut" 
+
+                <div className="mt-4 flex h-12 items-end gap-1.5">
+                  {waveformBars.map((bar, index) => (
+                    <motion.span
+                      key={bar + index}
+                      animate={{ height: [`${Math.max(18, bar - 18)}%`, `${bar}%`, `${Math.max(22, bar - 10)}%`] }}
+                      transition={{
+                        duration: 1.2,
+                        repeat: Infinity,
+                        delay: index * 0.08,
+                        ease: "easeInOut",
                       }}
-                      className="w-1.5 bg-[var(--accent-primary)] rounded-full"
+                      className="block w-1.5 rounded-full bg-gradient-to-t from-[var(--accent-secondary)] to-[var(--accent-primary)]"
                     />
+                  ))}
+                </div>
+
+                <AnimatePresence mode="wait">
+                  <motion.p
+                    key={currentMoment.source}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -12 }}
+                    transition={{ duration: 0.28 }}
+                    className="mt-4 text-sm leading-relaxed text-[var(--text-secondary)]"
+                  >
+                    {currentMoment.source}
+                  </motion.p>
+                </AnimatePresence>
+              </div>
+
+              <div className="glass-solid rounded-[1.4rem] border border-[var(--glass-border)] p-4 shadow-lg transition-transform duration-300 group-hover:-translate-y-1">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[rgba(124,58,237,0.14)]">
+                      <FaLanguage className="text-lg text-[var(--accent-secondary)]" />
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--text-muted)]">
+                        {currentMoment.targetLabel}
+                      </p>
+                      <p className="mt-1 text-sm font-semibold text-[var(--text-primary)]">
+                        {lang === "es" ? "Salida medica lista para revisar" : "Doctor-ready translated output"}
+                      </p>
+                    </div>
+                  </div>
+                  <FaNotesMedical className="mt-1 text-base text-[var(--accent-primary)]" />
+                </div>
+
+                <AnimatePresence mode="wait">
+                  <motion.p
+                    key={currentMoment.target}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -12 }}
+                    transition={{ duration: 0.28 }}
+                    className="mt-4 text-sm leading-relaxed text-[var(--text-primary)]"
+                  >
+                    {currentMoment.target}
+                  </motion.p>
+                </AnimatePresence>
+
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {[lang === "es" ? "SOAP listo" : "SOAP-ready", lang === "es" ? "Bilingue" : "Bilingual", lang === "es" ? "Revision del medico" : "Doctor review"].map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-[var(--glass-border)] bg-[rgba(255,255,255,0.03)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--text-secondary)]"
+                    >
+                      {item}
+                    </span>
                   ))}
                 </div>
               </div>
             </div>
-
           </div>
 
-          {/* Floating Trust Badges */}
           <motion.div
             animate={{ y: [-10, 10, -10] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
@@ -213,7 +353,7 @@ const HomePageHero = ({ lang, dict }) => {
               <FaUserMd className="text-[var(--text-primary)] text-lg" />
             </div>
             <div>
-              <p className="text-xs font-bold text-[var(--text-primary)]">{lang === "es" ? "IA Médica" : "Medical AI"}</p>
+              <p className="text-xs font-bold text-[var(--text-primary)]">{lang === "es" ? "IA medica" : "Medical AI"}</p>
               <p className="text-[10px] text-[var(--text-muted)]">HIPAA Compliant</p>
             </div>
           </motion.div>

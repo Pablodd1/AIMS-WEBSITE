@@ -9,8 +9,6 @@ import VoiceIntakeDemo from "@components/VoiceIntakeDemo";
 import ComprehensiveDataAnalysis from "@components/ComprehensiveDataAnalysis";
 import ROIShowcase from "@components/ROIShowcase";
 import TrustSection from "@components/TrustSection";
-import Footer from "@components/Footer";
-import FrontDeskChatbot from "@components/FrontDeskChatbot";
 
 export default async function Home({ params }) {
   const { LANG } = await params;
@@ -34,12 +32,8 @@ export default async function Home({ params }) {
       <ComprehensiveDataAnalysis />
       <ROIShowcase />
 
-      {/* Footer Content */}
+      {/* Closing content before layout footer */}
       <TrustSection />
-      <Footer lang={LANG} />
-
-      {/* Live Chat Widget - Real-time AI Front Desk */}
-      <FrontDeskChatbot lang={LANG} />
     </main>
   );
 }
