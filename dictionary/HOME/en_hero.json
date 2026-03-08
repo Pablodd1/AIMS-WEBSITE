@@ -1,14 +1,14 @@
 {
-  "h1": "AI Medical Scribe ~sThat Understands ~sYour Practice",
-  "p": "Transform patient visits into perfect clinical notes instantly. Our AI captures conversations, generates SOAP notes, extracts billing codes, and integrates with your EHR — saving 15+ minutes per patient while improving documentation accuracy to 99.8%.",
+  "h1": "Smart EHR~sBuilt for Modern~sClinics",
+  "p": "AIMS is your all-in-one electronic health records platform with AI that listens, documents, and streamlines your entire practice. No third-party integrations needed — everything runs natively.",
   "btn1": "Start Free Trial",
-  "btn2": "See How It Works",
-  "videoLabel": "Watch 60s Demo",
+  "btn2": "See Features",
+  "videoLabel": "Watch Demo",
   "statAccuracy": "99.8% Accuracy",
   "statTimeSaved": "15min Saved/Patient",
   "statProviders": "10k+ Providers",
   "statSavings": "$127K Savings/Year",
   "badgeHIPAA": "HIPAA Compliant",
-  "badgeTrusted": "Trusted by Doctors",
-  "badgeSOC2": "SOC 2 Type II"
+  "badgeTrusted": "SOC 2 Type II",
+  "badgeNative": "Native EHR"
 }

@@ -69,7 +69,7 @@ const generateOrganizationSchema = () => ({
     "name": "United States"
   },
   "serviceType": ["Healthcare", "Software"],
-  "keywords": "AI medical scribe, medical documentation, SOAP notes, EHR integration, medical billing, healthcare AI, clinical documentation automation",
+  "keywords": "smart EHR, AI EHR platform, electronic health records, voice-to-notes, native AI, all-in-one healthcare",
   "award": ["HIPAA Compliant", "SOC 2 Type II Certified"],
   "priceRange": "$$"
 });
@@ -78,9 +78,9 @@ const generateSoftwareApplicationSchema = () => ({
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "@id": `${baseUrl}/#software`,
-  "name": "AI Medical Scriber (AIMS)",
+  "name": "AIMS - Smart EHR Platform",
   "alternateName": "AIMS",
-  "description": "AI-powered medical documentation platform that automates SOAP notes, medical billing, coding, voice intake, and EHR documentation. Save 15+ minutes per patient with HIPAA-compliant ambient clinical intelligence.",
+  "description": "AIMS is a smart EHR platform with built-in AI. Document patient visits with voice-to-notes, automate billing, manage records, and streamline your entire clinic — all native, no third-party tools needed. Save 15+ minutes per patient with HIPAA-compliant AI.",
   "url": baseUrl,
   "logo": `${baseUrl}/logo.png`,
   "image": `${baseUrl}/og-image.jpg`,
@@ -309,33 +309,33 @@ export async function generateMetadata({ params }) {
 
   const titles = {
     en: {
-      default: "AI Medical Scriber (AIMS) | Automate Clinical Documentation & Save 15+ Minutes/Patient",
-      short: "AI Medical Scriber | Healthcare AI Documentation",
-      homepage: "AI Medical Scriber | Automate Medical Documentation"
+      default: "AIMS - Smart EHR Platform with Built-in AI | Save 15+ Minutes/Patient",
+      short: "AIMS - Smart EHR with Native AI",
+      homepage: "AIMS | Smart EHR for Modern Clinics"
     },
     es: {
-      default: "AI Medical Scriber (AIMS) | Automatiza Documentación Clínica | Ahorra 15+ Minutos/Paciente",
-      short: "AI Medical Scriber | IA Documentación Médica",
-      homepage: "AI Medical Scriber | Automatiza Documentación Médica"
+      default: "AIMS - Plataforma EHR Inteligente con IA Integrada | Ahorra 15+ Minutos/Paciente",
+      short: "AIMS - EHR Inteligente con IA Nativa",
+      homepage: "AIMS | EHR Inteligente para Clinicas Modernas"
     }
   };
 
   const descriptions = {
     en: {
-      default: "Save 15+ minutes per patient with AI Medical Scriber (AIMS). HIPAA-compliant AI automates SOAP notes, medical billing, coding, voice intake, and EHR integration. 99.8% accuracy. Join 10,000+ healthcare providers.",
-      short: "AI-powered medical documentation. Automate SOAP notes, billing, coding. HIPAA compliant.",
-      features: "AI medical scribe features: voice intake, SOAP notes, EHR integration, automated billing, clinical assistant."
+      default: "AIMS is a smart EHR platform with built-in AI. Document patient visits with voice-to-notes, automate billing, manage records, and streamline your entire clinic — all in one system. No third-party tools needed. 99.8% accuracy.",
+      short: "Smart EHR with built-in AI. Voice notes, billing, records — all native.",
+      features: "Native EHR with AI: voice documentation, automated billing, smart scheduling, clinical notes, patient records, compliance."
     },
     es: {
-      default: "Ahorra 15+ minutos por paciente con AI Medical Scriber (AIMS). IA compatible con HIPAA automatiza notas SOAP, facturación médica, codificación, admisión por voz e integración EHR. 99.8% precisión.",
-      short: "Documentación médica con IA. Automatiza notas SOAP, facturación, codificación. Compatible HIPAA.",
-      features: "Características del escaribe médico IA: admisión por voz, notas SOAP, integración EHR, facturación automatizada."
+      default: "AIMS es una plataforma EHR inteligente con IA integrada. Documenta visitas de pacientes con voz-a-notas, automatiza facturacion, gestiona registros y optimiza toda tu clinica — en un solo sistema. Sin herramientas de terceros. 99.8% precision.",
+      short: "EHR inteligente con IA nativa. Notas de voz, facturacion, registros — todo integrado.",
+      features: "EHR nativo con IA: documentacion por voz, facturacion automatizada, agenda inteligente, notas clinicas, registros de pacientes, cumplimiento."
     }
   };
 
   const keywords = {
-    en: "AI medical scribe, medical documentation automation, SOAP notes AI, medical billing software, healthcare AI, clinical documentation, EHR integration, voice intake medical, medical coding AI, physician burnout solution, ambient clinical intelligence, healthcare automation, AI doctor assistant, automated medical notes, medical transcription AI",
-    es: "IA escriba médica, automatización documentación médica, notas SOAP IA, software facturación médica, IA salud, documentación clínica, integración EHR, admisión voz médica, codificación médica IA"
+    en: "smart EHR, AI EHR platform, electronic health records, voice-to-notes, medical billing, healthcare automation, clinical documentation, patient records, HIPAA compliant EHR, native AI, all-in-one healthcare software, clinic management, medical notes AI, ambulatory EHR",
+    es: "EHR inteligente, plataforma EHR con IA, registros electronicos de salud, voz-a-notas, facturacion medica, automatizacion salud, documentacion clinica, registros pacientes, EHR compatible HIPAA, IA nativa, software salud todo-en-uno, gestion clinica, notas medicas IA"
   };
 
   const currentTitles = titles[lang] || titles.en;
