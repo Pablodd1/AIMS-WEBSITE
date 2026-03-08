@@ -1,73 +1,51 @@
 "use client";
-import React, { useEffect, useMemo, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 import PremiumButton from "@utils/PremiumButton";
 import SecondaryButton from "@utils/SecondaryButton";
 import Image from "next/image";
-import {
-  FaWaveSquare,
-  FaMicrophone,
-  FaPlay,
-  FaStethoscope,
-  FaUserMd,
-} from "react-icons/fa";
+import { FaMicrophone, FaPlay, FaWaveSquare } from "react-icons/fa";
 
 const heroContent = {
   en: {
-    badge: "Smart EHR Platform",
+    badge: "Smart EHR with Built-in AI",
     headline: "Your Practice,",
     headline2: "Transformed by Intelligence",
-    description: "AIMS is your all-in-one EHR with built-in AI that listens, documents, and streamlines your entire clinic. No more separate scribes, billing software, or third-party tools.",
+    description: "AIMS is your all-in-one EHR with native AI. Voice documentation, smart notes, automated billing, and seamless records — all in one platform.",
     cta: "Start Free",
     secondary: "See Features",
-    statAccuracy: "99.8%",
-    statTime: "15min",
-    statProviders: "10k+",
-    statSavings: "$127K",
   },
   es: {
-    badge: "Plataforma EHR Inteligente",
+    badge: "EHR Inteligente con IA Nativa",
     headline: "Tu Clinica,",
     headline2: "Transformada por Inteligencia",
-    description: "AIMS es tu EHR todo-en-uno con IA integrada que escucha, documenta y optimiza toda tu clinica. No mas escribas separados, software de facturacion o herramientas de terceros.",
+    description: "AIMS es tu EHR todo-en-uno con IA nativa. Documentacion por voz, notas inteligentes, facturacion automatizada y registros fluidos — todo en una plataforma.",
     cta: "Comenzar Gratis",
     secondary: "Ver Caracteristicas",
-    statAccuracy: "99.8%",
-    statTime: "15min",
-    statProviders: "10k+",
-    statSavings: "$127K",
   },
 };
 
 const HomePageHero = ({ lang, dict }) => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
 
-  const content = useMemo(
-    () => heroContent[lang] || heroContent.en,
-    [lang],
-  );
+  const content = heroContent[lang] || heroContent.en;
 
   const heroVideoUrl = "/video/AIMS_Hero.mp4";
   const posterImage = "/images/smart_ehr_hero.png";
 
   return (
-    <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden pt-20 pb-16">
-      {/* Subtle Background */}
-      <div className="absolute inset-0 pointer-events-none bg-[var(--bg-primary)]">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[var(--bg-secondary)] via-transparent to-[var(--bg-primary)]" />
-      </div>
-
+    <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden pt-20 pb-16 bg-[var(--bg-primary)]">
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center z-10">
         
         {/* Left Column: Text & CTA */}
         <article className="flex flex-col items-start gap-5">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             className="glass-solid px-4 py-2 rounded-full border border-[var(--glass-border)]"
           >
-            <span className="text-[var(--text-primary)] text-xs font-semibold tracking-wider uppercase">
+            <span className="text-xs font-semibold tracking-wider uppercase text-[var(--text-primary)]">
               {content.badge}
             </span>
           </motion.div>
@@ -75,8 +53,8 @@ const HomePageHero = ({ lang, dict }) => {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.15] tracking-tight text-[var(--text-primary)]"
+            transition={{ duration: 0.5 }}
+            className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.15] text-[var(--text-primary)]"
           >
             {content.headline}
             <span className="text-gradient block mt-1">{content.headline2}</span>
@@ -85,8 +63,8 @@ const HomePageHero = ({ lang, dict }) => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed max-w-lg"
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-base sm:text-lg text-[var(--text-secondary)] max-w-lg"
           >
             {content.description}
           </motion.p>
@@ -94,49 +72,44 @@ const HomePageHero = ({ lang, dict }) => {
           <motion.footer
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
             className="flex flex-wrap items-center gap-4 mt-2"
           >
-            <PremiumButton label={content.cta} href={`/${lang}/get-started`} size="large" glow={true} />
-            <SecondaryButton
-              label={content.secondary}
-              href={`/${lang}/technology`}
-              withArrow
-              className="text-base font-medium"
-            />
+            <PremiumButton label={content.cta} href={`/${lang}/get-started`} size="large" />
+            <SecondaryButton label={content.secondary} href={`/${lang}/technology`} withArrow />
           </motion.footer>
 
           {/* Stats */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
+            transition={{ delay: 0.3 }}
             className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-8 pt-6 border-t border-[var(--glass-border)] w-full"
           >
             <div>
-              <p className="text-2xl sm:text-3xl font-bold text-[var(--text-primary)]">{content.statAccuracy}</p>
-              <p className="text-xs text-[var(--text-muted)] mt-1">{lang === "es" ? "Precision" : "Accuracy"}</p>
+              <p className="text-2xl font-bold text-[var(--text-primary)]">99.8%</p>
+              <p className="text-xs text-[var(--text-muted)] mt-1">Accuracy</p>
             </div>
             <div>
-              <p className="text-2xl sm:text-3xl font-bold text-[var(--text-primary)]">{content.statTime}</p>
-              <p className="text-xs text-[var(--text-muted)] mt-1">{lang === "es" ? "Ahorrados/Paciente" : "Saved/Patient"}</p>
+              <p className="text-2xl font-bold text-[var(--text-primary)]">15min</p>
+              <p className="text-xs text-[var(--text-muted)] mt-1">Saved/Patient</p>
             </div>
             <div>
-              <p className="text-2xl sm:text-3xl font-bold text-[var(--text-primary)]">{content.statProviders}</p>
-              <p className="text-xs text-[var(--text-muted)] mt-1">{lang === "es" ? "Proveedores" : "Providers"}</p>
+              <p className="text-2xl font-bold text-[var(--text-primary)]">10k+</p>
+              <p className="text-xs text-[var(--text-muted)] mt-1">Providers</p>
             </div>
             <div>
-              <p className="text-2xl sm:text-3xl font-bold text-[var(--success)]">{content.statSavings}</p>
-              <p className="text-xs text-[var(--text-muted)] mt-1">{lang === "es" ? "Ahorro/Año" : "Savings/Year"}</p>
+              <p className="text-2xl font-bold text-[var(--success)]">$127K</p>
+              <p className="text-xs text-[var(--text-muted)] mt-1">Savings/Year</p>
             </div>
           </motion.div>
         </article>
 
-        {/* Right Column: Clean Video */}
+        {/* Right Column: Video + Mic Visual */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
           className="relative w-full"
         >
           <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-[var(--glass-border)] bg-[var(--bg-secondary)]">
@@ -154,18 +127,8 @@ const HomePageHero = ({ lang, dict }) => {
               </video>
             ) : (
               <div className="relative w-full h-full">
-                <Image
-                  src={posterImage}
-                  alt="AIMS EHR Platform"
-                  className="w-full h-full object-cover"
-                  width={800}
-                  height={600}
-                  priority
-                />
-                <button
-                  onClick={() => setIsVideoPlaying(true)}
-                  className="absolute inset-0 flex items-center justify-center bg-black/30"
-                >
+                <Image src={posterImage} alt="AIMS EHR" className="w-full h-full object-cover" width={800} height={600} priority />
+                <button onClick={() => setIsVideoPlaying(true)} className="absolute inset-0 flex items-center justify-center bg-black/30">
                   <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center">
                     <FaPlay className="text-xl text-[var(--bg-primary)] ml-1" />
                   </div>
@@ -173,16 +136,20 @@ const HomePageHero = ({ lang, dict }) => {
               </div>
             )}
 
-            {/* Simple badge */}
-            <div className="absolute bottom-4 left-4 glass-solid px-4 py-2 rounded-lg border border-[var(--glass-border)]">
-              <div className="flex items-center gap-2 text-xs font-medium text-[var(--text-primary)]">
-                <FaStethoscope className="text-[var(--accent-primary)]" />
-                {lang === "es" ? "EHR + IA Integrado" : "Built-in AI EHR"}
+            {/* Microphone Badge */}
+            <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+              <div className="glass-solid px-4 py-2 rounded-full border border-[var(--glass-border)] flex items-center gap-2">
+                <FaMicrophone className="text-[var(--accent-primary)]" />
+                <span className="text-xs font-medium text-[var(--text-primary)]">Voice Active</span>
+              </div>
+              <div className="glass-solid px-3 py-2 rounded-full border border-[var(--glass-border)]">
+                <FaWaveSquare className="text-[var(--accent-primary)] text-sm" />
               </div>
             </div>
-          </div>
 
+          </div>
         </motion.div>
+
       </div>
     </section>
   );
