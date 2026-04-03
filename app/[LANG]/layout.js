@@ -3,6 +3,7 @@ import "./globals.css";
 import NavigationBar from "@components/NavigationBar";
 import Footer from "@components/Footer";
 import MobileBottomNav from "@components/MobileBottomNav";
+import AIReceptionist from "@components/AIReceptionist";
 import { langSideBar } from "@dictionary/SIDEBAR/main";
 import FancySidebar from "@components/FancySidebar";
 import Script from "next/script";
@@ -790,6 +791,7 @@ export default async function RootLayout({ children, params }) {
         <FancySidebar dict={await langSideBar(lang)} lang={lang} />
         <Footer lang={lang} />
         <MobileBottomNav lang={lang} />
+        <AIReceptionist />
       </body>
     </html>
   );
