@@ -9,7 +9,7 @@ export default async function Footer({ lang }) {
   const dict = await langNav(lang);
 
   return (
-    <footer className="relative mt-20 border-t border-[var(--glass-border)]">
+    <footer className="relative mt-20 border-t border-[var(--glass-border)] md:block hidden">
       {/* Gradient glow */}
       <div className="absolute inset-0 bg-gradient-to-t from-[var(--accent-primary)]/5 to-transparent pointer-events-none" />
 
@@ -92,6 +92,22 @@ export default async function Footer({ lang }) {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  href={`/${lang}/ai-consulting`}
+                  className="text-sm text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors duration-200"
+                >
+                  {lang === "es" ? "Consultoría IA" : "AI Consulting"}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={`/${lang}/virtual-front-desk`}
+                  className="text-sm text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors duration-200"
+                >
+                  {lang === "es" ? "Recepción Virtual" : "Virtual Front Desk"}
+                </Link>
+              </li>
             </ul>
           </div>
 

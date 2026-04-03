@@ -1,50 +1,81 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import PremiumButton from "@utils/PremiumButton";
 import SecondaryButton from "@utils/SecondaryButton";
-import Image from "next/image";
-import { FaMicrophone, FaPlay, FaWaveSquare } from "react-icons/fa";
+import { FaPlay, FaBolt, FaShieldAlt, FaChartLine } from "react-icons/fa";
 
 const heroContent = {
   en: {
-    badge: "Smart EHR with Built-in AI",
-    headline: "Your Practice,",
-    headline2: "Transformed by Intelligence",
-    description: "AIMS is your all-in-one EHR with native AI. Voice documentation, smart notes, automated billing, and seamless records — all in one platform.",
+    badge: "AI Medical Intelligence Platform",
+    headline: "Command Your",
+    headline2: "Clinical Practice",
+    description: "The all-in-one platform where AI handles documentation, billing, and patient intelligence. Focus on medicine — let AIMS handle the rest.",
     cta: "Start Free",
     secondary: "See Features",
+    liveDemo: "Live Demo",
   },
   es: {
-    badge: "EHR Inteligente con IA Nativa",
-    headline: "Tu Clinica,",
-    headline2: "Transformada por Inteligencia",
-    description: "AIMS es tu EHR todo-en-uno con IA nativa. Documentacion por voz, notas inteligentes, facturacion automatizada y registros fluidos — todo en una plataforma.",
+    badge: "Plataforma IA de Inteligencia Medica",
+    headline: "Comanda Tu",
+    headline2: "Practica Clinica",
+    description: "La plataforma todo-en-uno donde la IA maneja documentacion, facturacion e inteligencia del paciente. Concentrate en la medicina — AIMS se encarga del resto.",
     cta: "Comenzar Gratis",
     secondary: "Ver Caracteristicas",
+    liveDemo: "Demo en Vivo",
   },
 };
 
-const HomePageHero = ({ lang, dict }) => {
-  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
+const WaveformAnimation = () => {
+  const [bars, setBars] = useState(Array(40).fill(0.3));
 
-  const content = heroContent[lang] || heroContent.en;
-
-  const heroVideoUrl = "/video/AIMS_Hero.mp4";
-  const posterImage = "/images/smart_ehr_hero.png";
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBars(prev => prev.map(() => 0.2 + Math.random() * 0.8));
+    }, 100);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden pt-20 pb-16 bg-[var(--bg-primary)]">
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center z-10">
-        
-        {/* Left Column: Text & CTA */}
-        <article className="flex flex-col items-start gap-5">
+    <div className="flex items-center justify-center gap-[2px] h-8" aria-hidden="true">
+      {bars.map((height, i) => (
+        <motion.div
+          key={i}
+          className="w-[2px] rounded-full"
+          style={{
+            height: `${height * 100}%`,
+            background: `linear-gradient(to top, var(--accent-primary), var(--accent-secondary))`,
+            opacity: 0.6 + height * 0.4,
+          }}
+          animate={{
+            scaleY: height,
+            opacity: 0.4 + height * 0.6,
+          }}
+          transition={{ duration: 0.15, ease: "easeInOut" }}
+        />
+      ))}
+    </div>
+  );
+};
+
+const HomePageHero = ({ lang, dict }) => {
+  const content = heroContent[lang] || heroContent.en;
+
+  return (
+    <section className="relative min-h-[95vh] flex flex-col items-center justify-center overflow-hidden pt-20 pb-16 bg-[var(--bg-primary)]">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[var(--accent-primary)]/5 rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[var(--accent-secondary)]/5 rounded-full blur-[100px]" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 z-10 w-full">
+        <div className="text-center max-w-4xl mx-auto">
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="glass-solid px-4 py-2 rounded-full border border-[var(--glass-border)]"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center gap-2 glass-solid px-4 py-2 rounded-full border border-[var(--glass-border)] mb-6"
           >
+            <span className="w-2 h-2 rounded-full bg-[var(--accent-primary)] animate-pulse" />
             <span className="text-xs font-semibold tracking-wider uppercase text-[var(--text-primary)]">
               {content.badge}
             </span>
@@ -53,103 +84,70 @@ const HomePageHero = ({ lang, dict }) => {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.15] text-[var(--text-primary)]"
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] text-[var(--text-primary)] mb-4"
           >
             {content.headline}
             <span className="text-gradient block mt-1">{content.headline2}</span>
           </motion.h1>
 
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2 }}
+            className="my-6 max-w-md mx-auto"
+          >
+            <WaveformAnimation />
+          </motion.div>
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-base sm:text-lg text-[var(--text-secondary)] max-w-lg"
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-base sm:text-lg text-[var(--text-secondary)] max-w-2xl mx-auto mb-8"
           >
             {content.description}
           </motion.p>
 
-          <motion.footer
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-wrap items-center gap-4 mt-2"
+            transition={{ delay: 0.3 }}
+            className="flex flex-wrap items-center justify-center gap-4 mb-10"
           >
             <PremiumButton label={content.cta} href={`/${lang}/get-started`} size="large" />
+            <button className="btn-live-demo">
+              <FaPlay className="text-xs" />
+              {content.liveDemo}
+            </button>
             <SecondaryButton label={content.secondary} href={`/${lang}/technology`} withArrow />
-          </motion.footer>
-
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-8 pt-6 border-t border-[var(--glass-border)] w-full"
-          >
-            <div>
-              <p className="text-2xl font-bold text-[var(--text-primary)]">99.8%</p>
-              <p className="text-xs text-[var(--text-muted)] mt-1">Accuracy</p>
-            </div>
-            <div>
-              <p className="text-2xl font-bold text-[var(--text-primary)]">15min</p>
-              <p className="text-xs text-[var(--text-muted)] mt-1">Saved/Patient</p>
-            </div>
-            <div>
-              <p className="text-2xl font-bold text-[var(--text-primary)]">10k+</p>
-              <p className="text-xs text-[var(--text-muted)] mt-1">Providers</p>
-            </div>
-            <div>
-              <p className="text-2xl font-bold text-[var(--success)]">$127K</p>
-              <p className="text-xs text-[var(--text-muted)] mt-1">Savings/Year</p>
-            </div>
           </motion.div>
-        </article>
 
-        {/* Right Column: Video + Mic Visual */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="relative w-full"
-        >
-          <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-[var(--glass-border)] bg-[var(--bg-secondary)]">
-            
-            {isVideoPlaying ? (
-              <video
-                className="w-full h-full object-cover"
-                autoPlay
-                loop
-                muted
-                playsInline
-                poster={posterImage}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-2xl mx-auto mb-8"
+          >
+            {[
+              { value: "99.8%", label: "Accuracy", icon: <FaShieldAlt /> },
+              { value: "15min", label: "Saved/Patient", icon: <FaBolt /> },
+              { value: "10k+", label: "Providers", icon: <FaChartLine /> },
+              { value: "$127K", label: "Savings/Year", icon: <FaBolt /> }
+            ].map((stat, i) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.4 + i * 0.1 }}
+                className="text-center"
               >
-                <source src={heroVideoUrl} type="video/mp4" />
-              </video>
-            ) : (
-              <div className="relative w-full h-full">
-                <Image src={posterImage} alt="AIMS EHR" className="w-full h-full object-cover" width={800} height={600} priority />
-                <button onClick={() => setIsVideoPlaying(true)} className="absolute inset-0 flex items-center justify-center bg-black/30">
-                  <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center">
-                    <FaPlay className="text-xl text-[var(--bg-primary)] ml-1" />
-                  </div>
-                </button>
-              </div>
-            )}
-
-            {/* Microphone Badge */}
-            <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-              <div className="glass-solid px-4 py-2 rounded-full border border-[var(--glass-border)] flex items-center gap-2">
-                <FaMicrophone className="text-[var(--accent-primary)]" />
-                <span className="text-xs font-medium text-[var(--text-primary)]">Voice Active</span>
-              </div>
-              <div className="glass-solid px-3 py-2 rounded-full border border-[var(--glass-border)]">
-                <FaWaveSquare className="text-[var(--accent-primary)] text-sm" />
-              </div>
-            </div>
-
-          </div>
-        </motion.div>
-
+                <p className="text-2xl sm:text-3xl font-black text-gradient mb-1">{stat.value}</p>
+                <p className="text-xs text-[var(--text-muted)] font-medium">{stat.label}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
       </div>
     </section>
   );

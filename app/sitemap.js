@@ -143,6 +143,30 @@ export default async function sitemap() {
       priority: priority.terms,
       changefreq: changefreq.policies,
     },
+    {
+      path: 'ai-consulting',
+      lang: 'es',
+      priority: 0.9,
+      changefreq: changefreq.mainPages,
+    },
+    {
+      path: 'en/ai-consulting',
+      lang: 'en',
+      priority: 0.9,
+      changefreq: changefreq.mainPages,
+    },
+    {
+      path: 'virtual-front-desk',
+      lang: 'es',
+      priority: 0.85,
+      changefreq: changefreq.mainPages,
+    },
+    {
+      path: 'en/virtual-front-desk',
+      lang: 'en',
+      priority: 0.85,
+      changefreq: changefreq.mainPages,
+    },
   ];
 
   const staticUrls = staticPages.map((page) => {

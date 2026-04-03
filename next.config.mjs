@@ -109,6 +109,15 @@ const nextConfig = {
       { source: '/hipaa-compliant-scribe', destination: '/technology', permanent: true },
       { source: '/soapy-notes-ai', destination: '/technology', permanent: true },
       { source: '/medical-billing-ai', destination: '/technology', permanent: true },
+      { source: '/ai-consulting-services', destination: '/ai-consulting', permanent: true },
+      { source: '/ai-consultant', destination: '/ai-consulting', permanent: true },
+      { source: '/ai-implementation', destination: '/ai-consulting', permanent: true },
+      { source: '/virtual-receptionist', destination: '/virtual-front-desk', permanent: true },
+      { source: '/ai-receptionist', destination: '/virtual-front-desk', permanent: true },
+      { source: '/ai-voice-assistant', destination: '/virtual-front-desk', permanent: true },
+      { source: '/ai-for-business', destination: '/ai-consulting', permanent: true },
+      { source: '/ai-transformation', destination: '/ai-consulting', permanent: true },
+      { source: '/ai-automation', destination: '/ai-consulting', permanent: true },
     ];
   },
 

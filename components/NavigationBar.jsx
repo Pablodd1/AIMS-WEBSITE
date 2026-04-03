@@ -4,9 +4,11 @@ import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import styles from "./NavigationBar.module.css";
 import clsx from "clsx";
 import { motion, AnimatePresence } from "framer-motion";
+import { FaLanguage } from "react-icons/fa";
 
 const UseScrollEffect = dynamic(() => import("@hooks/useMonitorScroll"), { ssr: false });
 
@@ -20,6 +22,15 @@ const navLinks = [
 export default function Navigation_Bar({ lang = "en", dict = {} }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const switchLang = lang === "en" ? "es" : "en";
+
+  const generateLangLink = () => {
+    if (pathname === `/${lang}` || pathname === `/${lang}/`) {
+      return `/${switchLang}`;
+    }
+    return pathname.replace(`/${lang}`, `/${switchLang}`);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -115,8 +126,27 @@ export default function Navigation_Bar({ lang = "en", dict = {} }) {
             ))}
           </div>
 
-          {/* CTA Button */}
+          {/* CTA Button & Language Toggle */}
           <div className="flex items-center gap-3">
+            {/* Language Toggle - Desktop */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2 }}
+              className="hidden sm:block"
+            >
+              <Link
+                href={generateLangLink()}
+                className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent-primary)] hover:bg-[var(--glass-bg)] rounded-xl transition-all duration-300"
+                aria-label={`Switch to ${switchLang === "en" ? "English" : "Spanish"}`}
+              >
+                <FaLanguage className="text-lg" />
+                <span className="hidden md:inline">
+                  {lang === "en" ? "ES" : "EN"}
+                </span>
+              </Link>
+            </motion.div>
+
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -166,12 +196,28 @@ export default function Navigation_Bar({ lang = "en", dict = {} }) {
               className="lg:hidden overflow-hidden"
             >
               <div className="py-6 space-y-2">
+                {/* Language Toggle - Mobile */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0 }}
+                >
+                  <Link
+                    href={generateLangLink()}
+                    className="flex items-center gap-3 py-3 px-4 text-[var(--text-secondary)] hover:text-[var(--accent-primary)] hover:bg-[var(--glass-bg)] rounded-xl transition-all duration-300"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <FaLanguage className="text-xl" />
+                    {lang === "en" ? "Cambiar a Español" : "Switch to English"}
+                  </Link>
+                </motion.div>
+
                 {navLinks.map((link, index) => (
                   <motion.div
                     key={link.href}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
+                    transition={{ delay: (index + 1) * 0.1 }}
                   >
                     <Link
                       href={`/${lang}${link.href}`}
@@ -185,7 +231,7 @@ export default function Navigation_Bar({ lang = "en", dict = {} }) {
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: navLinks.length * 0.1 }}
+                  transition={{ delay: (navLinks.length + 1) * 0.1 }}
                 >
                   <Link
                     href={`/${lang}/get-started`}

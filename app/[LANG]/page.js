@@ -9,6 +9,9 @@ import VoiceIntakeDemo from "@components/VoiceIntakeDemo";
 import ComprehensiveDataAnalysis from "@components/ComprehensiveDataAnalysis";
 import ROIShowcase from "@components/ROIShowcase";
 import TrustSection from "@components/TrustSection";
+import AIConsulting from "@components/AIConsulting";
+import VirtualFrontDesk from "@components/VirtualFrontDesk";
+import LanguageBanner from "@components/LanguageBanner";
 
 export default async function Home({ params }) {
   const { LANG } = await params;
@@ -16,6 +19,7 @@ export default async function Home({ params }) {
 
   return (
     <main className="relative">
+      <LanguageBanner lang={LANG} />
       <HomePageHero lang={LANG} dict={dict} />
 
       {/* Target: Clinical Efficiency & Doctors */}
@@ -31,6 +35,12 @@ export default async function Home({ params }) {
       {/* Proof & Data */}
       <ComprehensiveDataAnalysis />
       <ROIShowcase />
+
+      {/* AI Consulting for All Industries */}
+      <AIConsulting lang={LANG} />
+
+      {/* Virtual Front Desk Assistant */}
+      <VirtualFrontDesk lang={LANG} />
 
       {/* Closing content before layout footer */}
       <TrustSection />

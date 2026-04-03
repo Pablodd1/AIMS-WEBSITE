@@ -2,6 +2,7 @@ import { Geist, Geist_Mono, Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import NavigationBar from "@components/NavigationBar";
 import Footer from "@components/Footer";
+import MobileBottomNav from "@components/MobileBottomNav";
 import { langSideBar } from "@dictionary/SIDEBAR/main";
 import FancySidebar from "@components/FancySidebar";
 import Script from "next/script";
@@ -35,6 +36,7 @@ const generateOrganizationSchema = () => ({
   "@type": "Organization",
   "@id": `${baseUrl}/#organization`,
   "name": "AI Medical Scriber (AIMS)",
+  "alternateName": ["AIMS", "AIMS AI", "AIMS Healthcare", "AIMS AI Consulting"],
   "url": baseUrl,
   "logo": {
     "@type": "ImageObject",
@@ -42,7 +44,7 @@ const generateOrganizationSchema = () => ({
     "width": 512,
     "height": 512
   },
-  "description": "AI-powered medical documentation platform for healthcare providers. Automate SOAP notes, medical billing, coding, and clinical workflows. Save 15+ minutes per patient with HIPAA-compliant AI scribing.",
+  "description": "AIMS is an AI-powered platform offering medical documentation automation, AI consulting for all industries, virtual front desk assistants, and enterprise AI transformation. Automate SOAP notes, medical billing, coding, and clinical workflows. Save 15+ minutes per patient with HIPAA-compliant AI scribing.",
   "foundingDate": "2024",
   "founder": {
     "@type": "Person",
@@ -52,12 +54,22 @@ const generateOrganizationSchema = () => ({
     "@type": "PostalAddress",
     "addressCountry": "US"
   },
-  "contactPoint": {
+  "contactPoint": [{
     "@type": "ContactPoint",
     "contactType": "Customer Support",
     "availableLanguage": ["English", "Spanish"],
     "telephone": "+1-800-AIMS-MED"
-  },
+  }, {
+    "@type": "ContactPoint",
+    "contactType": "Sales",
+    "availableLanguage": ["English", "Spanish"],
+    "telephone": "+1-800-AIMS-MED"
+  }, {
+    "@type": "ContactPoint",
+    "contactType": "AI Consulting",
+    "availableLanguage": ["English", "Spanish"],
+    "telephone": "+1-800-AIMS-MED"
+  }],
   "sameAs": [
     "https://linkedin.com/company/aimedicalscriber",
     "https://twitter.com/aims_health",
@@ -66,12 +78,38 @@ const generateOrganizationSchema = () => ({
   ],
   "areaServed": {
     "@type": "Place",
-    "name": "United States"
+    "name": "Worldwide"
   },
-  "serviceType": ["Healthcare", "Software"],
-  "keywords": "smart EHR, AI EHR platform, electronic health records, voice-to-notes, native AI, all-in-one healthcare",
+  "serviceType": ["Healthcare", "Software", "AI Consulting", "AI Implementation", "Virtual Receptionist"],
+  "keywords": "AI medical scribe, AI consulting, AI transformation, virtual front desk, AI voice assistant, healthcare automation, enterprise AI, SMB AI solutions",
   "award": ["HIPAA Compliant", "SOC 2 Type II Certified"],
-  "priceRange": "$$"
+  "priceRange": "$$",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "AIMS Services",
+    "itemListElement": [{
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "AI Medical Scribing",
+        "description": "Automated clinical documentation and SOAP notes"
+      }
+    }, {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "AI Consulting for All Industries",
+        "description": "End-to-end AI strategy, implementation, and optimization for healthcare, finance, retail, manufacturing, legal, and more"
+      }
+    }, {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Virtual Front Desk Assistant",
+        "description": "AI-powered voice and chat receptionist for 24/7 customer service"
+      }
+    }]
+  }
 });
 
 const generateSoftwareApplicationSchema = () => ({
@@ -154,7 +192,7 @@ const generateFAQSchema = () => ({
       "name": "What is AI Medical Scriber (AIMS)?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "AIMS is an AI-powered medical documentation platform that automates clinical documentation, SOAP notes, medical billing, and coding. It uses ambient clinical intelligence to listen to patient consultations and generate accurate medical notes in real-time, saving healthcare providers 15+ minutes per patient."
+        "text": "AIMS is an AI-powered platform that automates clinical documentation, SOAP notes, medical billing, and coding. It also provides AI consulting services for all industries and virtual front desk assistants. It uses ambient clinical intelligence to listen to patient consultations and generate accurate medical notes in real-time, saving healthcare providers 15+ minutes per patient."
       }
     },
     {
@@ -211,6 +249,38 @@ const generateFAQSchema = () => ({
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Yes, we offer a free trial with full access to all features. No credit card required. Book a demo to get started or sign up for our 14-day free trial."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does AIMS offer AI consulting for non-healthcare industries?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, AIMS provides comprehensive AI consulting services for all industries including healthcare, finance, retail, manufacturing, legal, real estate, hospitality, and more. Our AI consulting covers strategy development, use case identification, data readiness assessment, implementation roadmaps, and ongoing optimization. We help businesses of all sizes leverage AI for automation, customer service, predictive analytics, and operational efficiency."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the AIMS Virtual Front Desk Assistant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The AIMS Virtual Front Desk Assistant is an AI-powered receptionist that handles phone calls, chat messages, appointment scheduling, customer inquiries, and more — 24/7. It uses advanced voice AI and natural language processing to provide human-like interactions. Available for healthcare, retail, legal offices, real estate, and any business that needs professional front desk coverage without the overhead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What industries does AIMS AI consulting serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AIMS AI consulting serves all industries including: Healthcare (hospitals, clinics, dental, veterinary), Finance (banks, credit unions, insurance, fintech), Retail (e-commerce, brick-and-mortar, inventory management), Manufacturing (quality control, supply chain, predictive maintenance), Legal (document review, case research, contract analysis), Real Estate (lead qualification, property matching, virtual tours), Hospitality (guest services, booking automation, reviews), Education (student services, grading, personalized learning), and Government (citizen services, document processing, compliance)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the AIMS AI consulting process work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our AI consulting follows a proven 5-phase process: Phase 1 - Discovery & Assessment (understand your business, data, and goals), Phase 2 - Strategy & Roadmap (identify high-impact AI use cases and build implementation plan), Phase 3 - Proof of Concept (validate solutions with pilot projects), Phase 4 - Implementation & Integration (deploy AI solutions into your workflows), Phase 5 - Optimization & Scaling (monitor performance, refine models, expand to new use cases). Most clients see measurable ROI within 90 days."
       }
     }
   ]
@@ -309,33 +379,33 @@ export async function generateMetadata({ params }) {
 
   const titles = {
     en: {
-      default: "AIMS - Smart EHR Platform with Built-in AI | Save 15+ Minutes/Patient",
-      short: "AIMS - Smart EHR with Native AI",
-      homepage: "AIMS | Smart EHR for Modern Clinics"
+      default: "AIMS - AI Platform: Medical Scribing, AI Consulting & Virtual Front Desk | Enterprise AI Solutions",
+      short: "AIMS - AI Medical Scribe, AI Consulting & Virtual Assistant",
+      homepage: "AIMS | AI-Powered Platform for Healthcare, Consulting & Virtual Receptionist"
     },
     es: {
-      default: "AIMS - Plataforma EHR Inteligente con IA Integrada | Ahorra 15+ Minutos/Paciente",
-      short: "AIMS - EHR Inteligente con IA Nativa",
-      homepage: "AIMS | EHR Inteligente para Clinicas Modernas"
+      default: "AIMS - Plataforma IA: Scribe Medico, Consultoria IA y Recepcion Virtual | Soluciones Empresariales",
+      short: "AIMS - Scribe Medico IA, Consultoria IA y Asistente Virtual",
+      homepage: "AIMS | Plataforma IA para Salud, Consultoria y Recepcion Virtual"
     }
   };
 
   const descriptions = {
     en: {
-      default: "AIMS is a smart EHR platform with built-in AI. Document patient visits with voice-to-notes, automate billing, manage records, and streamline your entire clinic — all in one system. No third-party tools needed. 99.8% accuracy.",
-      short: "Smart EHR with built-in AI. Voice notes, billing, records — all native.",
-      features: "Native EHR with AI: voice documentation, automated billing, smart scheduling, clinical notes, patient records, compliance."
+      default: "AIMS is an AI-powered platform offering medical documentation automation, AI consulting for all industries, and virtual front desk assistants. Transform your business with enterprise AI, voice agents, automated workflows, and intelligent customer service. Save 15+ minutes per patient with HIPAA-compliant AI scribing. 99.8% accuracy.",
+      short: "AI platform: medical scribing, AI consulting, virtual front desk, voice agents & enterprise transformation.",
+      features: "AI medical scribe, AI consulting for all industries, virtual receptionist, voice AI, automated billing, smart scheduling, clinical notes, patient records, compliance, AI strategy, AI implementation."
     },
     es: {
-      default: "AIMS es una plataforma EHR inteligente con IA integrada. Documenta visitas de pacientes con voz-a-notas, automatiza facturacion, gestiona registros y optimiza toda tu clinica — en un solo sistema. Sin herramientas de terceros. 99.8% precision.",
-      short: "EHR inteligente con IA nativa. Notas de voz, facturacion, registros — todo integrado.",
-      features: "EHR nativo con IA: documentacion por voz, facturacion automatizada, agenda inteligente, notas clinicas, registros de pacientes, cumplimiento."
+      default: "AIMS es una plataforma IA con documentacion medica automatizada, consultoria IA para todas las industrias y asistentes de recepcion virtual. Transforma tu negocio con IA empresarial, agentes de voz y flujos automatizados. 99.8% precision.",
+      short: "Plataforma IA: scribe medico, consultoria IA, recepcion virtual, agentes de voz y transformacion empresarial.",
+      features: "Scribe medico IA, consultoria IA, recepcion virtual, IA por voz, facturacion automatizada, agenda inteligente, notas clinicas, registros pacientes, cumplimiento, estrategia IA."
     }
   };
 
   const keywords = {
-    en: "smart EHR, AI EHR platform, electronic health records, voice-to-notes, medical billing, healthcare automation, clinical documentation, patient records, HIPAA compliant EHR, native AI, all-in-one healthcare software, clinic management, medical notes AI, ambulatory EHR",
-    es: "EHR inteligente, plataforma EHR con IA, registros electronicos de salud, voz-a-notas, facturacion medica, automatizacion salud, documentacion clinica, registros pacientes, EHR compatible HIPAA, IA nativa, software salud todo-en-uno, gestion clinica, notas medicas IA"
+    en: "AI medical scribe, AI consulting, AI consulting services, AI implementation, AI transformation, virtual front desk, AI receptionist, AI voice assistant, enterprise AI, SMB AI solutions, healthcare automation, clinical documentation, patient records, HIPAA compliant EHR, native AI, all-in-one healthcare software, clinic management, medical notes AI, ambulatory EHR, AI strategy consulting, AI for business, AI automation, machine learning consulting, generative AI, AI workflow automation, virtual assistant for business, AI customer service, AI call center, AI phone agent, AI chatbot, intelligent automation, digital transformation AI, AI for healthcare, AI for finance, AI for retail, AI for manufacturing, AI for legal, AI for real estate, AI for hospitality",
+    es: "scribe medico IA, consultoria IA, implementacion IA, transformacion IA, recepcion virtual, asistente IA por voz, IA empresarial, automatizacion salud, documentacion clinica, registros pacientes, EHR compatible HIPAA, IA nativa, software salud todo-en-uno, gestion clinica, notas medicas IA, estrategia IA, IA para negocios, automatizacion IA, aprendizaje automatico, IA generativa, asistente virtual empresarial"
   };
 
   const currentTitles = titles[lang] || titles.en;
@@ -602,6 +672,94 @@ export default async function RootLayout({ children, params }) {
         />
 
         <Script
+          id="service-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "serviceType": "AI Consulting",
+              "provider": {
+                "@type": "Organization",
+                "@id": `${baseUrl}/#organization`
+              },
+              "name": "AIMS AI Consulting for All Industries",
+              "description": "Comprehensive AI consulting services covering strategy, implementation, and optimization for businesses across all industries. From healthcare to finance, retail to manufacturing, legal to real estate — AIMS helps organizations harness AI for competitive advantage.",
+              "areaServed": {
+                "@type": "Place",
+                "name": "Worldwide"
+              },
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "AI Consulting Services",
+                "itemListElement": [
+                  {
+                    "@type": "Service",
+                    "name": "AI Strategy Development",
+                    "description": "Custom AI roadmap aligned with business goals"
+                  },
+                  {
+                    "@type": "Service",
+                    "name": "AI Implementation",
+                    "description": "End-to-end deployment of AI solutions"
+                  },
+                  {
+                    "@type": "Service",
+                    "name": "Virtual Front Desk Assistant",
+                    "description": "AI-powered voice and chat receptionist for 24/7 coverage"
+                  },
+                  {
+                    "@type": "Service",
+                    "name": "AI Workflow Automation",
+                    "description": "Automate repetitive tasks and optimize operations"
+                  },
+                  {
+                    "@type": "Service",
+                    "name": "Generative AI Solutions",
+                    "description": "Custom GPT, content generation, and creative AI"
+                  },
+                  {
+                    "@type": "Service",
+                    "name": "Predictive Analytics",
+                    "description": "Data-driven forecasting and decision support"
+                  }
+                ]
+              },
+              "category": "Technology Consulting",
+              "url": `${baseUrl}/ai-consulting`
+            }),
+          }}
+        />
+
+        <Script
+          id="virtual-assistant-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "serviceType": "Virtual Front Desk Assistant",
+              "provider": {
+                "@type": "Organization",
+                "@id": `${baseUrl}/#organization`
+              },
+              "name": "AIMS AI Virtual Front Desk & Voice Assistant",
+              "description": "AI-powered virtual receptionist handling phone calls, chat messages, appointment scheduling, customer inquiries, and lead qualification 24/7. Natural voice AI with human-like conversations for healthcare, retail, legal, real estate, hospitality, and all industries.",
+              "areaServed": {
+                "@type": "Place",
+                "name": "Worldwide"
+              },
+              "serviceOutput": {
+                "@type": "Thing",
+                "name": "24/7 Customer Service, Appointment Booking, Lead Qualification, Call Routing, FAQ Handling"
+              },
+              "category": "AI Customer Service",
+              "url": `${baseUrl}/virtual-front-desk`
+            }),
+          }}
+        />
+
+        <Script
           id="core-web-vitals"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
@@ -631,6 +789,7 @@ export default async function RootLayout({ children, params }) {
         {children}
         <FancySidebar dict={await langSideBar(lang)} lang={lang} />
         <Footer lang={lang} />
+        <MobileBottomNav lang={lang} />
       </body>
     </html>
   );

@@ -1,6 +1,6 @@
 # robots.txt for AI Medical Scriber (AIMS)
 # https://www.aimedicalscriber.com/robots.txt
-# Last updated: February 2025
+# Last updated: April 2026
 
 # AI Platform Support
 # GPTBot - OpenAI
@@ -11,6 +11,11 @@ Disallow: /server-API/
 
 # ChatGPT-User
 User-agent: ChatGPT-User
+Allow: /
+Disallow: /api/
+
+# ChatGPT-Verify
+User-agent: ChatGPT-Verify
 Allow: /
 Disallow: /api/
 
@@ -97,6 +102,16 @@ User-agent: ClaudeBot
 Allow: /
 Disallow: /api/
 
+# Claude-Web
+User-agent: Claude-Web
+Allow: /
+Disallow: /api/
+
+# Anthropic AI
+User-agent: anthropic-ai
+Allow: /
+Disallow: /api/
+
 # Common Crawl
 User-agent: CCBot
 Allow: /
@@ -104,6 +119,26 @@ Disallow: /api/
 
 # Perplexity
 User-agent: PerplexityBot
+Allow: /
+Disallow: /api/
+
+# Perplexity AI Crawler
+User-agent: Perplexity-AI
+Allow: /
+Disallow: /api/
+
+# Cohere AI
+User-agent: Cohere-AI
+Allow: /
+Disallow: /api/
+
+# Meta AI (Llama)
+User-agent: Meta-ExternalAgent
+Allow: /
+Disallow: /api/
+
+# Mistral AI
+User-agent: MistralAI-User
 Allow: /
 Disallow: /api/
 
