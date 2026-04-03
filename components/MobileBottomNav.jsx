@@ -12,7 +12,7 @@ export default function MobileBottomNav({ lang }) {
     { href: `/${lang}`, icon: <FaHome />, label: "Home" },
     { href: `/${lang}/technology`, icon: <FaCogs />, label: "Features" },
     { href: `/${lang}/ai-consulting`, icon: <FaRobot />, label: "AI Consulting" },
-    { href: `/${lang}/virtual-front-desk`, icon: <FaPhoneAlt />, label: "Front Desk" },
+    { href: `/${lang}/customer-care`, icon: <FaPhoneAlt />, label: "Support" },
   ];
 
   return (

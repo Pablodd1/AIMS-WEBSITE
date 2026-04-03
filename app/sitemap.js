@@ -155,18 +155,6 @@ export default async function sitemap() {
       priority: 0.9,
       changefreq: changefreq.mainPages,
     },
-    {
-      path: 'virtual-front-desk',
-      lang: 'es',
-      priority: 0.85,
-      changefreq: changefreq.mainPages,
-    },
-    {
-      path: 'en/virtual-front-desk',
-      lang: 'en',
-      priority: 0.85,
-      changefreq: changefreq.mainPages,
-    },
   ];
 
   const staticUrls = staticPages.map((page) => {

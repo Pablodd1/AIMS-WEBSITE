@@ -49,7 +49,7 @@ export default function NotFound() {
           <p className="text-sm text-[var(--text-muted)] mb-3">Looking for something specific?</p>
           <div className="grid grid-cols-2 gap-3 text-sm">
             <Link href="/ai-consulting" className="text-[var(--accent-primary)] hover:underline">AI Consulting</Link>
-            <Link href="/virtual-front-desk" className="text-[var(--accent-primary)] hover:underline">Virtual Front Desk</Link>
+            <Link href="/technology" className="text-[var(--accent-primary)] hover:underline">Features</Link>
             <Link href="/get-started" className="text-[var(--accent-primary)] hover:underline">Get Started</Link>
             <Link href="/customer-care" className="text-[var(--accent-primary)] hover:underline">Contact Us</Link>
           </div>
