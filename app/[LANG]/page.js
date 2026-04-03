@@ -12,6 +12,7 @@ import TrustSection from "@components/TrustSection";
 import AIConsulting from "@components/AIConsulting";
 import VirtualFrontDesk from "@components/VirtualFrontDesk";
 import LanguageBanner from "@components/LanguageBanner";
+import LegalDisclaimer from "@components/LegalDisclaimer";
 
 export default async function Home({ params }) {
   const { LANG } = await params;
@@ -44,6 +45,11 @@ export default async function Home({ params }) {
 
       {/* Closing content before layout footer */}
       <TrustSection />
+
+      {/* Legal Disclaimer */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+        <LegalDisclaimer lang={LANG} variant="full" />
+      </section>
     </main>
   );
 }
