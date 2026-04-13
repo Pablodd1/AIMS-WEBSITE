@@ -30,7 +30,7 @@ const outfit = Outfit({
   weight: ["300", "400", "500", "600", "700", "800"],
 });
 
-const baseUrl = process.env.BASE_URL || "https://www.aimedicalscriber.com";
+const baseUrl = process.env.BASE_URL || "https://www.aidynamic.pro";
 
 const generateOrganizationSchema = () => ({
   "@context": "https://schema.org",
@@ -72,10 +72,9 @@ const generateOrganizationSchema = () => ({
     "telephone": "+1-800-AIMS-MED"
   }],
   "sameAs": [
-    "https://linkedin.com/company/aimedicalscriber",
-    "https://twitter.com/aims_health",
-    "https://instagram.com/aimedicalscriber",
-    "https://youtube.com/@aimedicalscriber"
+"https://linkedin.com/company/aidynamic",
+    "https://instagram.com/aidynamicpro",
+    "https://youtube.com/@aidynamic"
   ],
   "areaServed": {
     "@type": "Place",
@@ -296,7 +295,7 @@ const generateHowToSchema = () => ({
     {
       "@type": "HowToStep",
       "name": "Sign Up for AIMS",
-      "text": "Create your free account at aimedicalscriber.com/get-started",
+      "text": "Create your free account at aidynamic.pro/get-started",
       "url": `${baseUrl}/get-started`
     },
     {
@@ -341,7 +340,7 @@ const generateWebSiteSchema = () => ({
   },
   "inLanguage": ["en", "es"],
   "copyrightYear": "2024",
-  "license": "https://www.aimedicalscriber.com/terms-and-conditions",
+  "license": "https://www.aidynamic.pro/terms-and-conditions",
   "about": {
     "@type": "SoftwareApplication",
     "@id": `${baseUrl}/#software`
@@ -486,13 +485,13 @@ export async function generateMetadata({ params }) {
         id: {
           iphone: "123456789",
           ipad: "123456789",
-          googleplay: "com.aimedicalscriber.app"
+          googleplay: "com.aidynamic.app"
         },
         name: "AIMS - AI Medical Scriber",
         url: {
-          iphone: "https://apps.apple.com/app/aimedicalscriber",
-          ipad: "https://apps.apple.com/app/aimedicalscriber",
-          googleplay: "https://play.google.com/store/apps/details?id=com.aimedicalscriber.app"
+          iphone: "https://apps.apple.com/app/aidynamic",
+          ipad: "https://apps.apple.com/app/aidynamic",
+          googleplay: "https://play.google.com/store/apps/details?id=com.aidynamic.app"
         }
       }
     },
@@ -576,7 +575,7 @@ export async function generateMetadata({ params }) {
       "twitter:app:name:googleplay": "AIMS - AI Medical Scriber",
       "twitter:app:id:iphone": "123456789",
       "twitter:app:id:ipad": "123456789",
-      "twitter:app:id:googleplay": "com.aimedicalscriber.app",
+      "twitter:app:id:googleplay": "com.aidynamic.app",
       "twitter:player": `${baseUrl}/video/AIMS_Hero.mp4`,
       "twitter:player:width": "1920",
       "twitter:player:height": "1080",

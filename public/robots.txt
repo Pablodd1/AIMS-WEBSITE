@@ -1,5 +1,5 @@
-# robots.txt for AI Medical Scriber (AIMS)
-# https://www.aimedicalscriber.com/robots.txt
+# robots.txt for AI Dynamic (AIMS)
+# https://www.aidynamic.pro/robots.txt
 # Last updated: April 2026
 
 # AI Platform Support
@@ -147,12 +147,12 @@ User-agent: *
 Allow: /
 
 # Sitemap locations
-Sitemap: https://www.aimedicalscriber.com/sitemap.xml
-Sitemap: https://www.aimedicalscriber.com/sitemap-news.xml
-Sitemap: https://www.aimedicalscriber.com/sitemap-video.xml
+Sitemap: https://www.aidynamic.pro/sitemap.xml
+Sitemap: https://www.aidynamic.pro/sitemap-news.xml
+Sitemap: https://www.aidynamic.pro/sitemap-video.xml
 
 # Host
-Host: https://www.aimedicalscriber.com
+Host: https://www.aidynamic.pro
 
 # Crawl-delay for general bots (optional)
 Crawl-delay: 1

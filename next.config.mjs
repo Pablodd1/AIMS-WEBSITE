@@ -181,10 +181,10 @@ const nextConfig = {
   },
 
   env: {
-    NEXT_PUBLIC_BASE_URL: process.env.BASE_URL || 'https://www.aimedicalscriber.com',
-    NEXT_PUBLIC_SITE_NAME: 'AI Medical Scriber (AIMS)',
-    NEXT_PUBLIC_SITE_DESCRIPTION: 'AI-powered medical documentation platform for healthcare providers',
-    NEXT_PUBLIC_SITE_KEYWORDS: 'AI medical scribe, medical documentation, SOAP notes, EHR integration, healthcare AI',
+    NEXT_PUBLIC_BASE_URL: process.env.BASE_URL || 'https://www.aidynamic.pro',
+    NEXT_PUBLIC_SITE_NAME: 'AI Dynamic - AI Medical Scriber & Consulting',
+    NEXT_PUBLIC_SITE_DESCRIPTION: 'AI-powered medical documentation platform for healthcare providers. AI consulting for all industries. Virtual front desk assistant.',
+    NEXT_PUBLIC_SITE_KEYWORDS: 'AI medical scribe, AI consulting, virtual receptionist, AI assistant, medical documentation, SOAP notes, EHR integration, healthcare AI, AI for business',
   },
 
   logging: {

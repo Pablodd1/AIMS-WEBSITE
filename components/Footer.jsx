@@ -41,7 +41,7 @@ export default async function Footer({ lang }) {
             </p>
             <div className="flex items-center gap-3">
               <a
-                href="https://linkedin.com/company/aimedicalscriber"
+                href="https://linkedin.com/company/aidynamic"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-[var(--glass-bg)] border border-[var(--glass-border)] flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--accent-primary)] hover:border-[var(--accent-primary)] transition-all duration-300"
@@ -52,7 +52,7 @@ export default async function Footer({ lang }) {
                 </svg>
               </a>
               <a
-                href="https://facebook.com/aimedicalscriber"
+                href="https://facebook.com/aidynamicpro"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-[var(--glass-bg)] border border-[var(--glass-border)] flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--accent-primary)] hover:border-[var(--accent-primary)] transition-all duration-300"
@@ -63,7 +63,7 @@ export default async function Footer({ lang }) {
                 </svg>
               </a>
               <a
-                href="https://instagram.com/aimedicalscriber"
+                href="https://instagram.com/aidynamicpro"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-[var(--glass-bg)] border border-[var(--glass-border)] flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--accent-primary)] hover:border-[var(--accent-primary)] transition-all duration-300"

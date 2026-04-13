@@ -1,6 +1,6 @@
-// app/sitemap.js - Comprehensive SEO Sitemap for AI Medical Scriber
+// app/sitemap.js - Comprehensive SEO Sitemap for AI Dynamic
 
-const baseUrl = process.env.BASE_URL || 'https://www.aimedicalscriber.com';
+const baseUrl = process.env.BASE_URL || 'https://www.aidynamic.pro';
 
 async function getBlogs(lang = "es") {
   try {
