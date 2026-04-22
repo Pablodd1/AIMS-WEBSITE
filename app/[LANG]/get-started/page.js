@@ -194,7 +194,7 @@ const OrganizationForm = ({ langDict }) => {
 
           <div className="space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-              <span className="font-medium text-gray-700">
+              <span className="font-medium text-white">
                 Do you have your own Medical Billing/coding company?
               </span>
               <div className="flex gap-3">
@@ -216,7 +216,7 @@ const OrganizationForm = ({ langDict }) => {
               </div>
             </div>
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-              <span className="font-medium text-gray-700">
+              <span className="font-medium text-white">
                 Do you need a blood lab interpreter?
               </span>
               <div className="flex gap-3">
@@ -239,7 +239,7 @@ const OrganizationForm = ({ langDict }) => {
             </div>
 
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-              <span className="font-medium text-gray-700">
+              <span className="font-medium text-white">
                 Have You used a human scriber?
               </span>
               <div className="flex gap-3">
@@ -263,7 +263,7 @@ const OrganizationForm = ({ langDict }) => {
           </div>
 
           <div className="space-y-3">
-            <label className="flex items-center gap-2 text-sm text-gray-700">
+            <label className="flex items-center gap-2 text-sm text-white">
               <input
                 type="checkbox"
                 name="subscription"
@@ -274,7 +274,7 @@ const OrganizationForm = ({ langDict }) => {
               Subscribe for updates
             </label>
 
-            <label className="flex items-center gap-2 text-sm text-gray-700">
+            <label className="flex items-center gap-2 text-sm text-white">
               <input
                 type="checkbox"
                 checked={policyAccepted}
@@ -287,7 +287,7 @@ const OrganizationForm = ({ langDict }) => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium mb-2 text-gray-700">
+            <label className="block text-sm font-medium mb-2 text-white">
               How did you hear about us?
             </label>
             <select
