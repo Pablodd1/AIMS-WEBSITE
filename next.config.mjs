@@ -9,8 +9,8 @@ const nextConfig = {
   reactStrictMode: true,
 
   images: {
-    // Use modern image formats only to satisfy Next.js 16+ image optimizer requirements
-    // Prefer AVIF and WebP. PNG/JPEG are no longer required here.
+    // Use modern image formats to satisfy Next.js 16+ image optimizer requirements
+    // Prefer AVIF and WebP for best performance and compatibility
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 31536000,
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
