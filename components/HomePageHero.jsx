@@ -3,7 +3,9 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import PremiumButton from "@utils/PremiumButton";
 import SecondaryButton from "@utils/SecondaryButton";
-import { FaPlay, FaBolt, FaShieldAlt, FaChartLine } from "react-icons/fa";
+import Link from "next/link";
+import { FaBolt, FaShieldAlt, FaChartLine } from "react-icons/fa";
+import SandboxModal from "@components/SandboxModal";
 
 const heroContent = {
   en: {
@@ -14,6 +16,8 @@ const heroContent = {
     cta: "Start Free",
     secondary: "See Features",
     liveDemo: "Live Demo",
+    liveConsultation: "Live Consultation",
+    simulateVisit: "Simulate Visit",
   },
   es: {
     badge: "Plataforma IA de Inteligencia Medica",
@@ -21,8 +25,10 @@ const heroContent = {
     headline2: "Practica Clinica",
     description: "La plataforma todo-en-uno donde la IA maneja documentacion, facturacion e inteligencia del paciente. Concentrate en la medicina — AIMS se encarga del resto.",
     cta: "Comenzar Gratis",
-    secondary: "Ver Caracteristicas",
+    secondary: "Ver Características",
     liveDemo: "Demo en Vivo",
+    liveConsultation: "Consulta en Vivo",
+    simulateVisit: "Simular Visita",
   },
 };
 
@@ -60,6 +66,7 @@ const WaveformAnimation = () => {
 
 const HomePageHero = ({ lang, dict }) => {
   const content = heroContent[lang] || heroContent.en;
+  const [sandboxOpen, setSandboxOpen] = useState(false);
 
   return (
     <section className="relative min-h-[95vh] flex flex-col items-center justify-center overflow-hidden pt-20 pb-16 bg-[var(--bg-primary)]">
@@ -80,6 +87,8 @@ const HomePageHero = ({ lang, dict }) => {
               {content.badge}
             </span>
           </motion.div>
+
+          <SandboxModal open={sandboxOpen} onClose={() => setSandboxOpen(false)} />
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -116,11 +125,16 @@ const HomePageHero = ({ lang, dict }) => {
             className="flex flex-wrap items-center justify-center gap-4 mb-10"
           >
             <PremiumButton label={content.cta} href={`/${lang}/get-started`} size="large" />
-            <button className="btn-live-demo">
-              <FaPlay className="text-xs" />
-              {content.liveDemo}
+            <Link href={`/${lang}/virtual-front-desk`} className="px-4 py-2 rounded-md font-semibold text-white bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 shadow-md hover:shadow-lg mr-2" aria-label="Live Consultation">
+              {content.liveConsultation}
+            </Link>
+            <button onClick={() => setSandboxOpen(true)} className="px-4 py-2 rounded-md font-semibold text-white bg-gradient-to-r from-cyan-500 to-teal-500 shadow-md hover:shadow-lg" aria-label="Simulate Visit">
+              {content.simulateVisit}
             </button>
             <SecondaryButton label={content.secondary} href={`/${lang}/technology`} withArrow />
+            <Link href={`/${lang}/get-started`} className="px-4 py-2 rounded-md font-semibold text-white bg-gradient-to-r from-green-500 to-teal-500 shadow-md hover:shadow-lg" aria-label="Live Demo">
+              {content.liveDemo}
+            </Link>
           </motion.div>
 
           <motion.div
